@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark-html">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Разработка сайтов — Веб-студия одного мастера</title>
+  <meta name="description" content="Создаю современные, быстрые и красивые сайты под ключ. Лендинги, корпоративные сайты, интернет-магазины." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-text">
+      <span>W</span><span>E</span><span>B</span><span>&nbsp;</span><span>D</span><span>E</span><span>V</span>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="На главную">dev<span class="accent-dot">.</span></a>
+      <nav class="nav-links" aria-label="Основная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#process">Процесс</a>
+        <a href="#work">Работы</a>
+        <a href="#pricing">Цены</a>
+      </nav>
+      <a href="#contact" class="btn btn-small btn-invert nav-cta">Обсудить проект</a>
+      <button class="nav-burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Мобильная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#process">Процесс</a>
+      <a href="#work">Работы</a>
+      <a href="#pricing">Цены</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal-line"><span>Веб-разработчик · Фриланс</span></p>
+        <h1 class="hero-title">
+          <span class="reveal-line"><span>Создаю сайты,</span></span>
+          <span class="reveal-line"><span>которые <em>работают</em></span></span>
+          <span class="reveal-line"><span>на ваш бизнес</span></span>
+        </h1>
+        <p class="hero-sub reveal-line"><span>Лендинги, корпоративные сайты и интернет-магазины.<br />Современный дизайн. Чистый код. Быстрая загрузка.</span></p>
+        <div class="hero-actions reveal-line">
+          <span>
+            <a href="#contact" class="btn btn-light">Начать проект</a>
+            <a href="#work" class="btn btn-ghost">Смотреть работы</a>
+          </span>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE x3 ============ -->
+    <div class="marquee-stack" aria-hidden="true">
+      <div class="marquee marquee-light">
+        <div class="marquee-track">
+          <span>Лендинги — Интернет-магазины — Корпоративные сайты — Веб-приложения — Редизайн — SEO-оптимизация —&nbsp;</span>
+          <span>Лендинги — Интернет-магазины — Корпоративные сайты — Веб-приложения — Редизайн — SEO-оптимизация —&nbsp;</span>
+        </div>
+      </div>
+      <div class="marquee marquee-dark">
+        <div class="marquee-track marquee-reverse">
+          <span>Дизайн — Разработка — Анимации — Адаптив — Скорость — Поддержка — Дизайн — Разработка — Анимации — Адаптив — Скорость — Поддержка —&nbsp;</span>
+          <span>Дизайн — Разработка — Анимации — Адаптив — Скорость — Поддержка — Дизайн — Разработка — Анимации — Адаптив — Скорость — Поддержка —&nbsp;</span>
+        </div>
+      </div>
+      <div class="marquee marquee-light">
+        <div class="marquee-track marquee-slow">
+          <span>HTML — CSS — JavaScript — Three.js — React — Next.js — Figma — HTML — CSS — JavaScript — Three.js — React — Next.js — Figma —&nbsp;</span>
+          <span>HTML — CSS — JavaScript — Three.js — React — Next.js — Figma — HTML — CSS — JavaScript — Three.js — React — Next.js — Figma —&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section-dark services-section" id="services">
+      <div class="services-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label fade-up">01 — Услуги</p>
+          <h2 class="section-title fade-up">Что я делаю</h2>
+        </div>
+        <div class="services-grid">
+          <article class="glass-card fade-up">
+            <div class="glass-card-head">
+              <div class="glass-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg>
+              </div>
+              <div class="glass-num">01</div>
+            </div>
+            <h3>Лендинги</h3>
+            <p>Продающие одностраничные сайты с сильным дизайном и высокой конверсией. От идеи до запуска.</p>
+            <div class="glass-line" aria-hidden="true"></div>
+          </article>
+          <article class="glass-card fade-up">
+            <div class="glass-card-head">
+              <div class="glass-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .6h9.7a1 1 0 0 0 1-.7L22 7H6"/></svg>
+              </div>
+              <div class="glass-num">02</div>
+            </div>
+            <h3>Интернет-магазины</h3>
+            <p>Полноценные e-commerce решения: каталог, корзина, оплата, админ-панель. Всё под ключ.</p>
+            <div class="glass-line" aria-hidden="true"></div>
+          </article>
+          <article class="glass-card fade-up">
+            <div class="glass-card-head">
+              <div class="glass-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 9h1m4 0h1M9 13h1m4 0h1M9 17h1m4 0h1"/></svg>
+              </div>
+              <div class="glass-num">03</div>
+            </div>
+            <h3>Корпоративные сайты</h3>
+            <p>Представительные многостраничные сайты для компаний. Строгий стиль, удобная структура.</p>
+            <div class="glass-line" aria-hidden="true"></div>
+          </article>
+          <article class="glass-card fade-up">
+            <div class="glass-card-head">
+              <div class="glass-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg>
+              </div>
+              <div class="glass-num">04</div>
+            </div>
+            <h3>Веб-приложения</h3>
+            <p>Интерактивные сервисы и личные кабинеты. Сложная логика, простая для пользователя.</p>
+            <div class="glass-line" aria-hidden="true"></div>
+          </article>
+          <article class="glass-card fade-up">
+            <div class="glass-card-head">
+              <div class="glass-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M17 3h4v4"/><path d="M21 3l-7 7"/></svg>
+              </div>
+              <div class="glass-num">05</div>
+            </div>
+            <h3>Редизайн</h3>
+            <p>Обновление устаревших сайтов: современный вид, скорость и адаптивность под мобильные.</p>
+            <div class="glass-line" aria-hidden="true"></div>
+          </article>
+          <article class="glass-card fade-up">
+            <div class="glass-card-head">
+              <div class="glass-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              </div>
+              <div class="glass-num">06</div>
+            </div>
+            <h3>Поддержка и SEO</h3>
+            <p>Техническая поддержка, оптимизация скорости и базовое SEO для роста в поиске.</p>
+            <div class="glass-line" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section section-dark stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat glass-stat fade-up">
+            <div class="stat-value" data-count="40">0</div>
+            <div class="stat-label">Проектов запущено</div>
+          </div>
+          <div class="stat glass-stat fade-up">
+            <div class="stat-value" data-count="5">0</div>
+            <div class="stat-label">Лет опыта</div>
+          </div>
+          <div class="stat glass-stat fade-up">
+            <div class="stat-value" data-count="98" data-suffix="%">0</div>
+            <div class="stat-label">Довольных клиентов</div>
+          </div>
+          <div class="stat glass-stat fade-up">
+            <div class="stat-value" data-count="100" data-suffix="/100">0</div>
+            <div class="stat-label">PageSpeed Score</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section section-light" id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label fade-up">02 — Процесс</p>
+          <h2 class="section-title fade-up">Как я работаю</h2>
+        </div>
+        <div class="process-list">
+          <div class="process-item fade-up">
+            <div class="process-step">Шаг 1</div>
+            <h3>Бриф и анализ</h3>
+            <p>Обсуждаем цели, аудиторию и конкурентов. Формируем чёткое техническое задание.</p>
+          </div>
+          <div class="process-item fade-up">
+            <div class="process-step">Шаг 2</div>
+            <h3>Дизайн</h3>
+            <p>Создаю макет: структура, типографика, анимации. Согласовываем каждый экран.</p>
+          </div>
+          <div class="process-item fade-up">
+            <div class="process-step">Шаг 3</div>
+            <h3>Разработка</h3>
+            <p>Верстаю и программирую. Чистый код, адаптив, скорость загрузки меньше секунды.</p>
+          </div>
+          <div class="process-item fade-up">
+            <div class="process-step">Шаг 4</div>
+            <h3>Запуск и поддержка</h3>
+            <p>Публикую сайт, настраиваю домен и аналитику. Остаюсь на связи после запуска.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section section-dark" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label fade-up">03 — Работы</p>
+          <h2 class="section-title fade-up">Избранные проекты</h2>
+        </div>
+        <div class="work-slider fade-up">
+          <div class="work-track" id="workTrack" tabindex="0" role="region" aria-label="Слайдер проектов">
+            <a href="#contact" class="work-card work-slide">
+              <div class="work-image">
+                <img src="images/work-1.png" alt="Лендинг для архитектурной студии" loading="lazy" />
+              </div>
+              <div class="work-info">
+                <h3>Архитектурная студия</h3>
+                <span>Лендинг · Дизайн + Разработка</span>
+              </div>
+            </a>
+            <a href="#contact" class="work-card work-slide">
+              <div class="work-image">
+                <img src="images/work-2.png" alt="Интернет-магазин минималистичной мебели" loading="lazy" />
+              </div>
+              <div class="work-info">
+                <h3>Магазин мебели</h3>
+                <span>E-commerce · Под ключ</span>
+              </div>
+            </a>
+            <a href="#contact" class="work-card work-slide">
+              <div class="work-image">
+                <img src="images/work-3.png" alt="Корпоративный сайт финтех-компании" loading="lazy" />
+              </div>
+              <div class="work-info">
+                <h3>Финтех-компания</h3>
+                <span>Корпоративный сайт</span>
+              </div>
+            </a>
+            <a href="#contact" class="work-card work-slide">
+              <div class="work-image">
+                <img src="images/work-4.png" alt="Веб-приложение фитнес-трекера" loading="lazy" />
+              </div>
+              <div class="work-info">
+                <h3>Фитнес-платформа</h3>
+                <span>Веб-приложение</span>
+              </div>
+            </a>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" id="workPrev" aria-label="Предыдущий проект">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="slider-dots" id="workDots" role="tablist" aria-label="Навигация по слайдам"></div>
+            <button class="slider-btn" id="workNext" aria-label="Следующий проект">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section section-light" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-label fade-up">04 — Цены</p>
+          <h2 class="section-title fade-up">Прозрачные тарифы</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card tilt-card fade-up">
+            <div class="tilt-shine" aria-hidden="true"></div>
+            <div class="tilt-inner">
+              <h3>Лендинг</h3>
+              <div class="price-value">от 30 000 ₽</div>
+              <ul>
+                <li>Уникальный дизайн</li>
+                <li>Адаптив под все устройства</li>
+                <li>Анимации и интерактив</li>
+                <li>Срок: 7–10 дней</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark btn-block">Заказать</a>
+            </div>
+          </article>
+          <article class="price-card price-card-featured tilt-card fade-up">
+            <div class="tilt-shine" aria-hidden="true"></div>
+            <div class="price-badge">Популярно</div>
+            <div class="tilt-inner">
+              <h3>Корпоративный сайт</h3>
+              <div class="price-value">от 70 000 ₽</div>
+              <ul>
+                <li>До 10 страниц</li>
+                <li>Система управления контентом</li>
+                <li>SEO-оптимизация</li>
+                <li>Срок: 3–4 недели</li>
+              </ul>
+              <a href="#contact" class="btn btn-light btn-block">Заказать</a>
+            </div>
+          </article>
+          <article class="price-card tilt-card fade-up">
+            <div class="tilt-shine" aria-hidden="true"></div>
+            <div class="tilt-inner">
+              <h3>Интернет-магазин</h3>
+              <div class="price-value">от 120 000 ₽</div>
+              <ul>
+                <li>Каталог и корзина</li>
+                <li>Онлайн-оплата</li>
+                <li>Админ-панель</li>
+                <li>Срок: 4–6 недель</li>
+              </ul>
+              <a href="#contact" class="btn btn-dark btn-block">Заказать</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA / CONTACT ============ -->
+    <section class="section section-dark contact-section" id="contact">
+      <canvas id="contact-canvas" aria-hidden="true"></canvas>
+      <div class="container contact-inner">
+        <h2 class="contact-title fade-up">Готовы обсудить<br /><em>ваш проект?</em></h2>
+        <p class="contact-sub fade-up">Напишите мне — отвечу в течение пары часов и предложу лучшее решение.</p>
+        <form class="contact-form fade-up" id="contactForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Ваше имя</label>
+              <input type="text" id="name" name="name" placeholder="Иван" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email или Telegram</label>
+              <input type="text" id="email" name="email" placeholder="ivan@mail.ru" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">О проекте</label>
+            <textarea id="message" name="message" rows="4" placeholder="Расскажите, какой сайт вам нужен..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-light btn-large" id="submitBtn">Отправить заявку</button>
+          <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#hero" class="nav-logo">dev<span class="accent-dot">.</span></a>
+      <p>© 2026 — Разработка сайтов. Сделано с любовью к деталям.</p>
+      <div class="footer-links">
+        <a href="#contact">Telegram</a>
+        <a href="#contact">Email</a>
+        <a href="#contact">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/scene.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
