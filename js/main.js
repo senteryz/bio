@@ -168,4 +168,37 @@
       }, 900);
     });
   }
+  /* ---------- Reviews Swiper ---------- */
+  if (typeof Swiper !== 'undefined' && document.querySelector('.reviews-swiper')) {
+    new Swiper('.reviews-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      loop: true,
+      grabCursor: true,
+      speed: 500,
+      autoHeight: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.reviews-next',
+        prevEl: '.reviews-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1.3,
+          spaceBetween: 20,
+        },
+        900: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1200: {
+          slidesPerView: 2.5,
+          spaceBetween: 28,
+        }
+      }
+    });
+  }
 })();

@@ -21,13 +21,13 @@ function initHeroScene() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
 
-  // --- Torus knot (wireframe, monochrome) ---
+  // --- Torus knot (wireframe, black) ---
   const knotGeo = new THREE.TorusKnotGeometry(1.7, 0.45, 220, 28);
   const knotMat = new THREE.MeshBasicMaterial({
-    color: 0xfafafa,
+    color: 0x000000,
     wireframe: true,
     transparent: true,
-    opacity: 0.14,
+    opacity: 0.08,
   });
   const knot = new THREE.Mesh(knotGeo, knotMat);
   scene.add(knot);
@@ -35,10 +35,10 @@ function initHeroScene() {
   // --- Inner solid icosahedron ---
   const icoGeo = new THREE.IcosahedronGeometry(0.85, 1);
   const icoMat = new THREE.MeshBasicMaterial({
-    color: 0xfafafa,
+    color: 0x333333,
     wireframe: true,
     transparent: true,
-    opacity: 0.35,
+    opacity: 0.15,
   });
   const ico = new THREE.Mesh(icoGeo, icoMat);
   scene.add(ico);
@@ -54,10 +54,10 @@ function initHeroScene() {
   const particleGeo = new THREE.BufferGeometry();
   particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   const particleMat = new THREE.PointsMaterial({
-    color: 0xfafafa,
+    color: 0x000000,
     size: 0.02,
     transparent: true,
-    opacity: 0.55,
+    opacity: 0.2,
     sizeAttenuation: true,
   });
   const particles = new THREE.Points(particleGeo, particleMat);
@@ -179,10 +179,10 @@ function initContactScene() {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   const mat = new THREE.PointsMaterial({
-    color: 0xfafafa,
+    color: 0x000000,
     size: 0.03,
     transparent: true,
-    opacity: 0.45,
+    opacity: 0.2,
     sizeAttenuation: true,
   });
   const points = new THREE.Points(geo, mat);

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -98,31 +99,6 @@
 
         <div class="hero-card fade-up">
           <img src="images/hero.png" alt="Рабочее место веб-дизайнера с ноутбуком" />
-          <div class="hero-card-top">
-            <div class="hero-loc">
-              <span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              <span class="hero-loc-text"><b>Работаем онлайн</b><span>По всей России и СНГ</span></span>
-            </div>
-            <a href="contact.html" class="btn btn-accent btn-small">Записаться</a>
-          </div>
-          <div class="hero-search">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
-            <span>Веб-студия полного цикла в Москве</span>
-            <span class="close" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></span>
-          </div>
-          <div class="hero-card-bottom">
-            <div class="hero-pill">
-              <span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></span>
-              <span><b>Напишите нам</b>Менеджер на связи</span>
-            </div>
-            <div class="hero-social">
-              <span class="dots">
-                <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
-                <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
-              </span>
-              <span>Мы в соцсетях</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -130,39 +106,50 @@
     <!-- ============ WHY US ============ -->
     <section class="whyus" id="whyus">
       <div class="container">
-        <div class="whyus-center" aria-hidden="true">
-          <div class="whyus-rings"></div>
-          <h2>Почему<br />мы?</h2>
-        </div>
-        <div class="whyus-wrap">
-          <article class="whyus-card fade-up">
-            <div class="whyus-card-head">
-              <h3>Опытная<br />команда</h3>
-              <div class="whyus-num"><b>01</b> 04</div>
+        <div class="whyus-grid-layout">
+          <!-- Left Hero Card (matching the consultation black card style but filled) -->
+          <div class="whyus-hero-card fade-up">
+            <div>
+              <h2>Почему<br />выбирают<br />нашу студию</h2>
+              <p class="whyus-hero-desc">Создаем быстрые, функциональные сайты с продуманным дизайном. Без лишнего шума и шаблонов — только чистый код и внимание к деталям вашего бизнеса.</p>
             </div>
-            <p>Средний стаж специалистов 7+ лет. Мы не только делаем сайты, но и обучаем других разработчиков.</p>
-          </article>
-          <article class="whyus-card fade-up">
-            <div class="whyus-card-head">
-              <h3>Удобный<br />процесс</h3>
-              <div class="whyus-num"><b>03</b> 04</div>
-            </div>
-            <p>Работаем полностью онлайн: понятные этапы, регулярные созвоны и прозрачные сроки на каждом шаге.</p>
-          </article>
-          <article class="whyus-card fade-up">
-            <div class="whyus-card-head">
-              <h3>Сервис<br />и качество</h3>
-              <div class="whyus-num"><b>02</b> 04</div>
-            </div>
-            <p>Чистый код, адаптив под любые устройства и скорость загрузки меньше секунды — по умолчанию.</p>
-          </article>
-          <article class="whyus-card fade-up">
-            <div class="whyus-card-head">
-              <h3>Актуальные<br />технологии</h3>
-              <div class="whyus-num"><b>04</b> 04</div>
-            </div>
-            <p>Используем современный стек и следим за трендами, чтобы ваш сайт был быстрым и выделялся среди конкурентов.</p>
-          </article>
+            <a href="#contact" class="whyus-arrow" aria-label="Начать проект"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          
+          <!-- Right Features Grid -->
+          <div class="whyus-wrap">
+            <article class="whyus-card fade-up">
+              <div class="whyus-card-head">
+                <div class="whyus-num">01</div>
+                <h3>Опытная команда</h3>
+              </div>
+              <p>Средний стаж специалистов 7+ лет. Мы не только делаем сайты, но и обучаем других разработчиков.</p>
+            </article>
+            
+            <article class="whyus-card fade-up">
+              <div class="whyus-card-head">
+                <div class="whyus-num">02</div>
+                <h3>Сервис и качество</h3>
+              </div>
+              <p>Чистый код, адаптив под любые устройства и скорость загрузки меньше секунды — по умолчанию.</p>
+            </article>
+            
+            <article class="whyus-card fade-up">
+              <div class="whyus-card-head">
+                <div class="whyus-num">03</div>
+                <h3>Удобный процесс</h3>
+              </div>
+              <p>Работаем полностью онлайн: понятные этапы, регулярные созвоны и прозрачные сроки на каждом шаге.</p>
+            </article>
+            
+            <article class="whyus-card fade-up">
+              <div class="whyus-card-head">
+                <div class="whyus-num">04</div>
+                <h3>Актуальные технологии</h3>
+              </div>
+              <p>Используем современный стек и следим за трендами, чтобы ваш сайт был быстрым и выделялся среди конкурентов.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -173,33 +160,113 @@
         <p class="section-label fade-up">Выберите раздел:</p>
         <h2 class="bento-switch fade-up">Разработка <span class="sep">/</span> <span class="off">Дизайн</span></h2>
         <div class="bento">
-          <div class="bento-card accent on-light fade-up">
+          <!-- Card 1: Консультация -->
+          <div class="bento-card bento-hero-card fade-up">
             <h3>Консультация</h3>
-            <a href="services.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="contact.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <div class="bento-card bento-tall fade-up">
-            <img src="images/work-2.png" alt="Интернет-магазин" loading="lazy" />
-            <h3>Интернет-магазины</h3>
+
+          <!-- Card 2: Интернет-магазины (bento-tall) -->
+          <div class="bento-card bento-tall bento-mock-card fade-up">
+            <div class="bento-mock-header">
+              <h3>Интернет-магазины</h3>
+            </div>
+            <!-- Miniature Shop Layout -->
+            <div class="bento-shop-mock">
+              <div class="bento-shop-grid">
+                <div class="bento-shop-item">
+                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 18V5h10v13M5 10h14M7 13h10M9 18v3M15 18v3"/></svg></div>
+                  <div class="item-title">Стул ASTRID</div>
+                  <div class="item-price">95 000 ₽</div>
+                </div>
+                <div class="bento-shop-item">
+                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9h18v3H3V9zM5 12v9M19 12v9M9 12v4M15 12v4"/></svg></div>
+                  <div class="item-title">Стол FINN</div>
+                  <div class="item-price">120 000 ₽</div>
+                </div>
+                <div class="bento-shop-item">
+                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13V9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 13h18M5 13v5h14v-5M9 13v5M15 13v5"/></svg></div>
+                  <div class="item-title">Софа ELSA</div>
+                  <div class="item-price">180 000 ₽</div>
+                </div>
+                <div class="bento-shop-item">
+                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 6h18v12H3V6zM3 12h18M9 6v12M15 6v12M6 18v3M18 18v3"/></svg></div>
+                  <div class="item-title">Комод LEIF</div>
+                  <div class="item-price">85 000 ₽</div>
+                </div>
+              </div>
+            </div>
             <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <div class="bento-card bento-wide fade-up">
-            <img src="images/work-3.png" alt="Корпоративный сайт" loading="lazy" />
-            <h3>Корпоративные сайты</h3>
+
+          <!-- Card 3: Корпоративные сайты (bento-wide) -->
+          <div class="bento-card bento-wide bento-mock-card fade-up">
+            <div class="bento-mock-header">
+              <h3>Корпоративные сайты</h3>
+            </div>
+            <div class="bento-corp-mock">
+              <div class="corp-sidebar">
+                <div class="corp-dot"></div>
+                <div class="corp-dot"></div>
+                <div class="corp-dot"></div>
+              </div>
+              <div class="corp-main">
+                <div class="corp-title">Панель управления</div>
+                <div class="corp-grid">
+                  <div class="corp-box">
+                    <span class="box-num">1,280</span>
+                    <span class="box-lbl">Заказы</span>
+                  </div>
+                  <div class="corp-box">
+                    <span class="box-num">+14.8%</span>
+                    <span class="box-lbl">Конверсия</span>
+                  </div>
+                  <div class="corp-box">
+                    <span class="box-num">99.9%</span>
+                    <span class="box-lbl">Аптайм</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <div class="bento-card fade-up">
-            <img src="images/work-1.png" alt="Лендинги" loading="lazy" />
-            <h3>Лендинги</h3>
+
+          <!-- Card 4: Лендинги -->
+          <div class="bento-card bento-mock-card fade-up">
+            <div class="bento-mock-header">
+              <h3>Лендинги</h3>
+            </div>
+            <div class="bento-landing-mock">
+              <div class="landing-title">Запуск продукта</div>
+              <div class="landing-subtitle">Премиальный дизайн и высокая конверсия</div>
+              <div class="landing-btn">Купить сейчас</div>
+            </div>
             <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <div class="bento-card fade-up">
-            <img src="images/shape-green.png" alt="Веб-приложения" loading="lazy" />
-            <h3>Веб-приложения</h3>
+
+          <!-- Card 5: Веб-приложения -->
+          <div class="bento-card bento-mock-card fade-up">
+            <div class="bento-mock-header">
+              <h3>Веб-приложения</h3>
+            </div>
+            <div class="bento-app-mock">
+              <div class="app-left">
+                <div class="app-dot"></div>
+                <div class="app-dot"></div>
+                <div class="app-dot"></div>
+              </div>
+              <div class="app-right">
+                <div class="app-code">const app = new Studio();</div>
+                <div class="app-code green">app.launch({ fast: true });</div>
+              </div>
+            </div>
             <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <div class="bento-card on-light fade-up" style="background:var(--card)">
-            <h3 style="color:var(--ink)">Больше работ<br />в портфолио</h3>
-            <a href="portfolio.html" class="go" style="background:var(--accent);color:var(--accent-ink)" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+          <!-- Card 6: Больше работ -->
+          <div class="bento-card bento-hero-card fade-up">
+            <h3>Больше работ<br />в портфолио</h3>
+            <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
@@ -242,52 +309,104 @@
       </div>
     </section>
 
-    <!-- ============ STATS ============ -->
-    <section class="section-pad" style="padding-top:0">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat fade-up">
-            <div class="stat-value" data-count="120" data-suffix="+">0</div>
-            <div class="stat-label">Проектов запущено</div>
+    <!-- ============ 3-ROW ALTERNATING MARQUEE ============ -->
+    <section class="section-pad" style="padding-top:0; padding-bottom: 20px; overflow: hidden;">
+      <div class="marquee-multi">
+        <!-- Row 1: Right to Left -->
+        <div class="marquee marquee-left" aria-hidden="true" style="padding: 10px 0; margin-bottom: 10px;">
+          <div class="marquee-track">
+            <span>Лендинги<span class="dot"> · </span>Интернет-магазины<span class="dot"> · </span>Корпоративные сайты<span class="dot"> · </span>Веб-приложения<span class="dot"> · </span>Редизайн<span class="dot"> · </span>SEO<span class="dot"> · </span></span>
+            <span>Лендинги<span class="dot"> · </span>Интернет-магазины<span class="dot"> · </span>Корпоративные сайты<span class="dot"> · </span>Веб-приложения<span class="dot"> · </span>Редизайн<span class="dot"> · </span>SEO<span class="dot"> · </span></span>
           </div>
-          <div class="stat fade-up">
-            <div class="stat-value" data-count="7">0</div>
-            <div class="stat-label">Лет на рынке</div>
+        </div>
+        <!-- Row 2: Left to Right -->
+        <div class="marquee marquee-right" aria-hidden="true" style="padding: 10px 0; margin-bottom: 10px;">
+          <div class="marquee-track">
+            <span>Дизайн систем<span class="dot"> · </span>Разработка сайтов<span class="dot"> · </span>Аналитика<span class="dot"> · </span>Оптимизация<span class="dot"> · </span>UX/UI проектирование<span class="dot"> · </span></span>
+            <span>Дизайн систем<span class="dot"> · </span>Разработка сайтов<span class="dot"> · </span>Аналитика<span class="dot"> · </span>Оптимизация<span class="dot"> · </span>UX/UI проектирование<span class="dot"> · </span></span>
           </div>
-          <div class="stat fade-up">
-            <div class="stat-value" data-count="98" data-suffix="%">0</div>
-            <div class="stat-label">Довольных клиентов</div>
-          </div>
-          <div class="stat fade-up">
-            <div class="stat-value" data-count="100">0</div>
-            <div class="stat-label">PageSpeed Score</div>
+        </div>
+        <!-- Row 3: Right to Left -->
+        <div class="marquee marquee-left" aria-hidden="true" style="padding: 10px 0;">
+          <div class="marquee-track">
+            <span>Чистый код<span class="dot"> · </span>Быстрая загрузка<span class="dot"> · </span>Адаптивная верстка<span class="dot"> · </span>Поддержка 24/7<span class="dot"> · </span>Интеграции<span class="dot"> · </span></span>
+            <span>Чистый код<span class="dot"> · </span>Быстрая загрузка<span class="dot"> · </span>Адаптивная верстка<span class="dot"> · </span>Поддержка 24/7<span class="dot"> · </span>Интеграции<span class="dot"> · </span></span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ REVIEWS ============ -->
-    <section class="section-pad" style="padding-top:0" id="reviews">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-head-text">
-            <p class="section-label fade-up">Отзывы</p>
-            <h2 class="section-title fade-up">Что говорят<br /><em>клиенты</em></h2>
+    <section class="reviews-section" id="reviews">
+      <div class="reviews-bg">
+        <div class="container">
+          <div class="reviews-header fade-up">
+            <div>
+              <p class="section-label reviews-label">Отзывы</p>
+              <h2 class="section-title reviews-title">Что говорят<br /><em>клиенты</em></h2>
+            </div>
+            <div class="reviews-meta fade-up">
+              <div class="reviews-rating">
+                <span class="reviews-stars">★★★★★</span>
+                <span class="reviews-score">5.0</span>
+              </div>
+              <p class="reviews-count">3 отзыва · 100% рекомендуют</p>
+              <div class="reviews-arrows">
+                <button class="reviews-prev" aria-label="Предыдущий отзыв">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </button>
+                <button class="reviews-next" aria-label="Следующий отзыв">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="quote-grid">
-          <figure class="quote-card fade-up">
-            <p>«Сделали сайт за две недели — быстрее и аккуратнее любой студии, с которой мы работали.»</p>
-            <figcaption class="quote-author"><span class="dot">А</span><span><b>Анна Реброва</b><span>Основатель, Studio Form</span></span></figcaption>
-          </figure>
-          <figure class="quote-card fade-up">
-            <p>«Внимание к деталям на уровне. Каждая анимация уместна, ничего лишнего.»</p>
-            <figcaption class="quote-author"><span class="dot">М</span><span><b>Максим Дьяков</b><span>CEO, Nordic Fintech</span></span></figcaption>
-          </figure>
-          <figure class="quote-card fade-up">
-            <p>«Конверсия лендинга выросла вдвое. Рекомендую без оговорок.»</p>
-            <figcaption class="quote-author"><span class="dot">Е</span><span><b>Елена Крайнова</b><span>Маркетолог, Bloom</span></span></figcaption>
-          </figure>
+
+          <div class="swiper reviews-swiper fade-up">
+            <div class="swiper-wrapper">
+
+              <figure class="swiper-slide quote-card">
+                <div class="quote-mark">❝</div>
+                <div class="quote-stars">★★★★★</div>
+                <p>Сделали сайт за две недели — быстрее и аккуратнее любой студии, с которой мы работали. Результат превзошёл ожидания.</p>
+                <figcaption class="quote-author">
+                  <span class="dot">А</span>
+                  <span>
+                    <b>Анна Реброва</b>
+                    <span>Основатель, Studio Form</span>
+                  </span>
+                </figcaption>
+              </figure>
+
+              <figure class="swiper-slide quote-card">
+                <div class="quote-mark">❝</div>
+                <div class="quote-stars">★★★★★</div>
+                <p>Внимание к деталям на высшем уровне. Каждая анимация уместна, ничего лишнего — именно то, что мы искали.</p>
+                <figcaption class="quote-author">
+                  <span class="dot">М</span>
+                  <span>
+                    <b>Максим Дьяков</b>
+                    <span>CEO, Nordic Fintech</span>
+                  </span>
+                </figcaption>
+              </figure>
+
+              <figure class="swiper-slide quote-card">
+                <div class="quote-mark">❝</div>
+                <div class="quote-stars">★★★★★</div>
+                <p>Конверсия лендинга выросла вдвое после редизайна. Команда слышит задачу и решает её профессионально. Рекомендую без оговорок.</p>
+                <figcaption class="quote-author">
+                  <span class="dot">Е</span>
+                  <span>
+                    <b>Елена Крайнова</b>
+                    <span>Маркетолог, Bloom</span>
+                  </span>
+                </figcaption>
+              </figure>
+
+            </div>
+            <div class="swiper-pagination reviews-pagination"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -355,6 +474,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
