@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Цены и тарифы — Студия ВЕБ</title>
+  <meta name="description" content="Прозрачная стоимость разработки сайтов. Тарифы на лендинги, корпоративные сайты и интернет-магазины под ключ." />
+  <meta name="theme-color" content="#e6e6e2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark"><span>в</span><span>е</span><span>б</span></div>
+  </div>
+
+  <!-- ============ Header ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="На главную">веб<span class="accent-dot">.</span></a>
+      <nav class="nav-links" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="services.html">Услуги</a>
+        <a href="portfolio.html">Работы</a>
+        <a href="pricing.html" aria-current="page">Цены</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+      <div class="nav-right">
+        <div class="nav-loc">
+          <span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="nav-loc-text"><b>Мы здесь</b><span>Москва, дистанционно</span></span>
+        </div>
+        <div class="social-row">
+          <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
+          <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
+        </div>
+        <a href="contact.html" class="btn btn-dark btn-small nav-cta">Записаться</a>
+      </div>
+      <button class="nav-burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Мобильная навигация">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="portfolio.html">Работы</a>
+      <a href="pricing.html">Цены</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+    <div class="mobile-social">
+      <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
+      <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
+    </div>
+    <a href="contact.html" class="btn btn-dark btn-small">Записаться</a>
+  </div>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero section-dark">
+      <div class="container">
+        <h1 class="page-title fade-up">Стоимость разработки<br />и <em>тарифные планы</em></h1>
+        <p class="lead fade-up">Прозрачные фиксированные цены. Вы платите за индивидуальные решения, чистый код и предсказуемый результат в фиксированные сроки.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Grid -->
+    <section class="section section-pad">
+      <div class="container">
+        <div class="pricing-slider-wrapper">
+          <div class="swiper pricing-swiper">
+            <div class="swiper-wrapper">
+              
+              <!-- Plan 1: One Page -->
+              <div class="swiper-slide pricing-card">
+                <span class="plan-badge">Старт</span>
+                <h3 class="plan-name">Одностраничный</h3>
+                <div class="plan-price">
+                  <span class="price-val">от 3 000 ₽</span>
+                </div>
+                <div class="plan-term">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="plan-term-ico"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Сроки: 1–2 дня</span>
+                </div>
+                <p class="plan-desc">Простая страница (визитка) для быстрого запуска ваших услуг или теста новой идеи.</p>
+                <hr class="plan-divider" />
+                <ul class="plan-features">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(59, 130, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Готовый адаптивный дизайн</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(59, 130, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Сайт отлично открывается на телефонах</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(59, 130, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>До 3 разделов (описание, контакты)</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(59, 130, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Кнопка перехода в Telegram</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(59, 130, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Помощь в публикации в интернет</li>
+                </ul>
+                <a href="contact.html?plan=onepage" class="btn btn-dark plan-btn">Начать проект</a>
+              </div>
+
+              <!-- Plan 2: Multi Page -->
+              <div class="swiper-slide pricing-card">
+                <span class="plan-badge">Развитие</span>
+                <h3 class="plan-name">Многостраничный</h3>
+                <div class="plan-price">
+                  <span class="price-val">от 10 000 ₽</span>
+                </div>
+                <div class="plan-term">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="plan-term-ico"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Сроки: 3–5 дней</span>
+                </div>
+                <p class="plan-desc">Для небольших кафе, автосервисов, портфолио специалистов или мастерских.</p>
+                <hr class="plan-divider" />
+                <ul class="plan-features">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(245, 158, 11, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>До 5 страниц (услуги, контакты, фото)</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(245, 158, 11, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Сайт отлично открывается на телефонах</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(245, 158, 11, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Форма сбора контактов и заявок</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(245, 158, 11, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Настройка счетчика Яндекс.Метрика</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(245, 158, 11, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Помощь с покупкой адреса и хостинга</li>
+                </ul>
+                <a href="contact.html?plan=multipage" class="btn btn-dark plan-btn">Начать проект</a>
+              </div>
+
+              <!-- Plan 3: Companies (Featured) -->
+              <div class="swiper-slide pricing-card pricing-card-featured">
+                <span class="plan-badge">Популярно</span>
+                <h3 class="plan-name">Компаниям</h3>
+                <div class="plan-price">
+                  <span class="price-val">от 25 000 ₽</span>
+                </div>
+                <div class="plan-term">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="plan-term-ico"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Сроки: 7–14 дней</span>
+                </div>
+                <p class="plan-desc">Для строительных фирм, медицинских клиник и производственных предприятий.</p>
+                <hr class="plan-divider" />
+                <ul class="plan-features">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(255, 255, 255, 0.15)"/><path d="M8 12l3 3 5-5"/></svg>До 10 страниц с детальным описанием услуг</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(255, 255, 255, 0.15)"/><path d="M8 12l3 3 5-5"/></svg>Удобная админка — сможете сами менять тексты</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(255, 255, 255, 0.15)"/><path d="M8 12l3 3 5-5"/></svg>Интерактивная карта, галерея работ и отзывы</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(255, 255, 255, 0.15)"/><path d="M8 12l3 3 5-5"/></svg>Базовая подготовка к продвижению в Яндексе</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(255, 255, 255, 0.15)"/><path d="M8 12l3 3 5-5"/></svg>Подключение рабочей почты на вашем домене</li>
+                </ul>
+                <a href="contact.html?plan=business" class="btn btn-light plan-btn">Начать проект</a>
+              </div>
+
+              <!-- Plan 4: E-commerce -->
+              <div class="swiper-slide pricing-card">
+                <span class="plan-badge">Продажи</span>
+                <h3 class="plan-name">Магазинам</h3>
+                <div class="plan-price">
+                  <span class="price-val">от 40 000 ₽</span>
+                </div>
+                <div class="plan-term">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="plan-term-ico"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Сроки: 14–20 дней</span>
+                </div>
+                <p class="plan-desc">Для локальных шоурумов одежды, магазинов мебели или доставки еды.</p>
+                <hr class="plan-divider" />
+                <ul class="plan-features">
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(139, 92, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Каталог товаров с поиском и фильтрами</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(139, 92, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Удобная корзина и оформление заказа</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(139, 92, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Оплата картами и СБП прямо на сайте</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(139, 92, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Подключение служб доставки (СДЭК/Маркет)</li>
+                  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico"><circle cx="12" cy="12" r="10" fill="rgba(139, 92, 246, 0.1)"/><path d="M8 12l3 3 5-5"/></svg>Загрузка каталога товаров из Excel</li>
+                </ul>
+                <a href="contact.html?plan=shop" class="btn btn-dark plan-btn">Начать проект</a>
+              </div>
+
+            </div>
+          </div>
+          
+          <!-- Navigation buttons on the sides -->
+          <button class="pricing-swiper-prev" aria-label="Предыдущий тариф">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="pricing-swiper-next" aria-label="Следующий тариф">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+    </section>
+
+    <!-- Pricing Factors (No Boxes) -->
+    <section class="section section-pad" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container tech-split-container">
+        <div class="tech-sidebar fade-up">
+          <p class="section-label">Нюансы</p>
+          <h2 class="section-title">Что влияет<br /><em>на стоимость?</em></h2>
+          <p class="tech-sidebar-sub">Каждый проект индивидуален. Конечная стоимость рассчитывается после составления технического задания и зависит от следующих факторов:</p>
+        </div>
+
+        <div class="tech-rows-list">
+          <!-- Item 1 -->
+          <div class="tech-row fade-up">
+            <div class="tech-row-header">
+              <span class="tech-row-num">01</span>
+              <h3 class="tech-row-name">Интеграции</h3>
+            </div>
+            <div class="tech-row-meta">
+              <span class="tech-row-tag">Сложность</span>
+            </div>
+            <div class="tech-row-body">
+              <p class="tech-row-desc">Синхронизация со сторонними API: складские системы (1С, МойСклад), сложные кастомные CRM, системы бронирования и ERP.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="tech-row fade-up">
+            <div class="tech-row-header">
+              <span class="tech-row-num">02</span>
+              <h3 class="tech-row-name">Мультиязычность</h3>
+            </div>
+            <div class="tech-row-meta">
+              <span class="tech-row-tag">Контент</span>
+            </div>
+            <div class="tech-row-body">
+              <p class="tech-row-desc">Наличие нескольких языковых версий сайта. Требует проектирования дополнительной логики переключения и наполнения баз данных.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="tech-row fade-up">
+            <div class="tech-row-header">
+              <span class="tech-row-num">03</span>
+              <h3 class="tech-row-name">Кастомная графика</h3>
+            </div>
+            <div class="tech-row-meta">
+              <span class="tech-row-tag">Анимация</span>
+            </div>
+            <div class="tech-row-body">
+              <p class="tech-row-desc">Разработка сложного WebGL/3D-контента, индивидуальной инфографики, иконок и кастомных физических интерактивных эффектов.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="tech-row fade-up">
+            <div class="tech-row-header">
+              <span class="tech-row-num">04</span>
+              <h3 class="tech-row-name">Объем страниц</h3>
+            </div>
+            <div class="tech-row-meta">
+              <span class="tech-row-tag">Масштаб</span>
+            </div>
+            <div class="tech-row-body">
+              <p class="tech-row-desc">Количество разрабатываемых уникальных шаблонов страниц и общий объем наполнения контентом под ключ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing CTA -->
+    <section class="contact-section" style="padding-top:0">
+      <div class="container contact-inner-grid">
+        <div class="contact-text-col fade-up">
+          <h2 class="contact-title">Индивидуальный<br /><em>расчет?</em></h2>
+        </div>
+        <div class="contact-action-col fade-up">
+          <p class="contact-sub">Если ваши задачи выходят за рамки стандартных пакетов, опишите требования — я подготовлю персональную смету в течение одного рабочего дня.</p>
+          <div class="contact-buttons">
+            <a href="contact.html" class="btn btn-light">Связаться со мной <span class="arrow" aria-hidden="true">→</span></a>
+            <a href="https://t.me/" target="_blank" rel="noopener" class="btn btn-telegram" aria-label="Написать в Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg>
+              <span>Telegram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">веб<span class="accent-dot">.</span></a>
+          <p>Веб-студия полного цикла. Строгий дизайн, честный код и внимание к каждой детали.</p>
+          <div class="social-row">
+            <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
+            <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
+            <a href="https://dribbble.com/" class="social-ico" target="_blank" rel="noopener" aria-label="Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8.5 2.9c4 4.5 6 9.6 6.6 16.4M21.7 10.3c-6.5-1-12 .4-15.6 3.4M2.4 10.2c5.9.3 11.2-1 15-4.7"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <a href="index.html">Главная</a>
+          <a href="services.html">Услуги</a>
+          <a href="portfolio.html">Работы</a>
+          <a href="pricing.html">Цены</a>
+          <a href="contact.html">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="mailto:hello@web-studio.ru">hello@web-studio.ru</a>
+          <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://dribbble.com/" target="_blank" rel="noopener">Dribbble</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Студия ВЕБ. Все права защищены.</span>
+        <span>Сделано вручную, с вниманием к деталям.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

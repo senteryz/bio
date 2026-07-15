@@ -21,12 +21,12 @@
   <!-- ============ Header ============ -->
   <header class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="На главную">веб<span class="accent-dot">.</span></a>
+      <a href="site.html" class="nav-logo" aria-label="На главную">веб<span class="accent-dot">.</span></a>
       <nav class="nav-links" aria-label="Основная навигация">
-        <a href="index.html" aria-current="page">Главная</a>
+        <a href="site.html" aria-current="page">Главная</a>
         <a href="services.html">Услуги</a>
         <a href="portfolio.html">Работы</a>
-        <a href="about.html">О нас</a>
+        <a href="pricing.html">Цены</a>
         <a href="contact.html">Контакты</a>
       </nav>
       <div class="nav-right">
@@ -49,10 +49,10 @@
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="Мобильная навигация">
-      <a href="index.html">Главная</a>
+      <a href="site.html">Главная</a>
       <a href="services.html">Услуги</a>
       <a href="portfolio.html">Работы</a>
-      <a href="about.html">О нас</a>
+      <a href="pricing.html">Цены</a>
       <a href="contact.html">Контакты</a>
     </nav>
     <div class="mobile-social">
@@ -103,211 +103,118 @@
       </div>
     </section>
 
+    <!-- ============ TYPING SEARCH ============ -->
+    <section class="typing-search-section">
+      <div class="container">
+        <div class="search-box-wrap fade-up">
+          <div class="search-box">
+            <span class="search-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <div class="search-text-container">
+              <span id="typed-search-text" class="typed-text"></span>
+              <span class="search-cursor">|</span>
+            </div>
+            <button class="search-btn" aria-label="Искать">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ WHY US ============ -->
     <section class="whyus" id="whyus">
       <div class="container">
-        <div class="whyus-grid-layout">
-          <!-- Left Hero Card (matching the consultation black card style but filled) -->
-          <div class="whyus-hero-card fade-up">
-            <div>
-              <h2>Почему<br />выбирают<br />нашу студию</h2>
-              <p class="whyus-hero-desc">Создаем быстрые, функциональные сайты с продуманным дизайном. Без лишнего шума и шаблонов — только чистый код и внимание к деталям вашего бизнеса.</p>
-            </div>
-            <a href="#contact" class="whyus-arrow" aria-label="Начать проект"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-          
-          <!-- Right Features Grid -->
-          <div class="whyus-wrap">
-            <article class="whyus-card fade-up">
-              <div class="whyus-card-head">
-                <div class="whyus-num">01</div>
-                <h3>Опытная команда</h3>
-              </div>
-              <p>Средний стаж специалистов 7+ лет. Мы не только делаем сайты, но и обучаем других разработчиков.</p>
-            </article>
-            
-            <article class="whyus-card fade-up">
-              <div class="whyus-card-head">
-                <div class="whyus-num">02</div>
-                <h3>Сервис и качество</h3>
-              </div>
-              <p>Чистый код, адаптив под любые устройства и скорость загрузки меньше секунды — по умолчанию.</p>
-            </article>
-            
-            <article class="whyus-card fade-up">
-              <div class="whyus-card-head">
-                <div class="whyus-num">03</div>
-                <h3>Удобный процесс</h3>
-              </div>
-              <p>Работаем полностью онлайн: понятные этапы, регулярные созвоны и прозрачные сроки на каждом шаге.</p>
-            </article>
-            
-            <article class="whyus-card fade-up">
-              <div class="whyus-card-head">
-                <div class="whyus-num">04</div>
-                <h3>Актуальные технологии</h3>
-              </div>
-              <p>Используем современный стек и следим за трендами, чтобы ваш сайт был быстрым и выделялся среди конкурентов.</p>
-            </article>
-          </div>
+
+        <div class="whyus-head fade-up">
+          <p class="section-label">Наши плюсы</p>
+          <h2 class="section-title">Почему выбирают<br /><em>нашу студию</em></h2>
+          <p class="whyus-sub">Создаём быстрые, функциональные сайты с продуманным дизайном. Без шаблонов — только чистый код и внимание к деталям вашего бизнеса.</p>
         </div>
+
+        <div class="whyus-bento fade-up">
+
+          <!-- Большая карточка -->
+          <article class="whyus-cell whyus-cell--hero">
+            <div class="whyus-cell__top">
+              <span class="whyus-kicker">01 · Команда</span>
+              <div class="whyus-icon whyus-icon--lg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+            </div>
+            <div class="whyus-huge">7<span>+</span></div>
+            <div class="whyus-cell__foot">
+              <h3>Опытная команда</h3>
+              <p>Средний стаж специалистов — 7 лет. Делаем сайты и обучаем других разработчиков.</p>
+              <span class="whyus-tag">лет опыта</span>
+            </div>
+          </article>
+
+          <!-- Скорость -->
+          <article class="whyus-cell whyus-cell--speed">
+            <span class="whyus-kicker">02 · Скорость</span>
+            <div class="whyus-huge whyus-huge--mono">&lt;1<span>s</span></div>
+            <div class="whyus-bar" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="whyus-cell__foot">
+              <h3>Скорость загрузки</h3>
+              <p>Чистый код, адаптив и загрузка меньше секунды — по умолчанию.</p>
+              <span class="whyus-tag">время загрузки</span>
+            </div>
+          </article>
+
+          <!-- Процесс -->
+          <article class="whyus-cell whyus-cell--process">
+            <span class="whyus-kicker">03 · Процесс</span>
+            <div class="whyus-days">
+              <div class="whyus-huge">14</div>
+              <ul class="whyus-steps">
+                <li><i></i>бриф</li>
+                <li><i></i>прототип</li>
+                <li><i></i>дизайн</li>
+                <li><i></i>разработка</li>
+                <li><i></i>запуск</li>
+              </ul>
+            </div>
+            <div class="whyus-cell__foot">
+              <h3>Удобный процесс</h3>
+              <p>Работаем онлайн: понятные этапы, регулярные созвоны и прозрачные сроки.</p>
+              <span class="whyus-tag">дней — средний срок</span>
+            </div>
+          </article>
+
+          <!-- Стек -->
+          <article class="whyus-cell whyus-cell--stack">
+            <span class="whyus-kicker">04 · Стек</span>
+            <div class="whyus-huge">50<span>+</span></div>
+            <ul class="whyus-chips">
+              <li>React</li><li>TypeScript</li><li>Next.js</li><li>GSAP</li><li>Three.js</li><li>Node</li><li>Figma</li>
+            </ul>
+            <div class="whyus-cell__foot">
+              <h3>Современный стек</h3>
+              <p>Актуальные технологии и тренды — чтобы сайт выделялся среди конкурентов.</p>
+              <span class="whyus-tag">проектов сдано</span>
+            </div>
+          </article>
+
+        </div>
+
       </div>
     </section>
 
-    <!-- ============ BENTO ============ -->
-    <section class="bento-section" id="directions">
-      <div class="container">
-        <p class="section-label fade-up">Выберите раздел:</p>
-        <h2 class="bento-switch fade-up">Разработка <span class="sep">/</span> <span class="off">Дизайн</span></h2>
-        <div class="bento">
-          <!-- Card 1: Консультация -->
-          <div class="bento-card bento-hero-card fade-up">
-            <h3>Консультация</h3>
-            <a href="contact.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
 
-          <!-- Card 2: Интернет-магазины (bento-tall) -->
-          <div class="bento-card bento-tall bento-mock-card fade-up">
-            <div class="bento-mock-header">
-              <h3>Интернет-магазины</h3>
-            </div>
-            <!-- Miniature Shop Layout -->
-            <div class="bento-shop-mock">
-              <div class="bento-shop-grid">
-                <div class="bento-shop-item">
-                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 18V5h10v13M5 10h14M7 13h10M9 18v3M15 18v3"/></svg></div>
-                  <div class="item-title">Стул ASTRID</div>
-                  <div class="item-price">95 000 ₽</div>
-                </div>
-                <div class="bento-shop-item">
-                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9h18v3H3V9zM5 12v9M19 12v9M9 12v4M15 12v4"/></svg></div>
-                  <div class="item-title">Стол FINN</div>
-                  <div class="item-price">120 000 ₽</div>
-                </div>
-                <div class="bento-shop-item">
-                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13V9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4M3 13h18M5 13v5h14v-5M9 13v5M15 13v5"/></svg></div>
-                  <div class="item-title">Софа ELSA</div>
-                  <div class="item-price">180 000 ₽</div>
-                </div>
-                <div class="bento-shop-item">
-                  <div class="item-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 6h18v12H3V6zM3 12h18M9 6v12M15 6v12M6 18v3M18 18v3"/></svg></div>
-                  <div class="item-title">Комод LEIF</div>
-                  <div class="item-price">85 000 ₽</div>
-                </div>
-              </div>
-            </div>
-            <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-
-          <!-- Card 3: Корпоративные сайты (bento-wide) -->
-          <div class="bento-card bento-wide bento-mock-card fade-up">
-            <div class="bento-mock-header">
-              <h3>Корпоративные сайты</h3>
-            </div>
-            <div class="bento-corp-mock">
-              <div class="corp-sidebar">
-                <div class="corp-dot"></div>
-                <div class="corp-dot"></div>
-                <div class="corp-dot"></div>
-              </div>
-              <div class="corp-main">
-                <div class="corp-title">Панель управления</div>
-                <div class="corp-grid">
-                  <div class="corp-box">
-                    <span class="box-num">1,280</span>
-                    <span class="box-lbl">Заказы</span>
-                  </div>
-                  <div class="corp-box">
-                    <span class="box-num">+14.8%</span>
-                    <span class="box-lbl">Конверсия</span>
-                  </div>
-                  <div class="corp-box">
-                    <span class="box-num">99.9%</span>
-                    <span class="box-lbl">Аптайм</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-
-          <!-- Card 4: Лендинги -->
-          <div class="bento-card bento-mock-card fade-up">
-            <div class="bento-mock-header">
-              <h3>Лендинги</h3>
-            </div>
-            <div class="bento-landing-mock">
-              <div class="landing-title">Запуск продукта</div>
-              <div class="landing-subtitle">Премиальный дизайн и высокая конверсия</div>
-              <div class="landing-btn">Купить сейчас</div>
-            </div>
-            <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-
-          <!-- Card 5: Веб-приложения -->
-          <div class="bento-card bento-mock-card fade-up">
-            <div class="bento-mock-header">
-              <h3>Веб-приложения</h3>
-            </div>
-            <div class="bento-app-mock">
-              <div class="app-left">
-                <div class="app-dot"></div>
-                <div class="app-dot"></div>
-                <div class="app-dot"></div>
-              </div>
-              <div class="app-right">
-                <div class="app-code">const app = new Studio();</div>
-                <div class="app-code green">app.launch({ fast: true });</div>
-              </div>
-            </div>
-            <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-
-          <!-- Card 6: Больше работ -->
-          <div class="bento-card bento-hero-card fade-up">
-            <h3>Больше работ<br />в портфолио</h3>
-            <a href="portfolio.html" class="go" aria-label="Подробнее"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Лендинги<span class="dot"> · </span>Интернет-магазины<span class="dot"> · </span>Корпоративные сайты<span class="dot"> · </span>Веб-приложения<span class="dot"> · </span>Редизайн<span class="dot"> · </span>SEO<span class="dot"> · </span></span>
-        <span>Лендинги<span class="dot"> · </span>Интернет-магазины<span class="dot"> · </span>Корпоративные сайты<span class="dot"> · </span>Веб-приложения<span class="dot"> · </span>Редизайн<span class="dot"> · </span>SEO<span class="dot"> · </span></span>
-      </div>
-    </div>
-
-    <!-- ============ FEATURED ============ -->
-    <section class="featured" id="featured">
-      <div class="container">
-        <p class="featured-label fade-up">Популярная услуга:</p>
-        <div class="featured-grid">
-          <div class="fade-up">
-            <h2 class="featured-title">Лендинг<br />под ключ</h2>
-            <p class="featured-tags-label">кому подходит:</p>
-            <div class="featured-tags">
-              <span class="featured-tag">запуск продукта</span>
-              <span class="featured-tag">реклама и трафик</span>
-              <span class="featured-tag">личный бренд</span>
-            </div>
-          </div>
-          <div class="featured-media fade-up">
-            <img src="images/featured-round.png" alt="Разработка лендинга" loading="lazy" />
-            <button class="featured-play" aria-label="Смотреть видео"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          </div>
-          <div class="featured-right fade-up">
-            <p class="featured-desc">Продающий одностраничный сайт с сильным дизайном и высокой конверсией. Собираем структуру под вашу цель, пишем тексты-смыслы и запускаем за 1–2 недели.</p>
-            <a href="services.html" class="featured-more">
-              Подробнее<br />об услуге
-              <span class="icon-btn icon-btn-accent" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ============ 3-ROW ALTERNATING MARQUEE ============ -->
     <section class="section-pad" style="padding-top:0; padding-bottom: 20px; overflow: hidden;">
@@ -336,33 +243,176 @@
       </div>
     </section>
 
-    <!-- ============ REVIEWS ============ -->
-    <section class="reviews-section" id="reviews">
-      <div class="reviews-bg">
-        <div class="container">
-          <div class="reviews-header fade-up">
-            <div>
-              <p class="section-label reviews-label">Отзывы</p>
-              <h2 class="section-title reviews-title">Что говорят<br /><em>клиенты</em></h2>
+    <!-- ============ FEATURED PROJECTS ============ -->
+    <section class="section section-light section-pad" id="featured-projects" style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div class="section-head-text">
+            <p class="section-label">Портфолио</p>
+            <h2 class="section-title">Избранные<br /><em>проекты</em></h2>
+          </div>
+        </div>
+
+        <div class="work-grid">
+          <a href="portfolio.html" class="work-card fade-up" data-cat="corp">
+            <div class="work-image">
+              <img src="images/work-1.png" alt="Сайт архитектурной студии Arch Studio" loading="lazy" />
+              <div class="work-hover-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
             </div>
-            <div class="reviews-meta fade-up">
-              <div class="reviews-rating">
-                <span class="reviews-stars">★★★★★</span>
-                <span class="reviews-score">5.0</span>
+            <div class="work-info">
+              <div class="work-info-meta">
+                <span class="work-category">Корпоративный</span>
               </div>
-              <p class="reviews-count">3 отзыва · 100% рекомендуют</p>
-              <div class="reviews-arrows">
-                <button class="reviews-prev" aria-label="Предыдущий отзыв">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                </button>
-                <button class="reviews-next" aria-label="Следующий отзыв">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
+              <h3>Arch Studio</h3>
+              <span class="work-details">Многостраничный сайт · 2025</span>
+            </div>
+          </a>
+
+          <a href="portfolio.html" class="work-card fade-up" data-cat="shop">
+            <div class="work-image">
+              <img src="images/work-2.png" alt="Интернет-магазин мебели Nordic Furniture" loading="lazy" />
+              <div class="work-hover-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
+            </div>
+            <div class="work-info">
+              <div class="work-info-meta">
+                <span class="work-category">E-commerce</span>
+              </div>
+              <h3>Nordic Furniture</h3>
+              <span class="work-details">Под ключ · 2025</span>
+            </div>
+          </a>
+
+          <a href="portfolio.html" class="work-card fade-up" data-cat="app">
+            <div class="work-image">
+              <img src="images/work-3.png" alt="Финтех-приложение Ledger Fin" loading="lazy" />
+              <div class="work-hover-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-info-meta">
+                <span class="work-category">Приложение</span>
+              </div>
+              <h3>Ledger Fin</h3>
+              <span class="work-details">Финансовый дашборд · 2024</span>
+            </div>
+          </a>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: clamp(32px, 5vw, 52px);" class="fade-up">
+          <a href="portfolio.html" class="btn btn-dark">Все проекты</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OUR PROCESS ============ -->
+    <section class="section section-pad" id="our-process" style="border-bottom: 1px solid var(--line);">
+      <div class="container">
+        <div class="section-head fade-up" style="margin-bottom: 40px;">
+          <div class="section-head-text">
+            <p class="section-label">Как мы работаем</p>
+            <h2 class="section-title">Этапы создания<br /><em>вашего сайта</em></h2>
+          </div>
+        </div>
+
+        <div class="process-slider-wrap fade-up">
+          <!-- Slider Control -->
+          <div class="slider-control-container">
+            <!-- Step markers on top -->
+            <div class="slider-steps">
+              <button class="step-marker active" data-step="1" type="button" aria-label="Шаг 1: Аналитика">
+                <span class="step-num-bubble">01</span>
+                <span class="step-label-bubble">Аналитика</span>
+              </button>
+              <button class="step-marker" data-step="2" type="button" aria-label="Шаг 2: Дизайн">
+                <span class="step-num-bubble">02</span>
+                <span class="step-label-bubble">Дизайн</span>
+              </button>
+              <button class="step-marker" data-step="3" type="button" aria-label="Шаг 3: Разработка">
+                <span class="step-num-bubble">03</span>
+                <span class="step-label-bubble">Разработка</span>
+              </button>
+              <button class="step-marker" data-step="4" type="button" aria-label="Шаг 4: Запуск">
+                <span class="step-num-bubble">04</span>
+                <span class="step-label-bubble">Запуск</span>
+              </button>
+            </div>
+            
+            <!-- Slider line and draggable thumb below -->
+            <div class="slider-bar-container">
+              <div class="slider-track-bg">
+                <div class="slider-track-active" id="processTrackActive"></div>
+              </div>
+              <input type="range" min="1" max="4" value="1" step="1" class="process-range-input" id="processRangeInput" />
             </div>
           </div>
 
-          <div class="swiper reviews-swiper fade-up">
+          <!-- Slider Content Area -->
+          <div class="process-content-card">
+            <div class="process-slide active" data-step="1">
+              <div class="slide-num">01</div>
+              <div class="slide-body">
+                <h3>Аналитика и стратегия</h3>
+                <p>Погружаемся в ваш бизнес, изучаем конкурентов и целевую аудиторию. Формулируем уникальное позиционирование, структуру будущего сайта и пишем подробное техническое задание.</p>
+              </div>
+            </div>
+            
+            <div class="process-slide" data-step="2">
+              <div class="slide-num">02</div>
+              <div class="slide-body">
+                <h3>Интерактивный UX/UI дизайн</h3>
+                <p>Создаем прототипы ключевых страниц. Разрабатываем визуальную концепцию, которая не только выглядит эстетично и современно, но и решает задачи конверсии и удобства пользователей.</p>
+              </div>
+            </div>
+            
+            <div class="process-slide" data-step="3">
+              <div class="slide-num">03</div>
+              <div class="slide-body">
+                <h3>Чистая разработка и интеграция</h3>
+                <p>Переносим макеты в качественный код. Верстаем адаптивно под любые устройства, оптимизируем скорость загрузки, подключаем CMS, системы аналитики, оплаты и CRM.</p>
+              </div>
+            </div>
+            
+            <div class="process-slide" data-step="4">
+              <div class="slide-num">04</div>
+              <div class="slide-body">
+                <h3>Тестирование и запуск</h3>
+                <p>Проверяем сайт на кроссбраузерность, отсутствие багов, скорость работы. Переносим на рабочий хостинг, подключаем домен и проводим финальное обучение по работе с админ-панелью.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+
+        <div class="reviews-header fade-up">
+          <div>
+            <p class="section-label">Отзывы</p>
+            <h2 class="section-title">Что говорят<br /><em>клиенты</em></h2>
+          </div>
+          <div class="reviews-meta">
+            <div class="reviews-rating">
+              <span class="reviews-stars">★★★★★</span>
+              <span class="reviews-score">5.0</span>
+            </div>
+            <p class="reviews-count">3 отзыва · 100% рекомендуют</p>
+          </div>
+        </div>
+
+        <div class="reviews-slider-wrap fade-up">
+          <button class="reviews-prev rev-arrow" aria-label="Предыдущий отзыв">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+
+          <div class="swiper reviews-swiper">
             <div class="swiper-wrapper">
 
               <figure class="swiper-slide quote-card">
@@ -407,7 +457,12 @@
             </div>
             <div class="swiper-pagination reviews-pagination"></div>
           </div>
+
+          <button class="reviews-next rev-arrow" aria-label="Следующий отзыв">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
+
       </div>
     </section>
 
@@ -443,7 +498,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo">веб<span class="accent-dot">.</span></a>
+          <a href="site.html" class="nav-logo">веб<span class="accent-dot">.</span></a>
           <p>Веб-студия полного цикла. Строгий дизайн, честный код и внимание к каждой детали.</p>
           <div class="social-row">
             <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
@@ -453,10 +508,10 @@
         </div>
         <div class="footer-col">
           <h4>Навигация</h4>
-          <a href="index.html">Главная</a>
+          <a href="site.html">Главная</a>
           <a href="services.html">Услуги</a>
           <a href="portfolio.html">Работы</a>
-          <a href="about.html">О нас</a>
+          <a href="pricing.html">Цены</a>
           <a href="contact.html">Контакты</a>
         </div>
         <div class="footer-col">

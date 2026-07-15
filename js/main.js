@@ -202,3 +202,45 @@
     });
   }
 })();
+  
+/* ---------- Typing search animation ---------- */
+(function () {
+  var el = document.getElementById('typed-search-text');
+  if (!el) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var phrases = [
+    'заказать сайт для салона красоты',
+    'заказать сайт для бизнеса',
+    'разработка интернет-магазина под ключ',
+    'корпоративный сайт для строительной компании',
+    'лендинг для онлайн-школы',
+    'сайт-визитка для стоматологии',
+    'редизайн сайта под ключ'
+  ];
+  if (reduce) { el.textContent = phrases[0]; return; }
+
+  var pi = 0, ci = 0, deleting = false;
+
+  function tick() {
+    var word = phrases[pi];
+    if (!deleting) {
+      ci++;
+      el.textContent = word.slice(0, ci);
+      if (ci === word.length) {
+        deleting = true;
+        return setTimeout(tick, 1600);
+      }
+      return setTimeout(tick, 55 + Math.random() * 55);
+    } else {
+      ci--;
+      el.textContent = word.slice(0, ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+        return setTimeout(tick, 350);
+      }
+      return setTimeout(tick, 28);
+    }
+  }
+  setTimeout(tick, 600);
+})();
