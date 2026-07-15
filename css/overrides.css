@@ -1,0 +1,762 @@
+/* ============================================================
+   OVERRIDES — targeted fixes on top of style.css
+   ============================================================ */
+
+/* ---------- Fix: pages should be light, not black ---------- */
+.section-dark {
+  background: #fafaf7 !important;
+  color: var(--ink) !important;
+}
+.section-dark .breadcrumb,
+.section-dark .breadcrumb a { color: var(--ink-soft) !important; }
+.section-dark .page-title,
+.section-dark .lead,
+.section-dark .svc-index-label,
+.section-dark .svc-index-count { color: var(--ink) !important; }
+.section-dark .lead,
+.section-dark .svc-index-count { color: var(--ink-soft) !important; }
+
+/* Hero on inner pages – warm surface, not black */
+.page-hero.section-dark {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Contact CTA at the bottom keeps dark accent look – restore for CTA only */
+main .contact-section.section-dark,
+section.contact-section.section-dark {
+  background: #0e0e0e !important;
+  color: #fff !important;
+}
+main .contact-section.section-dark .contact-title,
+main .contact-section.section-dark .contact-sub { color: #fff !important; }
+
+/* ---------- Process slider — smooth thumb ---------- */
+.process-range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  transition: none;
+}
+.slider-track-active {
+  transition: width .45s cubic-bezier(.22,1,.36,1);
+}
+.step-marker {
+  transition: color .3s ease;
+}
+.step-marker .step-num-bubble,
+.step-marker .step-label-bubble {
+  transition: background .35s ease, color .35s ease, transform .35s ease;
+}
+.step-marker.active .step-num-bubble {
+  transform: scale(1.08);
+}
+.process-slide {
+  transition: opacity .35s ease, transform .35s ease;
+}
+.process-slide:not(.active) {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+.process-content-card {
+  position: relative;
+  min-height: 220px;
+}
+.process-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+/* ---------- Reviews slider — one full review + peek of next ---------- */
+.reviews-swiper { overflow: visible; }
+.reviews-swiper .swiper-slide.quote-card {
+  max-width: none;
+  margin: 0;
+  height: auto;
+}
+.reviews-slider-wrap { align-items: stretch; }
+
+/* ---------- Contact CTA form — white inputs, black text ---------- */
+main .contact-section.section-dark .contact-title,
+main .contact-section.section-dark .contact-title em,
+main .contact-section.section-dark .contact-sub,
+main .contact-section.section-dark label,
+main .contact-section.section-dark .contact-form label {
+  color: #ffffff !important;
+}
+main .contact-section.section-dark .contact-form input,
+main .contact-section.section-dark .contact-form textarea,
+main .contact-section.section-dark .contact-form select {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+}
+main .contact-section.section-dark .contact-form input::placeholder,
+main .contact-section.section-dark .contact-form textarea::placeholder {
+  color: #6b6b6b !important;
+}
+main .contact-section.section-dark .contact-form input:focus,
+main .contact-section.section-dark .contact-form textarea:focus,
+main .contact-section.section-dark .contact-form select:focus {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-color: #ffffff !important;
+}
+
+/* ---------- Pricing plan-card: remove hover lift animation ---------- */
+.plan-card { transition: border-color .25s ease !important; }
+.plan-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ---------- FAQ — cleaner, lighter, modern ---------- */
+.faq-list {
+  max-width: 880px;
+  margin: 0 auto;
+  gap: 10px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.faq-item.open {
+  border-color: rgba(0,0,0,.18);
+  box-shadow: 0 8px 26px rgba(0,0,0,.04);
+}
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;      /* not too bold */
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: transparent;
+}
+.faq-q:hover { color: #000; }
+.faq-plus { flex-shrink: 0; }
+.faq-a p {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  padding: 0 24px 22px;
+}
+
+/* ---------- New pricing plan cards (replaces old tickets on services) ---------- */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  transition: transform .35s var(--ease), border-color .35s ease, box-shadow .35s ease;
+}
+.plan-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,0,0,.18);
+  box-shadow: 0 20px 50px rgba(0,0,0,.06);
+}
+.plan-card__num {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.plan-card__name {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.plan-card__sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin-top: -8px;
+}
+.plan-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+.plan-card__price small { font-size: 13px; color: var(--muted); font-weight: 400; }
+.plan-card__price b {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.plan-card__price span { font-size: 14px; color: var(--ink-soft); }
+.plan-card__meta {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.plan-card__meta::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #16a34a;
+}
+.plan-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.plan-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.5;
+}
+.plan-card__list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #f0f0ec url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;
+}
+.plan-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background .25s ease, transform .25s ease;
+}
+.plan-card__cta:hover { background: #000; transform: translateY(-1px); }
+
+.plan-card--featured {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+.plan-card--featured .plan-card__num,
+.plan-card--featured .plan-card__sub,
+.plan-card--featured .plan-card__price span,
+.plan-card--featured .plan-card__price small,
+.plan-card--featured .plan-card__meta { color: rgba(255,255,255,.7); }
+.plan-card--featured .plan-card__name,
+.plan-card--featured .plan-card__price b { color: #fff; }
+.plan-card--featured .plan-card__list li { color: rgba(255,255,255,.86); }
+.plan-card--featured .plan-card__list li::before {
+  background: rgba(255,255,255,.12) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat;
+}
+.plan-card--featured .plan-card__price { border-top-color: rgba(255,255,255,.18); }
+.plan-card--featured .plan-card__cta { background: #fff; color: #111; }
+.plan-card--featured .plan-card__cta:hover { background: #eee; }
+.plan-card__badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.plan-card:not(.plan-card--featured) .plan-card__badge {
+  background: #f0f0ec;
+  color: #444;
+}
+
+.pricing-lead {
+  max-width: 520px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* Hide old ticket block if it ever renders */
+.pricing-tickets { display: none !important; }
+
+/* ---------- Portfolio slider sanity ---------- */
+.portfolio-swiper { padding-bottom: 20px; }
+.portfolio-slide {
+  height: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+}
+.portfolio-slide-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(135deg,#efefe8,#e4e4dc);
+  min-height: 320px;
+}
+.portfolio-slide-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.portfolio-slide-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 8px 4px;
+  justify-content: center;
+}
+.portfolio-slide-category {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #f0f0ec;
+  color: #444;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.portfolio-slide-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.portfolio-slide-desc {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.portfolio-slide-meta {
+  display: flex;
+  gap: 32px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 6px 0 4px;
+}
+.portfolio-slide-meta .meta-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.portfolio-slide-meta .meta-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.portfolio-slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.portfolio-swiper-nav {
+  display: flex;
+  gap: 10px;
+}
+.portfolio-swiper-nav button {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+.portfolio-swiper-nav button:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+.portfolio-swiper-nav svg { width: 18px; height: 18px; }
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.filter-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+.filter-btn:hover { border-color: rgba(0,0,0,.3); }
+.filter-btn.is-active { background: #111; color: #fff; border-color: #111; }
+
+@media (max-width: 760px) {
+  .portfolio-slide { grid-template-columns: 1fr; }
+  .portfolio-slide-image { min-height: 220px; }
+  .portfolio-slide-title { font-size: 24px; }
+}
+
+/* ---------- Mobile nav toggle visibility (safety) ---------- */
+@media (max-width: 900px) {
+  .nav-links, .nav-loc, .nav-right .social-row, .nav-cta { display: none !important; }
+  .nav-burger { display: inline-flex !important; }
+}
+@media (min-width: 901px) {
+  .nav-burger { display: none !important; }
+  .mobile-menu { display: none !important; }
+}
+
+/* ============================================================
+   PRICING PAGE — cards with borders, no hover lift
+   ============================================================ */
+.pricing-swiper .pricing-card {
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 22px !important;
+  padding: 28px 26px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: border-color .25s ease !important;
+}
+.pricing-swiper .pricing-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: rgba(0,0,0,.28) !important;
+  background: #ffffff !important;
+}
+
+/* Featured "Компаниям" — keep dark background but user wants BLACK text.
+   Switch to white card with strong dark border so black text reads well. */
+.pricing-swiper .pricing-card-featured {
+  background: #ffffff !important;
+  border: 2px solid #111 !important;
+  color: #111 !important;
+}
+.pricing-swiper .pricing-card-featured .plan-name,
+.pricing-swiper .pricing-card-featured .plan-desc,
+.pricing-swiper .pricing-card-featured .plan-features li,
+.pricing-swiper .pricing-card-featured .price-val,
+.pricing-swiper .pricing-card-featured .plan-term,
+.pricing-swiper .pricing-card-featured .plan-price {
+  color: #111 !important;
+}
+.pricing-swiper .pricing-card-featured .plan-badge {
+  background: #111 !important;
+  color: #fff !important;
+}
+.pricing-swiper .pricing-card-featured .plan-divider {
+  border-color: rgba(0,0,0,.08) !important;
+  background: rgba(0,0,0,.08) !important;
+}
+.pricing-swiper .pricing-card-featured .plan-feature-ico {
+  color: #111 !important;
+}
+.pricing-swiper .pricing-card-featured .plan-btn.btn-light {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #111 !important;
+}
+.pricing-swiper .pricing-card-featured .plan-btn.btn-light:hover {
+  background: #000 !important;
+}
+
+/* ============================================================
+   PRICING — "Что влияет на стоимость?" (tech-split / tech-row)
+   ============================================================ */
+.tech-split-container {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.tech-sidebar .section-label {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.tech-sidebar .section-title {
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.tech-sidebar-sub {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 340px;
+}
+.tech-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tech-row {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 18px 22px;
+  align-items: start;
+  padding: 22px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  transition: border-color .25s ease;
+}
+.tech-row:hover { border-color: rgba(0,0,0,.24); }
+.tech-row-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 220px;
+}
+.tech-row-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.tech-row-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.tech-row-meta { display: flex; align-items: center; }
+.tech-row-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #f0f0ec;
+  color: #444;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.tech-row-body { min-width: 0; }
+.tech-row-desc {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 880px) {
+  .tech-split-container { grid-template-columns: 1fr; gap: 28px; }
+  .tech-row { grid-template-columns: 1fr; gap: 10px; padding: 18px 20px; }
+  .tech-row-header { min-width: 0; }
+}
+
+/* ============================================================
+   PRICING — "Индивидуальный расчёт?" CTA (dark, white text)
+   ============================================================ */
+main .contact-section {
+  background: #0e0e0e !important;
+  color: #fff !important;
+}
+main .contact-section .contact-inner-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 64px 0;
+}
+main .contact-section .contact-title,
+main .contact-section .contact-title em,
+main .contact-section .contact-sub {
+  color: #ffffff !important;
+}
+main .contact-section .contact-title em { font-style: normal; }
+main .contact-section .contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+main .contact-section .contact-buttons .btn-light {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #ffffff !important;
+}
+main .contact-section .contact-buttons .btn-light:hover {
+  background: #eeeeee !important;
+  color: #111111 !important;
+}
+main .contact-section .contact-buttons .btn-telegram {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,.35) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+main .contact-section .contact-buttons .btn-telegram svg {
+  width: 18px; height: 18px; fill: currentColor;
+}
+main .contact-section .contact-buttons .btn-telegram:hover {
+  background: rgba(255,255,255,.08) !important;
+  border-color: #ffffff !important;
+}
+@media (max-width: 760px) {
+  main .contact-section .contact-inner-grid { grid-template-columns: 1fr; gap: 24px; padding: 44px 0; }
+}
+
+/* ============================================================
+   PORTFOLIO — restore styles for principle-card + tech-card blocks
+   ============================================================ */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.principle-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color .25s ease;
+}
+.principle-card:hover { border-color: rgba(0,0,0,.24); }
+.principle-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: -0.02em;
+}
+.principle-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.principle-desc {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.tech-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.tech-card:hover { border-color: rgba(0,0,0,.24); }
+.tech-icon-wrapper {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: #f4f3ef;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.tech-icon { width: 22px; height: 22px; }
+.tech-tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f0f0ec;
+  color: #555;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tech-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.tech-desc {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ============================================================
+   SERVICES — "Направления / 06 позиций" force black
+   ============================================================ */
+.svc-index-section,
+.svc-index-section .svc-index-label,
+.svc-index-section .svc-index-count,
+.svc-index-section .svc-index-title,
+.svc-index-list,
+.svc-index-item,
+.svc-index-name {
+  color: var(--ink) !important;
+}
+.svc-index-section { background: #fafaf7 !important; }
+

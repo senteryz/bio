@@ -244,3 +244,172 @@
   }
   setTimeout(tick, 600);
 })();
+
+/* ============================================================
+   Process slider — smooth range + step markers + content sync
+   ============================================================ */
+(function () {
+  var input = document.getElementById('processRangeInput');
+  var activeBar = document.getElementById('processTrackActive');
+  if (!input) return;
+
+  var markers = Array.prototype.slice.call(document.querySelectorAll('.step-marker'));
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.process-slide'));
+  var min = parseFloat(input.min) || 1;
+  var max = parseFloat(input.max) || 4;
+
+  // Allow smooth (fractional) dragging
+  input.step = '0.001';
+
+  function apply(rawVal, animate) {
+    var val = parseFloat(rawVal);
+    if (isNaN(val)) val = min;
+    if (val < min) val = min;
+    if (val > max) val = max;
+
+    var step = Math.round(val);
+
+    // Track fill follows raw fractional value → smooth motion
+    var pct = ((val - min) / (max - min)) * 100;
+    if (activeBar) {
+      activeBar.style.transition = animate ? '' : 'none';
+      activeBar.style.width = pct + '%';
+    }
+
+    // Markers / slides use nearest step
+    markers.forEach(function (m) {
+      var s = parseInt(m.getAttribute('data-step'), 10);
+      m.classList.toggle('active', s === step);
+    });
+    slides.forEach(function (sl) {
+      var s = parseInt(sl.getAttribute('data-step'), 10);
+      sl.classList.toggle('active', s === step);
+    });
+  }
+
+  // Live drag — smooth (fractional).
+  input.addEventListener('input', function () { apply(input.value, false); });
+  // On release, snap to integer step
+  input.addEventListener('change', function () {
+    var snapped = Math.round(parseFloat(input.value));
+    input.value = snapped;
+    apply(snapped, true);
+  });
+  input.addEventListener('pointerup', function () {
+    var snapped = Math.round(parseFloat(input.value));
+    input.value = snapped;
+    apply(snapped, true);
+  });
+
+  markers.forEach(function (m) {
+    m.addEventListener('click', function () {
+      var s = parseInt(m.getAttribute('data-step'), 10);
+      input.value = s;
+      apply(s, true);
+    });
+  });
+
+  // Init
+  apply(parseFloat(input.value) || 1, false);
+})();
+
+/* ============================================================
+   Reviews swiper — override: always 1 slide per view
+   ============================================================ */
+(function () {
+  if (typeof Swiper === 'undefined') return;
+  var el = document.querySelector('.reviews-swiper');
+  if (!el || el.swiper) {
+    // If a prior init happened with different config, destroy it and redo
+    if (el && el.swiper) el.swiper.destroy(true, true);
+  }
+  if (!el) return;
+
+  new Swiper('.reviews-swiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 24,
+    loop: true,
+    grabCursor: true,
+    speed: 550,
+    centeredSlides: false,
+    autoHeight: true,
+    breakpoints: {
+      640: { slidesPerView: 1.2, spaceBetween: 28 },
+      1024: { slidesPerView: 1.25, spaceBetween: 32 }
+    },
+    pagination: {
+      el: '.reviews-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.reviews-next',
+      prevEl: '.reviews-prev',
+    },
+  });
+})();
+
+/* ============================================================
+   Portfolio swiper init
+   ============================================================ */
+(function () {
+  if (typeof Swiper === 'undefined') return;
+  var el = document.querySelector('.portfolio-swiper');
+  if (!el) return;
+  if (el.swiper) el.swiper.destroy(true, true);
+
+  var swiper = new Swiper('.portfolio-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 500,
+    grabCursor: true,
+    pagination: {
+      el: '.portfolio-swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.portfolio-swiper-next',
+      prevEl: '.portfolio-swiper-prev',
+    },
+  });
+
+  // Category filter
+  var filterBtns = document.querySelectorAll('.filter-row .filter-btn');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.portfolio-slide'));
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var f = btn.getAttribute('data-filter');
+      slides.forEach(function (sl) {
+        var cat = sl.getAttribute('data-cat');
+        sl.style.display = (f === 'all' || f === cat) ? '' : 'none';
+      });
+      swiper.update();
+      swiper.slideTo(0);
+    });
+  });
+})();
+
+/* ============================================================
+   Pricing swiper init (on pricing.html)
+   ============================================================ */
+(function () {
+  if (typeof Swiper === 'undefined') return;
+  var el = document.querySelector('.pricing-swiper');
+  if (!el) return;
+  if (el.swiper) el.swiper.destroy(true, true);
+  new Swiper('.pricing-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 500,
+    grabCursor: true,
+    breakpoints: {
+      720:  { slidesPerView: 2, spaceBetween: 22 },
+      1100: { slidesPerView: 3, spaceBetween: 24 },
+    },
+    navigation: {
+      nextEl: '.pricing-swiper-next',
+      prevEl: '.pricing-swiper-prev',
+    },
+  });
+})();
