@@ -14,11 +14,18 @@
     if (!loader) return;
     loader.classList.add('hidden');
     document.body.classList.add('loaded');
+    try {
+      sessionStorage.setItem('visited', 'true');
+    } catch (e) {}
   }
-  window.addEventListener('load', function () {
-    setTimeout(revealPage, reduce ? 0 : 850);
-  });
-  setTimeout(revealPage, 3000); // safety fallback
+  if (document.documentElement.classList.contains('no-loader')) {
+    revealPage();
+  } else {
+    window.addEventListener('load', function () {
+      setTimeout(revealPage, reduce ? 0 : 850);
+    });
+    setTimeout(revealPage, 3000); // safety fallback
+  }
 
   /* ---------- Custom cursor ---------- */
   var cursor = document.getElementById('cursor');
@@ -154,6 +161,23 @@
     var submitBtn = document.getElementById('submitBtn');
     var formSuccess = document.getElementById('formSuccess');
 
+    // Parse URL parameters for contact form pre-fill
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('type')) {
+      var typeVal = urlParams.get('type');
+      var radio = form.querySelector('input[name="project_type"][value="' + typeVal + '"]');
+      if (radio) radio.checked = true;
+    }
+    if (urlParams.has('budget')) {
+      var budgetVal = urlParams.get('budget');
+      var radio = form.querySelector('input[name="budget"][value="' + budgetVal + '"]');
+      if (radio) radio.checked = true;
+    }
+    if (urlParams.has('msg')) {
+      var msgField = form.querySelector('textarea[name="message"]');
+      if (msgField) msgField.value = urlParams.get('msg');
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       submitBtn.disabled = true;
@@ -176,7 +200,7 @@
       loop: true,
       grabCursor: true,
       speed: 500,
-      autoHeight: false,
+      autoHeight: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -184,20 +208,6 @@
       navigation: {
         nextEl: '.reviews-next',
         prevEl: '.reviews-prev',
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 1.3,
-          spaceBetween: 20,
-        },
-        900: {
-          slidesPerView: 2,
-          spaceBetween: 24,
-        },
-        1200: {
-          slidesPerView: 2.5,
-          spaceBetween: 28,
-        }
       }
     });
   }
@@ -326,17 +336,13 @@
   if (!el) return;
 
   new Swiper('.reviews-swiper', {
-    slidesPerView: 1.15,
+    slidesPerView: 1,
     spaceBetween: 24,
     loop: true,
     grabCursor: true,
     speed: 550,
-    centeredSlides: false,
+    centeredSlides: true,
     autoHeight: true,
-    breakpoints: {
-      640: { slidesPerView: 1.2, spaceBetween: 28 },
-      1024: { slidesPerView: 1.25, spaceBetween: 32 }
-    },
     pagination: {
       el: '.reviews-pagination',
       clickable: true,
@@ -349,43 +355,54 @@
 })();
 
 /* ============================================================
-   Portfolio swiper init
+   Portfolio Bento Grid Filtering
    ============================================================ */
 (function () {
-  if (typeof Swiper === 'undefined') return;
-  var el = document.querySelector('.portfolio-swiper');
-  if (!el) return;
-  if (el.swiper) el.swiper.destroy(true, true);
-
-  var swiper = new Swiper('.portfolio-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    speed: 500,
-    grabCursor: true,
-    pagination: {
-      el: '.portfolio-swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.portfolio-swiper-next',
-      prevEl: '.portfolio-swiper-prev',
-    },
-  });
-
-  // Category filter
   var filterBtns = document.querySelectorAll('.filter-row .filter-btn');
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.portfolio-slide'));
+  var cards = document.querySelectorAll('.portfolio-grid .portfolio-card');
+  if (!filterBtns.length || !cards.length) return;
+
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
+      // 1. Update active button state
       filterBtns.forEach(function (b) { b.classList.remove('is-active'); });
       btn.classList.add('is-active');
-      var f = btn.getAttribute('data-filter');
-      slides.forEach(function (sl) {
-        var cat = sl.getAttribute('data-cat');
-        sl.style.display = (f === 'all' || f === cat) ? '' : 'none';
+
+      var filter = btn.getAttribute('data-filter');
+
+      cards.forEach(function (card) {
+        var cat = card.getAttribute('data-cat');
+        var match = (filter === 'all' || filter === cat);
+
+        if (match) {
+          // Fade in matching items
+          card.classList.remove('is-hidden');
+          // Force layout recalculation for transition
+          void card.offsetWidth;
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0) scale(1)';
+        } else {
+          // Fade out and hide non-matching items
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px) scale(0.98)';
+          
+          // Wait for transition to end before adding display: none
+          var onTransitionEnd = function (e) {
+            if (e.propertyName === 'opacity' && card.style.opacity === '0') {
+              card.classList.add('is-hidden');
+              card.removeEventListener('transitionend', onTransitionEnd);
+            }
+          };
+          card.addEventListener('transitionend', onTransitionEnd);
+          
+          // Safety timeout in case transition event doesn't fire
+          setTimeout(function () {
+            if (card.style.opacity === '0') {
+              card.classList.add('is-hidden');
+            }
+          }, 350);
+        }
       });
-      swiper.update();
-      swiper.slideTo(0);
     });
   });
 })();
@@ -401,6 +418,7 @@
   new Swiper('.pricing-swiper', {
     slidesPerView: 1,
     spaceBetween: 20,
+    loop: true,
     speed: 500,
     grabCursor: true,
     breakpoints: {
@@ -413,3 +431,174 @@
     },
   });
 })();
+
+/* ============================================================
+   Interactive Price Calculator (on services.html)
+   ============================================================ */
+(function () {
+  var container = document.querySelector('.calc-container');
+  if (!container) return;
+
+  var tabs = container.querySelectorAll('.calc-tab');
+  var pagesOption = container.querySelector('#pagesOption');
+  var pagesRange = container.querySelector('#pagesRange');
+  var pagesVal = container.querySelector('#pagesVal');
+  var shopIntegrationAddon = container.querySelector('#shopIntegrationAddon');
+  var checkboxes = container.querySelectorAll('.calc-addon input');
+  var calcPrice = container.querySelector('#calcPrice');
+  var calcDays = container.querySelector('#calcDays');
+  var calcSubmitBtn = container.querySelector('#calcSubmitBtn');
+
+  var currentType = 'onepage';
+
+  function calculate() {
+    var basePrice = 3000;
+    var baseDays = 2;
+
+    // Determine active tab values
+    var activeTab = container.querySelector('.calc-tab.active');
+    if (activeTab) {
+      currentType = activeTab.dataset.type;
+      basePrice = parseInt(activeTab.dataset.price, 10);
+      baseDays = parseInt(activeTab.dataset.days, 10);
+    }
+
+    // Show/hide pages range based on type
+    if (currentType === 'onepage') {
+      pagesOption.style.display = 'none';
+    } else {
+      pagesOption.style.display = 'block';
+      var pageCount = parseInt(pagesRange.value, 10);
+      pagesVal.textContent = pageCount;
+
+      // Calculate pages cost based on pricing.html values
+      if (currentType === 'multipage') {
+        pagesRange.min = 2;
+        pagesRange.max = 30;
+        if (pageCount > 30) { pagesRange.value = 30; pageCount = 30; }
+        if (pageCount < 2)  { pagesRange.value = 2;  pageCount = 2;  }
+        pagesVal.textContent = pageCount;
+
+        var extraPages = Math.max(0, pageCount - 2);
+        basePrice += extraPages * 1000;
+        baseDays  += Math.ceil(extraPages * 0.5);
+      } else if (currentType === 'corp') {
+        pagesRange.min = 5;
+        pagesRange.max = 30;
+        if (pageCount > 30) { pagesRange.value = 30; pageCount = 30; }
+        if (pageCount < 5)  { pagesRange.value = 5;  pageCount = 5;  }
+        pagesVal.textContent = pageCount;
+
+        var extraPages = Math.max(0, pageCount - 5);
+        basePrice += extraPages * 1500;
+        baseDays  += Math.ceil(extraPages * 0.5);
+      } else if (currentType === 'shop') {
+        pagesRange.min = 5;
+        pagesRange.max = 30;
+        if (pageCount > 30) { pagesRange.value = 30; pageCount = 30; }
+        if (pageCount < 5)  { pagesRange.value = 5;  pageCount = 5;  }
+        pagesVal.textContent = pageCount;
+
+        var extraPages = Math.max(0, pageCount - 5);
+        basePrice += extraPages * 2000;
+        baseDays  += Math.ceil(extraPages * 0.5);
+      }
+    }
+
+    // Show/hide shop integration checkbox
+    if (currentType === 'shop') {
+      shopIntegrationAddon.style.display = 'block';
+    } else {
+      shopIntegrationAddon.style.display = 'none';
+      var integrationCheck = shopIntegrationAddon.querySelector('input');
+      if (integrationCheck) integrationCheck.checked = false;
+    }
+
+    // Calculate checkboxes
+    checkboxes.forEach(function (cb) {
+      if (cb.checked && cb.closest('.calc-addon').style.display !== 'none') {
+        basePrice += parseInt(cb.dataset.price, 10);
+        baseDays += parseInt(cb.dataset.days, 10);
+      }
+    });
+
+    // Animate price display
+    animatePrice(basePrice);
+    calcDays.textContent = baseDays;
+  }
+
+  var animationTimer;
+  function animatePrice(targetPrice) {
+    var current = parseInt(calcPrice.textContent.replace(/\s/g, ''), 10) || 0;
+    if (current === targetPrice) return;
+    
+    clearInterval(animationTimer);
+    var duration = 300;
+    var start = performance.now();
+
+    animationTimer = setInterval(function () {
+      var elapsed = performance.now() - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var currentVal = Math.round(current + (targetPrice - current) * progress);
+      calcPrice.textContent = currentVal.toLocaleString('ru-RU');
+      if (progress === 1) clearInterval(animationTimer);
+    }, 16);
+  }
+
+  // Event listeners
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      
+      // Reset pages value when switching types to avoid limits index issues
+      if (tab.dataset.type === 'multipage') pagesRange.value = 5;
+      if (tab.dataset.type === 'corp') pagesRange.value = 10;
+      if (tab.dataset.type === 'shop') pagesRange.value = 15;
+
+      calculate();
+    });
+  });
+
+  pagesRange.addEventListener('input', calculate);
+
+  checkboxes.forEach(function (cb) {
+    cb.addEventListener('change', calculate);
+  });
+
+  calcSubmitBtn.addEventListener('click', function () {
+    var price = parseInt(calcPrice.textContent.replace(/\s/g, ''), 10);
+    var days = calcDays.textContent;
+    
+    var typeText = 'Лендинг';
+    var contactType = 'landing';
+    if (currentType === 'multipage') { typeText = 'Многостраничный сайт (' + pagesRange.value + ' стр.)'; contactType = 'corp'; }
+    if (currentType === 'corp') { typeText = 'Корпоративный сайт (' + pagesRange.value + ' стр.)'; contactType = 'corp'; }
+    if (currentType === 'shop') { typeText = 'Интернет-магазин (' + pagesRange.value + ' стр.)'; contactType = 'shop'; }
+
+    var additions = [];
+    checkboxes.forEach(function (cb) {
+      if (cb.checked && cb.closest('.calc-addon').style.display !== 'none') {
+        if (cb.value === 'design') additions.push('уникальный дизайн');
+        if (cb.value === 'cms') additions.push('CMS');
+        if (cb.value === 'seo') additions.push('SEO');
+        if (cb.value === 'integration') additions.push('интеграция 1С');
+      }
+    });
+
+    var budgetCode = '30-70';
+    if (price > 120000) budgetCode = '120+';
+    else if (price > 70000) budgetCode = '70-120';
+
+    var messageText = 'Расчет на калькуляторе:\n' + typeText + '.\nСтоимость: ' + price.toLocaleString('ru-RU') + ' ₽, Сроки: ' + days + ' дней.';
+    if (additions.length > 0) {
+      messageText += '\nОпции: ' + additions.join(', ') + '.';
+    }
+
+    var url = 'contact.html?type=' + contactType + '&budget=' + budgetCode + '&msg=' + encodeURIComponent(messageText);
+    window.location.href = url;
+  });
+
+  calculate();
+})();
+

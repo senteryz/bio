@@ -6,12 +6,33 @@
   <title>Работы — Студия ВЕБ</title>
   <meta name="description" content="Избранные проекты: лендинги, интернет-магазины, корпоративные сайты и веб-приложения. Портфолио веб-студии." />
   <meta name="theme-color" content="#e6e6e2" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <!-- Open Graph / Facebook / VK -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.ru/portfolio.html" />
+  <meta property="og:title" content="Работы — Студия ВЕБ" />
+  <meta property="og:description" content="Избранные проекты: лендинги, интернет-магазины, корпоративные сайты и веб-приложения. Портфолио веб-студии." />
+  <meta property="og:image" content="https://yourdomain.ru/images/favicon.svg" />
+  <meta property="og:site_name" content="веб." />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:url" content="https://yourdomain.ru/portfolio.html" />
+  <meta property="twitter:title" content="Работы — Студия ВЕБ" />
+  <meta property="twitter:description" content="Избранные проекты: лендинги, интернет-магазины, корпоративные сайты и веб-приложения. Портфолио веб-студии." />
+  <meta property="twitter:image" content="https://yourdomain.ru/images/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/overrides.css" />
+  <script>
+    if (sessionStorage.getItem('visited') === 'true') {
+      document.documentElement.classList.add('no-loader');
+    }
+  </script>
 </head>
 <body>
   <!-- Loader -->
@@ -31,14 +52,6 @@
         <a href="contact.html">Контакты</a>
       </nav>
       <div class="nav-right">
-        <div class="nav-loc">
-          <span class="icon-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <span class="nav-loc-text"><b>Мы здесь</b><span>Москва, дистанционно</span></span>
-        </div>
-        <div class="social-row">
-          <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
-          <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
-        </div>
         <a href="contact.html" class="btn btn-dark btn-small nav-cta">Записаться</a>
       </div>
       <button class="nav-burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
@@ -60,6 +73,7 @@
       <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
       <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
     </div>
+    <a href="contact.html" class="btn btn-dark btn-small">Записаться</a>
   </div>
 
   <main>
@@ -80,180 +94,189 @@
           <button class="filter-btn" data-filter="corp" type="button">Корпоративные</button>
         </div>
 
-        <div class="portfolio-slider-wrapper fade-up">
-          <div class="swiper portfolio-swiper">
-            <div class="swiper-wrapper">
-              
-              <!-- Slide 1 -->
-              <div class="swiper-slide portfolio-slide" data-cat="corp">
-                <div class="portfolio-slide-image">
-                  <img src="images/work-1.png" alt="Arch Studio — Сайт архитектурной студии" />
-                  <div class="work-hover-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
-                </div>
-                <div class="portfolio-slide-info">
-                  <span class="portfolio-slide-category">Корпоративный сайт</span>
-                  <h3 class="portfolio-slide-title">Arch Studio</h3>
-                  <p class="portfolio-slide-desc">Минималистичный многостраничный сайт для архитектурной студии. Строгая модульная сетка, крупные шрифты и плавные анимации перехода между страницами.</p>
-                  <div class="portfolio-slide-meta">
-                    <div class="meta-item">
-                      <span class="meta-label">Роль</span>
-                      <span class="meta-val">Дизайн и разработка</span>
-                    </div>
-                    <div class="meta-item">
-                      <span class="meta-label">Год</span>
-                      <span class="meta-val">2025</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="btn btn-dark btn-small">Обсудить проект →</a>
+        <div class="portfolio-grid-wrapper fade-up">
+          <div class="portfolio-grid" id="portfolioGrid">
+            
+            <!-- Card 1: Arch Studio -->
+            <div class="portfolio-card span-2 project-arch-studio" data-cat="corp">
+              <div class="portfolio-card-image">
+                <img src="images/work-1.png" alt="Arch Studio — Сайт архитектурной студии" loading="lazy" />
+                <div class="work-hover-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
               </div>
-
-              <!-- Slide 2 -->
-              <div class="swiper-slide portfolio-slide" data-cat="shop">
-                <div class="portfolio-slide-image">
-                  <img src="images/work-2.png" alt="Nordic Furniture — Интернет-магазин мебели" />
-                  <div class="work-hover-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="portfolio-card-info">
+                <div class="portfolio-card-header">
+                  <span class="portfolio-card-category">Корпоративный сайт</span>
+                  <span class="portfolio-card-year">2025</span>
+                </div>
+                <h3 class="portfolio-card-title">Arch Studio</h3>
+                <p class="portfolio-card-desc">Минималистичный многостраничный сайт для архитектурной студии. Строгая модульная сетка, крупные шрифты и плавные анимации перехода между страницами.</p>
+                <div class="portfolio-card-stack">
+                  <span>Figma</span>
+                  <span>HTML5 & CSS Grid</span>
+                  <span>GSAP</span>
+                </div>
+                <div class="portfolio-card-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Роль</span>
+                    <span class="meta-val">Дизайн и разработка</span>
                   </div>
                 </div>
-                <div class="portfolio-slide-info">
-                  <span class="portfolio-slide-category">E-commerce</span>
-                  <h3 class="portfolio-slide-title">Nordic Furniture</h3>
-                  <p class="portfolio-slide-desc">Современный интернет-магазин скандинавской мебели. Интеграция с платежными системами, удобный каталог, корзина и личный кабинет покупателя.</p>
-                  <div class="portfolio-slide-meta">
-                    <div class="meta-item">
-                      <span class="meta-label">Роль</span>
-                      <span class="meta-val">Разработка под ключ</span>
-                    </div>
-                    <div class="meta-item">
-                      <span class="meta-label">Год</span>
-                      <span class="meta-val">2025</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="btn btn-dark btn-small">Обсудить проект →</a>
-                </div>
+                <a href="contact.html" class="btn btn-dark btn-small portfolio-card-btn">Обсудить проект →</a>
               </div>
-
-              <!-- Slide 3 -->
-              <div class="swiper-slide portfolio-slide" data-cat="app">
-                <div class="portfolio-slide-image">
-                  <img src="images/work-3.png" alt="Ledger Fin — Финтех-приложение" />
-                  <div class="work-hover-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
-                </div>
-                <div class="portfolio-slide-info">
-                  <span class="portfolio-slide-category">Приложение</span>
-                  <h3 class="portfolio-slide-title">Ledger Fin</h3>
-                  <p class="portfolio-slide-desc">Сложная аналитическая панель для контроля финансовых потоков. Интерактивные графики, визуализация баланса и управление транзакциями в реальном времени.</p>
-                  <div class="portfolio-slide-meta">
-                    <div class="meta-item">
-                      <span class="meta-label">Роль</span>
-                      <span class="meta-val">UI/UX и фронтенд</span>
-                    </div>
-                    <div class="meta-item">
-                      <span class="meta-label">Год</span>
-                      <span class="meta-val">2024</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="btn btn-dark btn-small">Обсудить проект →</a>
-                </div>
-              </div>
-
-              <!-- Slide 4 -->
-              <div class="swiper-slide portfolio-slide" data-cat="app">
-                <div class="portfolio-slide-image">
-                  <img src="images/work-4.png" alt="Pulse Fit — Фитнес-приложение" />
-                  <div class="work-hover-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
-                </div>
-                <div class="portfolio-slide-info">
-                  <span class="portfolio-slide-category">Приложение</span>
-                  <h3 class="portfolio-slide-title">Pulse Fit</h3>
-                  <p class="portfolio-slide-desc">Интерактивный трекер тренировок и планов питания. Адаптивный веб-интерфейс, графики прогресса пользователя и персональный кабинет тренера.</p>
-                  <div class="portfolio-slide-meta">
-                    <div class="meta-item">
-                      <span class="meta-label">Роль</span>
-                      <span class="meta-val">Разработка</span>
-                    </div>
-                    <div class="meta-item">
-                      <span class="meta-label">Год</span>
-                      <span class="meta-val">2024</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="btn btn-dark btn-small">Обсудить проект →</a>
-                </div>
-              </div>
-
-              <!-- Slide 5 -->
-              <div class="swiper-slide portfolio-slide" data-cat="landing">
-                <div class="portfolio-slide-image">
-                  <img src="images/work-5.png" alt="Maison — Сайт ресторана" />
-                  <div class="work-hover-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
-                </div>
-                <div class="portfolio-slide-info">
-                  <span class="portfolio-slide-category">Лендинг</span>
-                  <h3 class="portfolio-slide-title">Maison</h3>
-                  <p class="portfolio-slide-desc">Элегантный лендинг премиального французского ресторана. Интеграция онлайн-бронирования столиков, интерактивное меню и атмосферная фотогалерея ресторана.</p>
-                  <div class="portfolio-slide-meta">
-                    <div class="meta-item">
-                      <span class="meta-label">Роль</span>
-                      <span class="meta-val">Концепт и верстка</span>
-                    </div>
-                    <div class="meta-item">
-                      <span class="meta-label">Год</span>
-                      <span class="meta-val">2025</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="btn btn-dark btn-small">Обсудить проект →</a>
-                </div>
-              </div>
-
-              <!-- Slide 6 -->
-              <div class="swiper-slide portfolio-slide" data-cat="landing">
-                <div class="portfolio-slide-image">
-                  <img src="images/work-6.png" alt="Frame — Портфолио фотографа" />
-                  <div class="work-hover-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </div>
-                </div>
-                <div class="portfolio-slide-info">
-                  <span class="portfolio-slide-category">Лендинг</span>
-                  <h3 class="portfolio-slide-title">Frame</h3>
-                  <p class="portfolio-slide-desc">Авторское минималистичное портфолио для фэшн-фотографа. Фокус на полноэкранных снимках, плавной бесконечной прокрутке и адаптивной сетке.</p>
-                  <div class="portfolio-slide-meta">
-                    <div class="meta-item">
-                      <span class="meta-label">Роль</span>
-                      <span class="meta-val">Дизайн и верстка</span>
-                    </div>
-                    <div class="meta-item">
-                      <span class="meta-label">Год</span>
-                      <span class="meta-val">2024</span>
-                    </div>
-                  </div>
-                  <a href="contact.html" class="btn btn-dark btn-small">Обсудить проект →</a>
-                </div>
-              </div>
-
             </div>
-          </div>
 
-          <!-- Slider Controls -->
-          <div class="portfolio-slider-controls">
-            <div class="swiper-pagination portfolio-swiper-pagination"></div>
-            <div class="portfolio-swiper-nav">
-              <button class="swiper-button-prev portfolio-swiper-prev" type="button" aria-label="Предыдущий слайд">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-              </button>
-              <button class="swiper-button-next portfolio-swiper-next" type="button" aria-label="Следующий слайд">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
+            <!-- Card 2: Nordic Furniture -->
+            <div class="portfolio-card project-nordic" data-cat="shop">
+              <div class="portfolio-card-image">
+                <img src="images/work-2.png" alt="Nordic Furniture — Интернет-магазин мебели" loading="lazy" />
+                <div class="work-hover-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div class="portfolio-card-info">
+                <div class="portfolio-card-header">
+                  <span class="portfolio-card-category">E-commerce</span>
+                  <span class="portfolio-card-year">2025</span>
+                </div>
+                <h3 class="portfolio-card-title">Nordic Furniture</h3>
+                <p class="portfolio-card-desc">Современный интернет-магазин скандинавской мебели. Интеграция с платежными системами, удобный каталог, корзина и личный кабинет.</p>
+                <div class="portfolio-card-stack">
+                  <span>ES6+ JavaScript</span>
+                  <span>Cart API</span>
+                  <span>Stripe</span>
+                </div>
+                <div class="portfolio-card-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Роль</span>
+                    <span class="meta-val">Разработка под ключ</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="btn btn-dark btn-small portfolio-card-btn">Обсудить проект →</a>
+              </div>
             </div>
+
+            <!-- Card 3: Ledger Fin -->
+            <div class="portfolio-card project-ledger" data-cat="app">
+              <div class="portfolio-card-image">
+                <img src="images/work-3.png" alt="Ledger Fin — Финтех-приложение" loading="lazy" />
+                <div class="work-hover-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div class="portfolio-card-info">
+                <div class="portfolio-card-header">
+                  <span class="portfolio-card-category">Приложение</span>
+                  <span class="portfolio-card-year">2024</span>
+                </div>
+                <h3 class="portfolio-card-title">Ledger Fin</h3>
+                <p class="portfolio-card-desc">Сложная аналитическая панель для контроля финансовых потоков. Интерактивные графики, визуализация баланса и управление транзакциями.</p>
+                <div class="portfolio-card-stack">
+                  <span>UI/UX Design</span>
+                  <span>Vite & Chart.js</span>
+                  <span>TailwindCSS</span>
+                </div>
+                <div class="portfolio-card-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Роль</span>
+                    <span class="meta-val">UI/UX и фронтенд</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="btn btn-dark btn-small portfolio-card-btn">Обсудить проект →</a>
+              </div>
+            </div>
+
+            <!-- Card 4: Pulse Fit -->
+            <div class="portfolio-card project-pulse" data-cat="app">
+              <div class="portfolio-card-image">
+                <img src="images/work-4.png" alt="Pulse Fit — Фитнес-приложение" loading="lazy" />
+                <div class="work-hover-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div class="portfolio-card-info">
+                <div class="portfolio-card-header">
+                  <span class="portfolio-card-category">Приложение</span>
+                  <span class="portfolio-card-year">2024</span>
+                </div>
+                <h3 class="portfolio-card-title">Pulse Fit</h3>
+                <p class="portfolio-card-desc">Интерактивный трекер тренировок и планов питания. Адаптивный веб-интерфейс, графики прогресса пользователя и кабинет тренера.</p>
+                <div class="portfolio-card-stack">
+                  <span>Canvas API</span>
+                  <span>HTML5 / CSS Motion</span>
+                  <span>LocalStorage</span>
+                </div>
+                <div class="portfolio-card-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Роль</span>
+                    <span class="meta-val">Разработка</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="btn btn-dark btn-small portfolio-card-btn">Обсудить проект →</a>
+              </div>
+            </div>
+
+            <!-- Card 5: Maison -->
+            <div class="portfolio-card project-maison" data-cat="landing">
+              <div class="portfolio-card-image">
+                <img src="images/work-5.png" alt="Maison — Сайт ресторана" loading="lazy" />
+                <div class="work-hover-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div class="portfolio-card-info">
+                <div class="portfolio-card-header">
+                  <span class="portfolio-card-category">Лендинг</span>
+                  <span class="portfolio-card-year">2025</span>
+                </div>
+                <h3 class="portfolio-card-title">Maison</h3>
+                <p class="portfolio-card-desc">Элегантный лендинг премиального французского ресторана. Интеграция онлайн-бронирования столиков, интерактивное меню и фотогалерея.</p>
+                <div class="portfolio-card-stack">
+                  <span>Vanilla JS</span>
+                  <span>SVG Animations</span>
+                  <span>Figma UI/UX</span>
+                </div>
+                <div class="portfolio-card-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Роль</span>
+                    <span class="meta-val">Концепт и верстка</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="btn btn-dark btn-small portfolio-card-btn">Обсудить проект →</a>
+              </div>
+            </div>
+
+            <!-- Card 6: Frame -->
+            <div class="portfolio-card span-2 project-frame" data-cat="landing">
+              <div class="portfolio-card-image">
+                <img src="images/work-6.png" alt="Frame — Портфолио фотографа" loading="lazy" />
+                <div class="work-hover-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+              <div class="portfolio-card-info">
+                <div class="portfolio-card-header">
+                  <span class="portfolio-card-category">Лендинг</span>
+                  <span class="portfolio-card-year">2024</span>
+                </div>
+                <h3 class="portfolio-card-title">Frame</h3>
+                <p class="portfolio-card-desc">Авторское минималистичное портфолио для фэшн-фотографа. Фокус на полноэкранных снимках, плавной бесконечной прокрутке и адаптивной сетке.</p>
+                <div class="portfolio-card-stack">
+                  <span>CSS Grid</span>
+                  <span>Infinite Scroll</span>
+                  <span>Figma Concept</span>
+                </div>
+                <div class="portfolio-card-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Роль</span>
+                    <span class="meta-val">Дизайн и верстка</span>
+                  </div>
+                </div>
+                <a href="contact.html" class="btn btn-dark btn-small portfolio-card-btn">Обсудить проект →</a>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -302,84 +325,160 @@
           </div>
         </div>
 
-        <div class="tech-grid">
-          <!-- Figma -->
-          <div class="tech-card fade-up" data-tech="figma">
-            <div class="tech-icon-wrapper">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5Z"/><path d="M12 9H8.5A3.5 3.5 0 0 0 5 12.5 3.5 3.5 0 0 0 8.5 16H12V9Z"/><path d="M12 16h3.5a3.5 3.5 0 0 0 3.5-3.5 3.5 3.5 0 0 0-3.5-3.5H12v7Z"/><path d="M12 16v4.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 5 20.5 3.5 3.5 0 0 1 8.5 17H12Z"/><circle cx="15.5" cy="5.5" r="3.5"/></svg>
+        <div class="tech-rows">
+          <!-- Row 1: Figma -->
+          <div class="tech-row fade-up" data-tech="figma">
+            <div class="tech-row-left">
+              <span class="tech-row-num">01</span>
+              <div class="tech-row-icon-wrapper">
+                <svg class="tech-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5Z"/><path d="M12 9H8.5A3.5 3.5 0 0 0 5 12.5 3.5 3.5 0 0 0 8.5 16H12V9Z"/><path d="M12 16h3.5a3.5 3.5 0 0 0 3.5-3.5 3.5 3.5 0 0 0-3.5-3.5H12v7Z"/><path d="M12 16v4.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 5 20.5 3.5 3.5 0 0 1 8.5 17H12Z"/><circle cx="15.5" cy="5.5" r="3.5"/></svg>
+              </div>
+              <div class="tech-row-meta">
+                <span class="tech-row-tag">Проектирование</span>
+                <h3 class="tech-row-name">Figma</h3>
+              </div>
             </div>
-            <span class="tech-tag">Проектирование</span>
-            <h3 class="tech-name">Figma</h3>
-            <p class="tech-desc">Проработка UI/UX концепций, адаптивных сеток, интерактивных прототипов и UI-китов.</p>
+            <p class="tech-row-desc">Проработка UI/UX концепций, адаптивных сеток, интерактивных прототипов и UI-китов.</p>
+            <div class="tech-row-right">
+              <div class="tech-row-skills">
+                <span>Wireframes</span>
+                <span>UI Kits</span>
+                <span>Auto Layout</span>
+              </div>
+              <div class="tech-row-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
 
-          <!-- HTML5 & CSS3 -->
-          <div class="tech-card fade-up" data-tech="css" style="transition-delay: 0.05s;">
-            <div class="tech-icon-wrapper">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 5l1.5 14 8.5 3 8.5-3L22 5L12 2Z"/><path d="M12 6v11l5.5-2 1-7.5H12Z"/></svg>
+          <!-- Row 2: HTML5 & CSS3 -->
+          <div class="tech-row fade-up" data-tech="css" style="transition-delay: 0.05s;">
+            <div class="tech-row-left">
+              <span class="tech-row-num">02</span>
+              <div class="tech-row-icon-wrapper">
+                <svg class="tech-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 5l1.5 14 8.5 3 8.5-3L22 5L12 2Z"/><path d="M12 6v11l5.5-2 1-7.5H12Z"/></svg>
+              </div>
+              <div class="tech-row-meta">
+                <span class="tech-row-tag">Интерфейс</span>
+                <h3 class="tech-row-name">HTML5 & CSS3</h3>
+              </div>
             </div>
-            <span class="tech-tag">Интерфейс</span>
-            <h3 class="tech-name">HTML5 & CSS3</h3>
-            <p class="tech-desc">Семантическая верстка, методология БЭМ, сложные Grid/Flexbox макеты и адаптивность.</p>
+            <p class="tech-row-desc">Семантическая верстка, методология БЭМ, сложные Grid/Flexbox макеты и адаптивность.</p>
+            <div class="tech-row-right">
+              <div class="tech-row-skills">
+                <span>Grid/Flexbox</span>
+                <span>BEM Methodology</span>
+                <span>Adaptive</span>
+              </div>
+              <div class="tech-row-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
 
-          <!-- JavaScript -->
-          <div class="tech-card fade-up" data-tech="js" style="transition-delay: 0.1s;">
-            <div class="tech-icon-wrapper">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v18H3V3Z"/><path d="M15 8h2v8h-2m-3-4v4h-2v-4h2Z"/></svg>
+          <!-- Row 3: JavaScript -->
+          <div class="tech-row fade-up" data-tech="js" style="transition-delay: 0.1s;">
+            <div class="tech-row-left">
+              <span class="tech-row-num">03</span>
+              <div class="tech-row-icon-wrapper">
+                <svg class="tech-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v18H3V3Z"/><path d="M15 8h2v8h-2m-3-4v4h-2v-4h2Z"/></svg>
+              </div>
+              <div class="tech-row-meta">
+                <span class="tech-row-tag">Интерактив</span>
+                <h3 class="tech-row-name">JavaScript</h3>
+              </div>
             </div>
-            <span class="tech-tag">Интерактив</span>
-            <h3 class="tech-name">JavaScript</h3>
-            <p class="tech-desc">Динамическая логика интерфейсов, асинхронное взаимодействие (API) и оптимизация скриптов.</p>
+            <p class="tech-row-desc">Динамическая логика интерфейсов, асинхронное взаимодействие (API) и оптимизация скриптов.</p>
+            <div class="tech-row-right">
+              <div class="tech-row-skills">
+                <span>ES6+ JS</span>
+                <span>Fetch API / JSON</span>
+                <span>DOM API</span>
+              </div>
+              <div class="tech-row-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
 
-          <!-- Swiper & Motion -->
-          <div class="tech-card fade-up" data-tech="motion" style="transition-delay: 0.15s;">
-            <div class="tech-icon-wrapper">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m15 18-6-6 6-6M9 18l-6-6 6-6M21 18l-6-6 6-6"/></svg>
+          <!-- Row 4: Swiper & Motion -->
+          <div class="tech-row fade-up" data-tech="motion" style="transition-delay: 0.15s;">
+            <div class="tech-row-left">
+              <span class="tech-row-num">04</span>
+              <div class="tech-row-icon-wrapper">
+                <svg class="tech-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m15 18-6-6 6-6M9 18l-6-6 6-6M21 18l-6-6 6-6"/></svg>
+              </div>
+              <div class="tech-row-meta">
+                <span class="tech-row-tag">Анимация</span>
+                <h3 class="tech-row-name">Swiper & Motion</h3>
+              </div>
             </div>
-            <span class="tech-tag">Анимация</span>
-            <h3 class="tech-name">Swiper & Motion</h3>
-            <p class="tech-desc">Реализация отзывчивых слайдеров, каруселей, плавной прокрутки и микро-взаимодействий.</p>
+            <p class="tech-row-desc">Реализация отзывчивых слайдеров, каруселей, плавной прокрутки и микро-взаимодействий.</p>
+            <div class="tech-row-right">
+              <div class="tech-row-skills">
+                <span>Swiper.js</span>
+                <span>CSS Animations</span>
+                <span>Web Motion</span>
+              </div>
+              <div class="tech-row-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
 
-          <!-- Node.js & сборка -->
-          <div class="tech-card fade-up" data-tech="node" style="transition-delay: 0.2s;">
-            <div class="tech-icon-wrapper">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2-9 5v10l9 5 9-5V7l-9-5Z"/><path d="M12 2v20M3 7l9 5 9-5"/></svg>
+          <!-- Row 5: Node.js & npm -->
+          <div class="tech-row fade-up" data-tech="node" style="transition-delay: 0.2s;">
+            <div class="tech-row-left">
+              <span class="tech-row-num">05</span>
+              <div class="tech-row-icon-wrapper">
+                <svg class="tech-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2-9 5v10l9 5 9-5V7l-9-5Z"/><path d="M12 2v20M3 7l9 5 9-5"/></svg>
+              </div>
+              <div class="tech-row-meta">
+                <span class="tech-row-tag">Сборка</span>
+                <h3 class="tech-row-name">Node.js & npm</h3>
+              </div>
             </div>
-            <span class="tech-tag">Сборка</span>
-            <h3 class="tech-name">Node.js & npm</h3>
-            <p class="tech-desc">Оптимизация ассетов, использование линтеров, сборщиков кода и современных веб-пакетов.</p>
+            <p class="tech-row-desc">Оптимизация ассетов, использование линтеров, сборщиков кода и современных веб-пакетов.</p>
+            <div class="tech-row-right">
+              <div class="tech-row-skills">
+                <span>npm scripts</span>
+                <span>Gulp / Vite</span>
+                <span>Package Mgr</span>
+              </div>
+              <div class="tech-row-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
 
-          <!-- Git & GitHub -->
-          <div class="tech-card fade-up" data-tech="git" style="transition-delay: 0.25s;">
-            <div class="tech-icon-wrapper">
-              <svg class="tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M9 6h5a3 3 0 0 1 3 3v6"/></svg>
-            </div>
-            <span class="tech-tag">Контроль</span>
-            <h3 class="tech-name">Git & GitHub</h3>
-            <p class="tech-desc">Контроль версий, безопасная публикация кода, ветвление и интеграция с серверами.</p>
+          <!-- Row 6: Git & GitHub -->
+          <div class="tech-row fade-up" data-tech="git" style="transition-delay: 0.25s;">
+              <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">веб<span class="accent-dot">.</span></a>
+          <p>Веб-студия полного цикла. Строгий дизайн, честный код и внимание к каждой детали.</p>
+          <div class="social-row">
+            <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
+            <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
+            <a href="https://dribbble.com/" class="social-ico" target="_blank" rel="noopener" aria-label="Dribbble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8.5 2.9c4 4.5 6 9.6 6.6 16.4M21.7 10.3c-6.5-1-12 .4-15.6 3.4M2.4 10.2c5.9.3 11.2-1 15-4.7"/></svg></a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="contact-section" style="padding-top:0">
-      <div class="container contact-inner-grid">
-        <div class="contact-text-col fade-up">
-                    <h2 class="contact-title">Хотите<br /><em>такой же?</em></h2>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <a href="index.html">Главная</a>
+          <a href="services.html">Услуги</a>
+          <a href="portfolio.html">Работы</a>
+          <a href="pricing.html">Цены</a>
+          <a href="contact.html">Контакты</a>
         </div>
-        <div class="contact-action-col fade-up">
-          <p class="contact-sub">Опишите вашу идею — обсудим детали и найдем оптимальное техническое решение для её реализации.</p>
-          <div class="contact-buttons">
-            <a href="contact.html" class="btn btn-light">Начать проект <span class="arrow" aria-hidden="true">→</span></a>
-            <a href="https://t.me/" target="_blank" rel="noopener" class="btn btn-telegram" aria-label="Написать в Telegram">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2(1.41 1.7Z"/></svg>
-              <span>Telegram</span>
-            </a>
-          </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="mailto:hello@web-studio.ru">hello@web-studio.ru</a>
+          <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://dribbble.com/" target="_blank" rel="noopener">Dribbble</a>
+        </div>
+      </div>/div>
         </div>
       </div>
     </section>
@@ -403,7 +502,7 @@
           <a href="index.html">Главная</a>
           <a href="services.html">Услуги</a>
           <a href="portfolio.html">Работы</a>
-          <a href="about.html">О нас</a>
+          <a href="pricing.html">Цены</a>
           <a href="contact.html">Контакты</a>
         </div>
         <div class="footer-col">
@@ -416,6 +515,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Студия ВЕБ. Все права защищены.</span>
+        <a href="privacy.html" style="color: var(--muted); text-decoration: underline;">Политика конфиденциальности</a>
         <span>Сделано вручную, с вниманием к деталям.</span>
       </div>
     </div>
