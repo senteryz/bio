@@ -357,10 +357,17 @@
 /* ============================================================
    Portfolio Bento Grid Filtering
    ============================================================ */
-(function () {
+window.initPortfolioFilters = function () {
   var filterBtns = document.querySelectorAll('.filter-row .filter-btn');
   var cards = document.querySelectorAll('.portfolio-grid .portfolio-card');
   if (!filterBtns.length || !cards.length) return;
+
+  // Clear existing listeners to prevent duplicates
+  filterBtns.forEach(function (btn) {
+    var newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+  });
+  filterBtns = document.querySelectorAll('.filter-row .filter-btn');
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -377,7 +384,6 @@
         if (match) {
           // Fade in matching items
           card.classList.remove('is-hidden');
-          // Force layout recalculation for transition
           void card.offsetWidth;
           card.style.opacity = '1';
           card.style.transform = 'translateY(0) scale(1)';
@@ -386,7 +392,6 @@
           card.style.opacity = '0';
           card.style.transform = 'translateY(12px) scale(0.98)';
           
-          // Wait for transition to end before adding display: none
           var onTransitionEnd = function (e) {
             if (e.propertyName === 'opacity' && card.style.opacity === '0') {
               card.classList.add('is-hidden');
@@ -395,7 +400,6 @@
           };
           card.addEventListener('transitionend', onTransitionEnd);
           
-          // Safety timeout in case transition event doesn't fire
           setTimeout(function () {
             if (card.style.opacity === '0') {
               card.classList.add('is-hidden');
@@ -405,6 +409,176 @@
       });
     });
   });
+};
+
+// Run automatically in case of static HTML loading
+setTimeout(window.initPortfolioFilters, 100);
+
+/* ============================================================
+   Dynamic Data Loader (AJAX JSON Integration)
+   ============================================================ */
+(function () {
+  const isPricingPage = !!document.querySelector('.pricing-swiper');
+  const isPortfolioPage = !!document.getElementById('portfolioGrid');
+  const isPrivacyPage = !!document.getElementById('privacyContent');
+
+  if (!isPricingPage && !isPortfolioPage && !isPrivacyPage) return;
+
+  fetch('/api/get-data')
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to fetch data');
+      return res.json();
+    })
+    .then(data => {
+      if (isPricingPage && data.pricing) {
+        renderPricing(data.pricing);
+      }
+      if (isPortfolioPage && data.portfolio) {
+        renderPortfolio(data.portfolio);
+      }
+      if (isPrivacyPage && data.privacy) {
+        renderPrivacy(data.privacy);
+      }
+    })
+    .catch(err => console.error('Error fetching dynamic data:', err));
+
+  function renderPricing(plans) {
+    const wrapper = document.querySelector('.pricing-swiper .swiper-wrapper');
+    if (!wrapper) return;
+
+    let html = '';
+    plans.forEach(plan => {
+      const featuredClass = plan.featured ? ' pricing-card-featured' : '';
+      const buttonClass = plan.featured ? 'btn-light' : 'btn-dark';
+      
+      let featuresHtml = '';
+      plan.features.forEach(feat => {
+        let strokeColor = '#3b82f6';
+        let fillColor = 'rgba(59, 130, 246, 0.1)';
+        if (plan.id === 'multipage') { strokeColor = '#f59e0b'; fillColor = 'rgba(245, 158, 11, 0.1)'; }
+        if (plan.id === 'corp') { strokeColor = '#10b981'; fillColor = 'rgba(16, 185, 129, 0.1)'; }
+        if (plan.id === 'shop') { strokeColor = '#8b5cf6'; fillColor = 'rgba(139, 92, 246, 0.1)'; }
+        if (plan.featured) { strokeColor = '#ffffff'; fillColor = 'rgba(255, 255, 255, 0.15)'; }
+
+        featuresHtml += `
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="plan-feature-ico">
+              <circle cx="12" cy="12" r="10" fill="${fillColor}" stroke="${strokeColor}"/>
+              <path d="M8 12l3 3 5-5" stroke="${plan.featured ? '#ffffff' : '#10b981'}"/>
+            </svg>
+            ${feat}
+          </li>`;
+      });
+
+      html += `
+        <div class="swiper-slide pricing-card${featuredClass}">
+          <h3 class="plan-name">${plan.name}</h3>
+          <div class="plan-price">
+            <span class="price-val">${plan.price}</span>
+          </div>
+          <div class="plan-term">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="plan-term-ico">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            <span>${plan.term}</span>
+          </div>
+          <p class="plan-desc">${plan.desc}</p>
+          <hr class="plan-divider" />
+          <ul class="plan-features">
+            ${featuresHtml}
+          </ul>
+          <a href="contact.html?plan=${plan.id}" class="btn ${buttonClass} plan-btn">Начать проект</a>
+        </div>`;
+    });
+
+    wrapper.innerHTML = html;
+
+    // Initialize Swiper after slides are loaded
+    if (typeof Swiper !== 'undefined') {
+      const el = document.querySelector('.pricing-swiper');
+      if (el.swiper) el.swiper.destroy(true, true);
+      new Swiper('.pricing-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        speed: 500,
+        grabCursor: true,
+        breakpoints: {
+          720:  { slidesPerView: 2, spaceBetween: 22 },
+          1100: { slidesPerView: 3, spaceBetween: 24 },
+        },
+        navigation: {
+          nextEl: '.pricing-swiper-next',
+          prevEl: '.pricing-swiper-prev',
+        },
+      });
+    }
+  }
+
+  function renderPortfolio(items) {
+    const grid = document.getElementById('portfolioGrid');
+    if (!grid) return;
+
+    let html = '';
+    items.forEach(item => {
+      const spanClass = item.spanClass ? ` ${item.spanClass}` : '';
+      const className = item.className || 'project-custom';
+      
+      let stackHtml = '';
+      item.stack.forEach(tech => {
+        stackHtml += `<span>${tech}</span>`;
+      });
+
+      html += `
+        <a href="${item.link || 'contact.html'}" ${item.link ? 'target="_blank" rel="noopener"' : ''} class="portfolio-card${spanClass} ${className}" data-cat="${item.category}">
+          <div class="portfolio-card-image">
+            <img src="${item.photo}" alt="${item.title} — ${item.categoryText}" loading="lazy" />
+            <div class="work-hover-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-header">
+              <span class="portfolio-card-category">${item.categoryText}</span>
+              <span class="portfolio-card-year">${item.year}</span>
+            </div>
+            <h3 class="portfolio-card-title">${item.title}</h3>
+            <p class="portfolio-card-desc">${item.desc}</p>
+            <div class="portfolio-card-stack">
+              ${stackHtml}
+            </div>
+            <div class="portfolio-card-meta">
+              <div class="meta-item">
+                <span class="meta-label">Роль</span>
+                <span class="meta-val">${item.role}</span>
+              </div>
+            </div>
+            <span class="btn btn-dark btn-small portfolio-card-btn">${item.link ? 'Перейти на сайт →' : 'Обсудить проект →'}</span>
+          </div>
+        </a>`;
+    });
+
+    grid.innerHTML = html;
+
+    // Trigger categories filtering
+    if (window.initPortfolioFilters) {
+      window.initPortfolioFilters();
+    }
+  }
+
+  function renderPrivacy(privacy) {
+    const contentDiv = document.getElementById('privacyContent');
+    if (!contentDiv) return;
+
+    let html = `<p>${privacy.intro}</p>`;
+    privacy.sections.forEach(sec => {
+      html += `
+        <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">${sec.title}</h2>
+        <p style="white-space: pre-line;">${sec.content}</p>`;
+    });
+
+    contentDiv.innerHTML = html;
+  }
 })();
 
 /* ============================================================

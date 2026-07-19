@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель управления — Студия Кода</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0d;
+      --surface: #141416;
+      --surface-hover: #1e1e22;
+      --line: rgba(255, 255, 255, 0.08);
+      --ink: #ffffff;
+      --ink-soft: #a1a1aa;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.2);
+      --success: #10b981;
+      --danger: #ef4444;
+      --radius: 12px;
+      --font: 'Manrope', -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    /* Login Overlay */
+    #loginOverlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .login-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .login-logo {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+    .login-logo span { color: var(--accent); }
+
+    /* Admin Container */
+    .admin-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .admin-logo {
+      font-weight: 800;
+      font-size: 20px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .admin-logo span { color: var(--accent); }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #2563eb;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+    }
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 40px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar Navigation */
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .menu-item {
+      background: transparent;
+      border: none;
+      color: var(--ink-soft);
+      padding: 12px 16px;
+      text-align: left;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .menu-item:hover, .menu-item.active {
+      color: var(--ink);
+      background: var(--surface);
+    }
+    .menu-item.active {
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* Panels */
+    .panel {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .panel.active {
+      display: block;
+    }
+    .panel-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
+    }
+    input, textarea, select {
+      background: #1c1c1f;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-family: var(--font);
+      padding: 12px;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s ease;
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Portfolio Items List */
+    .items-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card-item {
+      background: #1c1c1f;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .card-meta-info {
+      flex: 1;
+    }
+    .card-meta-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .card-meta-desc {
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    /* Accordion / Editing forms */
+    .edit-item-form {
+      background: #1c1c1f;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 500px) {
+      .two-cols { grid-template-columns: 1fr; }
+    }
+
+    /* Tags container */
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .tag-chip {
+      background: var(--surface-hover);
+      border: 1px solid var(--line);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tag-chip button {
+      background: transparent;
+      border: none;
+      color: var(--danger);
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 16px 24px;
+      border-radius: 8px;
+      color: var(--ink);
+      z-index: 10000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast-success { border-left: 4px solid var(--success); }
+    .toast-error { border-left: 4px solid var(--danger); }
+  </style>
+</head>
+<body>
+
+  <!-- Login Modal -->
+  <div id="loginOverlay">
+    <div class="login-card">
+      <div class="login-logo">код<span>.</span> админ</div>
+      <form id="loginForm">
+        <div class="form-group" style="text-align: left;">
+          <label for="passwordInput">Пароль Администратора</label>
+          <input type="password" id="passwordInput" placeholder="Введите пароль" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Войти в панель</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="admin-header">
+    <a href="/" class="admin-logo">код<span>.</span> панель</a>
+    <div class="header-actions">
+      <input type="file" id="backupFileInput" style="display: none;" accept=".json" onchange="importBackup(event)">
+      <button class="btn btn-secondary" onclick="document.getElementById('backupFileInput').click()">Импорт бэкапа</button>
+      <button class="btn btn-secondary" onclick="exportBackup()">Скачать бэкап</button>
+      <button class="btn btn-secondary" onclick="logout()">Выйти</button>
+      <button class="btn btn-primary" onclick="saveAllChanges()">Сохранить изменения</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar-menu">
+      <button class="menu-item active" onclick="switchTab('pricing')">Цены и Тарифы</button>
+      <button class="menu-item" onclick="switchTab('portfolio')">Портфолио</button>
+      <button class="menu-item" onclick="switchTab('privacy')">Конфиденциальность</button>
+    </aside>
+
+    <!-- Main Dynamic Panels -->
+    <main>
+      <!-- PRICING PANEL -->
+      <section id="pricingPanel" class="panel active">
+        <div class="panel-title">Управление ценами на pricing.html</div>
+        <div id="pricingList">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- PORTFOLIO PANEL -->
+      <section id="portfolioPanel" class="panel">
+        <div class="panel-title">
+          <span>Работы в портфолио</span>
+          <button class="btn btn-primary btn-small" onclick="createNewPortfolioItem()">+ Добавить работу</button>
+        </div>
+        <div id="portfolioEditor" style="display: none;" class="edit-item-form">
+          <h3 id="portfolioEditorTitle" style="margin-bottom: 20px;">Новая работа</h3>
+          <div class="two-cols">
+            <div class="form-group">
+              <label>Название проекта</label>
+              <input type="text" id="pTitle" placeholder="Например: Arch Studio">
+            </div>
+            <div class="form-group">
+              <label>Год создания</label>
+              <input type="text" id="pYear" placeholder="Например: 2025">
+            </div>
+          </div>
+          <div class="two-cols">
+            <div class="form-group">
+              <label>Категория (код фильтра)</label>
+              <select id="pCategory">
+                <option value="corp">Корпоративный сайт (corp)</option>
+                <option value="shop">Интернет-магазин (shop)</option>
+                <option value="app">Веб-приложение (app)</option>
+                <option value="landing">Лендинг (landing)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Текст категории</label>
+              <input type="text" id="pCategoryText" placeholder="Например: Корпоративный сайт">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Описание проекта</label>
+            <textarea id="pDesc" rows="3" placeholder="Описание работы на карточке..."></textarea>
+          </div>
+          <div class="two-cols">
+            <div class="form-group">
+              <label>Роль в проекте</label>
+              <input type="text" id="pRole" placeholder="Например: Дизайн и верстка">
+            </div>
+            <div class="form-group">
+              <label>Ширина карточки</label>
+              <select id="pSpanClass">
+                <option value="">Одинарная ширина</option>
+                <option value="span-2">Двойная ширина (Bento блок)</option>
+              </select>
+            </div>
+          </div>
+          <div class="two-cols">
+            <div class="form-group">
+              <label>Визуальная тема (Стиль карточки)</label>
+              <select id="pClassName">
+                <option value="project-arch-studio">Светлый Arch Studio (чёрный неон)</option>
+                <option value="project-nordic">Песочный Nordic (коричневый неон)</option>
+                <option value="project-ledger">Тёмно-синий Ledger (голубой неон)</option>
+                <option value="project-pulse">Тёмно-серый Pulse (зелёный неон)</option>
+                <option value="project-maison">Светло-кремовый Maison (золотой неон)</option>
+                <option value="project-frame">Чисто-белый Frame (красный неон)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Изображение (Загрузка файла или URL)</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" id="pPhoto" placeholder="images/work-X.png">
+                <input type="file" id="pPhotoFile" style="display: none;" onchange="handlePhotoUpload(event)">
+                <button type="button" class="btn btn-secondary" onclick="document.getElementById('pPhotoFile').click()">Загрузить</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Стек технологий (добавьте через запятую или клавишей Enter)</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="pNewTech" placeholder="Например: React, Redux">
+              <button type="button" class="btn btn-secondary" onclick="addTechTags()">Добавить</button>
+            </div>
+            <div id="pTechTagsList" class="tags-container"></div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+            <button class="btn btn-secondary" onclick="cancelPortfolioEdit()">Отмена</button>
+            <button class="btn btn-primary" onclick="savePortfolioItem()">Сохранить элемент</button>
+          </div>
+        </div>
+        <div id="portfolioList" class="items-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- PRIVACY PANEL -->
+      <section id="privacyPanel" class="panel">
+        <div class="panel-title">Политика Конфиденциальности (privacy.html)</div>
+        <div class="form-group">
+          <label>Вводная часть документа</label>
+          <textarea id="privacyIntro" rows="4"></textarea>
+        </div>
+        <hr class="plan-divider" style="margin: 30px 0; border-color: var(--line);" />
+        <div id="privacySectionsList">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastMessage">Изменения сохранены!</span>
+  </div>
+
+  <script>
+    // State management
+    let state = {
+      password: '',
+      pricing: [],
+      portfolio: [],
+      privacy: {}
+    };
+
+    // Auto-login verification on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedToken = sessionStorage.getItem('adminToken');
+      const savedPassword = sessionStorage.getItem('adminPassword');
+      if (savedToken && savedPassword) {
+        state.password = savedPassword;
+        document.getElementById('loginOverlay').style.display = 'none';
+        loadDashboardData();
+      }
+    });
+
+    // Handle Login Form
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('passwordInput').value;
+
+      fetch('/api/verify-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          state.password = password;
+          sessionStorage.setItem('adminToken', data.token);
+          sessionStorage.setItem('adminPassword', password);
+          document.getElementById('loginOverlay').style.display = 'none';
+          loadDashboardData();
+          showToast('Успешный вход в панель!', 'success');
+        } else {
+          alert('Неверный пароль. Попробуйте еще раз.');
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Ошибка авторизации на сервере.');
+      });
+    });
+
+    function logout() {
+      sessionStorage.clear();
+      window.location.reload();
+    }
+
+    // Tabs switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.menu-item').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById(`${tabId}Panel`).classList.add('active');
+    }
+
+    // Load Data
+    function loadDashboardData() {
+      fetch('/api/get-data')
+        .then(res => res.json())
+        .then(data => {
+          state.pricing = data.pricing || [];
+          state.portfolio = data.portfolio || [];
+          state.privacy = data.privacy || {};
+          
+          buildPricingPanel();
+          buildPortfolioPanel();
+          buildPrivacyPanel();
+        })
+        .catch(err => {
+          showToast('Ошибка загрузки данных', 'error');
+          console.error(err);
+        });
+    }
+
+    // --- Pricing Builder ---
+    function buildPricingPanel() {
+      const list = document.getElementById('pricingList');
+      list.innerHTML = '';
+
+      state.pricing.forEach((plan, index) => {
+        const card = document.createElement('div');
+        card.className = 'edit-item-form';
+        card.style.removeProperty('margin-bottom');
+        card.style.marginBottom = '24px';
+        
+        let featuresList = plan.features.join('\n');
+
+        card.innerHTML = `
+          <div class="two-cols">
+            <div class="form-group">
+              <label>Тариф</label>
+              <input type="text" value="${plan.name}" oninput="updatePricingField(${index}, 'name', this.value)">
+            </div>
+            <div class="form-group">
+              <label>Цена</label>
+              <input type="text" value="${plan.price}" oninput="updatePricingField(${index}, 'price', this.value)">
+            </div>
+          </div>
+          <div class="two-cols">
+            <div class="form-group">
+              <label>Сроки</label>
+              <input type="text" value="${plan.term}" oninput="updatePricingField(${index}, 'term', this.value)">
+            </div>
+            <div class="form-group" style="justify-content: center; align-items: flex-start; margin-top: 10px;">
+              <label style="display:flex; align-items:center; gap: 8px;">
+                <input type="checkbox" ${plan.featured ? 'checked' : ''} onchange="updatePricingField(${index}, 'featured', this.checked)" style="width: auto;"> 
+                Популярный тариф (выделен цветом)
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Описание</label>
+            <textarea rows="2" oninput="updatePricingField(${index}, 'desc', this.value)">${plan.desc}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Преимущества (по одному в строке)</label>
+            <textarea rows="5" oninput="updatePricingFeatures(${index}, this.value)">${featuresList}</textarea>
+          </div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    function updatePricingField(index, field, value) {
+      state.pricing[index][field] = value;
+    }
+
+    function updatePricingFeatures(index, value) {
+      state.pricing[index].features = value.split('\n').filter(line => line.trim() !== '');
+    }
+
+    // --- Portfolio Builder ---
+    let currentEditingProjectIndex = -1;
+    let currentProjectTechStack = [];
+
+    function buildPortfolioPanel() {
+      const list = document.getElementById('portfolioList');
+      list.innerHTML = '';
+
+      state.portfolio.forEach((proj, index) => {
+        const item = document.createElement('div');
+        item.className = 'card-item';
+        item.innerHTML = `
+          <div class="card-meta-info">
+            <div class="card-meta-title">${proj.title} <span style="color:var(--ink-soft); font-size:12px; margin-left: 8px;">${proj.year} • ${proj.categoryText}</span></div>
+            <div class="card-meta-desc">${proj.desc.substring(0, 100)}...</div>
+          </div>
+          <div style="display:flex; gap: 10px;">
+            <button class="btn btn-secondary btn-small" onclick="editPortfolioItem(${index})">Правка</button>
+            <button class="btn btn-danger btn-small" onclick="deletePortfolioItem(${index})">Удалить</button>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function createNewPortfolioItem() {
+      currentEditingProjectIndex = -1;
+      currentProjectTechStack = [];
+      
+      document.getElementById('portfolioEditorTitle').textContent = 'Новая работа';
+      document.getElementById('pTitle').value = '';
+      document.getElementById('pYear').value = new Date().getFullYear();
+      document.getElementById('pCategory').value = 'corp';
+      document.getElementById('pCategoryText').value = 'Корпоративный сайт';
+      document.getElementById('pDesc').value = '';
+      document.getElementById('pRole').value = 'Дизайн и верстка';
+      document.getElementById('pSpanClass').value = '';
+      document.getElementById('pClassName').value = 'project-arch-studio';
+      document.getElementById('pPhoto').value = '';
+      
+      renderTechTags();
+      document.getElementById('portfolioEditor').style.display = 'block';
+      document.getElementById('portfolioList').style.display = 'none';
+    }
+
+    function editPortfolioItem(index) {
+      currentEditingProjectIndex = index;
+      const proj = state.portfolio[index];
+      currentProjectTechStack = [...(proj.stack || [])];
+
+      document.getElementById('portfolioEditorTitle').textContent = `Редактирование: ${proj.title}`;
+      document.getElementById('pTitle').value = proj.title;
+      document.getElementById('pYear').value = proj.year;
+      document.getElementById('pCategory').value = proj.category;
+      document.getElementById('pCategoryText').value = proj.categoryText;
+      document.getElementById('pDesc').value = proj.desc;
+      document.getElementById('pRole').value = proj.role;
+      document.getElementById('pSpanClass').value = proj.spanClass || '';
+      document.getElementById('pClassName').value = proj.className || 'project-arch-studio';
+      document.getElementById('pPhoto').value = proj.photo || '';
+
+      renderTechTags();
+      document.getElementById('portfolioEditor').style.display = 'block';
+      document.getElementById('portfolioList').style.display = 'none';
+    }
+
+    function deletePortfolioItem(index) {
+      if (confirm('Вы уверены, что хотите удалить эту работу из портфолио?')) {
+        state.portfolio.splice(index, 1);
+        buildPortfolioPanel();
+        showToast('Элемент удален из списка. Не забудьте сохранить изменения!', 'success');
+      }
+    }
+
+    function cancelPortfolioEdit() {
+      document.getElementById('portfolioEditor').style.display = 'none';
+      document.getElementById('portfolioList').style.display = 'flex';
+    }
+
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        document.getElementById('pPhoto').value = event.target.result;
+        showToast('Фото успешно закодировано в base64!', 'success');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function addTechTags() {
+      const input = document.getElementById('pNewTech');
+      const tags = input.value.split(',').map(t => t.trim()).filter(t => t !== '');
+      currentProjectTechStack.push(...tags);
+      input.value = '';
+      renderTechTags();
+    }
+
+    function removeTechTag(idx) {
+      currentProjectTechStack.splice(idx, 1);
+      renderTechTags();
+    }
+
+    function renderTechTags() {
+      const container = document.getElementById('pTechTagsList');
+      container.innerHTML = '';
+      currentProjectTechStack.forEach((tech, idx) => {
+        const chip = document.createElement('span');
+        chip.className = 'tag-chip';
+        chip.innerHTML = `${tech} <button onclick="removeTechTag(${idx})">&times;</button>`;
+        container.appendChild(chip);
+      });
+    }
+
+    function savePortfolioItem() {
+      const title = document.getElementById('pTitle').value.trim();
+      const year = document.getElementById('pYear').value.trim();
+      const category = document.getElementById('pCategory').value;
+      const categoryText = document.getElementById('pCategoryText').value.trim();
+      const desc = document.getElementById('pDesc').value.trim();
+      const role = document.getElementById('pRole').value.trim();
+      const spanClass = document.getElementById('pSpanClass').value;
+      const className = document.getElementById('pClassName').value;
+      const photo = document.getElementById('pPhoto').value.trim();
+
+      if (!title || !desc || !photo) {
+        alert('Заполните обязательные поля: Название, Описание и Фото.');
+        return;
+      }
+
+      const itemData = {
+        id: currentEditingProjectIndex >= 0 ? state.portfolio[currentEditingProjectIndex].id : Date.now(),
+        title, year, category, categoryText, desc, role, spanClass, className, photo,
+        stack: currentProjectTechStack
+      };
+
+      if (currentEditingProjectIndex >= 0) {
+        state.portfolio[currentEditingProjectIndex] = itemData;
+        showToast('Изменения работы внесены локально', 'success');
+      } else {
+        state.portfolio.push(itemData);
+        showToast('Новая работа добавлена локально', 'success');
+      }
+
+      buildPortfolioPanel();
+      cancelPortfolioEdit();
+    }
+
+    // --- Privacy Policy Builder ---
+    function buildPrivacyPanel() {
+      document.getElementById('privacyIntro').value = state.privacy.intro || '';
+      
+      const list = document.getElementById('privacySectionsList');
+      list.innerHTML = '';
+
+      state.privacy.sections.forEach((sec, index) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'edit-item-form';
+        wrap.style.marginBottom = '24px';
+        wrap.innerHTML = `
+          <div class="form-group">
+            <label>Название секции</label>
+            <input type="text" value="${sec.title}" oninput="updatePrivacySecTitle(${index}, this.value)">
+          </div>
+          <div class="form-group">
+            <label>Содержимое секции</label>
+            <textarea rows="5" oninput="updatePrivacySecContent(${index}, this.value)">${sec.content}</textarea>
+          </div>
+        `;
+        list.appendChild(wrap);
+      });
+    }
+
+    // Update privacy policy sections
+    function updatePrivacySecTitle(index, val) {
+      state.privacy.sections[index].title = val;
+    }
+
+    function updatePrivacySecContent(index, val) {
+      state.privacy.sections[index].content = val;
+    }
+
+    // --- Global Save Actions ---
+    function saveAllChanges() {
+      state.privacy.intro = document.getElementById('privacyIntro').value.trim();
+
+      const promises = [
+        saveTypeData('pricing', state.pricing),
+        saveTypeData('portfolio', state.portfolio),
+        saveTypeData('privacy', state.privacy)
+      ];
+
+      Promise.all(promises)
+        .then(() => {
+          showToast('Все изменения успешно применены на сайте!', 'success');
+        })
+        .catch(err => {
+          showToast('Ошибка сохранения данных.', 'error');
+          console.error(err);
+        });
+    }
+
+    function saveTypeData(type, data) {
+      return fetch('/api/save-data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          password: state.password,
+          type,
+          data
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (!res.success) throw new Error(res.error || 'Server error');
+        return res;
+      });
+    }
+
+    // Toast function
+    function showToast(msg, type = 'success') {
+      const toast = document.getElementById('toast');
+      const msgSpan = document.getElementById('toastMessage');
+      
+      toast.className = `toast show toast-${type}`;
+      msgSpan.textContent = msg;
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+    // Database Backup Export/Import
+    function exportBackup() {
+      const backupData = {
+        version: "1.0.0",
+        timestamp: new Date().toISOString(),
+        pricing: state.pricing,
+        portfolio: state.portfolio,
+        privacy: state.privacy
+      };
+      
+      const jsonString = JSON.stringify(backupData, null, 2);
+      const blob = new Blob([jsonString], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", url);
+      downloadAnchor.setAttribute("download", `code_studio_db_backup_${new Date().toISOString().split('T')[0]}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      URL.revokeObjectURL(url);
+      
+      showToast('Бэкап базы данных скачан!', 'success');
+    }
+
+    function importBackup(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const imported = JSON.parse(evt.target.result);
+          if (!imported.pricing || !imported.portfolio || !imported.privacy) {
+            alert('Некорректный файл бэкапа. Отсутствуют обязательные таблицы данных.');
+            return;
+          }
+          
+          if (confirm('Вы уверены, что хотите импортировать этот бэкап? Все текущие несохраненные изменения в панели будут заменены.')) {
+            state.pricing = imported.pricing;
+            state.portfolio = imported.portfolio;
+            state.privacy = imported.privacy;
+            
+            buildPricingPanel();
+            buildPortfolioPanel();
+            buildPrivacyPanel();
+            
+            showToast('Бэкап успешно импортирован! Нажмите "Сохранить изменения" для записи на сервер.', 'success');
+          }
+        } catch(err) {
+          alert('Ошибка чтения JSON файла: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+  </script>
+</body>
+</html>

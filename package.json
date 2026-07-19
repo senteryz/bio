@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "serve -l 3000 --no-clipboard .",
-    "start": "serve -l 3000 --no-clipboard ."
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "devDependencies": {
     "serve": "^14.2.4"
   },
   "dependencies": {
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
     "three": "^0.170.0"
   }
 }

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Салон красоты ИНДИАЛ",
+    "category": "corp",
+    "categoryText": "Салон красоты",
+    "year": "2025",
+    "desc": "Премиальный многостраничный сайт для салона красоты ИНДИАЛ. Изысканный дизайн, перечень услуг, прайс-лист и форма онлайн-записи.",
+    "stack": [
+      "Figma",
+      "HTML5 & CSS Grid",
+      "JavaScript"
+    ],
+    "role": "Дизайн и разработка",
+    "photo": "images/indial.png",
+    "link": "https://indialbeauty.ru",
+    "spanClass": "span-2",
+    "className": "project-indial"
+  },
+  {
+    "id": 2,
+    "title": "Салон красоты Резиденция",
+    "category": "corp",
+    "categoryText": "Салон красоты",
+    "year": "2025",
+    "desc": "Имиджевый веб-сайт для элитного салона красоты Резиденция. Минималистичная эстетика, интерактивная карта, детальное описание процедур.",
+    "stack": [
+      "Vanilla JS",
+      "CSS Grid",
+      "Figma UI/UX"
+    ],
+    "role": "Разработка под ключ",
+    "photo": "images/residence.png",
+    "link": "https://residencebeauty.ru",
+    "spanClass": "",
+    "className": "project-residence"
+  },
+  {
+    "id": 3,
+    "title": "Строй Мир",
+    "category": "shop",
+    "categoryText": "Интернет-магазин",
+    "year": "2025",
+    "desc": "Полнофункциональный интернет-магазин строительных материалов. Каталог товаров с фильтрацией, корзина покупок и интеграция с системами оплаты.",
+    "stack": [
+      "ES6+ JavaScript",
+      "Cart API",
+      "Node.js"
+    ],
+    "role": "Фронтенд и интеграция",
+    "photo": "images/stroy.png",
+    "link": "https://stroymmaster.onrender.com",
+    "spanClass": "",
+    "className": "project-stroy"
+  },
+  {
+    "id": 4,
+    "title": "Салон красоты Perfection",
+    "category": "landing",
+    "categoryText": "Лендинг",
+    "year": "2024",
+    "desc": "Элегантная целевая страница (лендинг) для студии красоты Perfection. Удобный интерфейс для записи, галерея работ и отзывы клиентов.",
+    "stack": [
+      "Figma Design",
+      "HTML5/CSS3",
+      "JavaScript"
+    ],
+    "role": "Разработка лендинга",
+    "photo": "images/perf.png",
+    "link": "https://perfection-7sn6.onrender.com",
+    "spanClass": "",
+    "className": "project-perf"
+  },
+  {
+    "id": 5,
+    "title": "Зеленый край",
+    "category": "corp",
+    "categoryText": "Аграрная компания",
+    "year": "2024",
+    "desc": "Корпоративный сайт для ведущего агропромышленного предприятия Зеленый край. Презентация продукции, информация о технологиях выращивания и эко-стандартах.",
+    "stack": [
+      "HTML5",
+      "CSS Grid",
+      "Responsive Design"
+    ],
+    "role": "Дизайн и верстка",
+    "photo": "images/zel.png",
+    "link": "https://zeleny-krayy.onrender.com",
+    "spanClass": "span-2",
+    "className": "project-zel"
+  }
+]

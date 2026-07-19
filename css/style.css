@@ -1,5 +1,5 @@
 /* ============================================================
-   Веб-студия — светлая редакторская тема (шалфейно-зелёный акцент)
+   Студия Кода — светлая редакторская тема (шалфейно-зелёный акцент)
    Manrope · rounded pills · bento · warm gray surface
    ============================================================ */
 
@@ -393,7 +393,8 @@ ul { list-style: none; }
   background: var(--card-dim);
   isolation: isolate;
 }
-.hero-card > img {
+.hero-card > img,
+.hero-card > video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1650,7 +1651,7 @@ img:hover {
   background: rgba(255, 255, 255, 0.9) !important;
 }
 /* ============================================================
-   Веб-студия — светлая редакторская тема (шалфейно-зелёный акцент)
+   Студия Кода — светлая редакторская тема (шалфейно-зелёный акцент)
    Manrope · rounded pills · bento · warm gray surface
    ============================================================ */
 
@@ -2044,7 +2045,8 @@ ul { list-style: none; }
   background: var(--card-dim);
   isolation: isolate;
 }
-.hero-card > img {
+.hero-card > img,
+.hero-card > video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -3913,7 +3915,6 @@ img[src^="images/"] {
   transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 .whyus-cell:hover {
-  transform: translateY(-4px);
   box-shadow: 0 24px 50px rgba(0,0,0,.07);
   border-color: #111;
 }
@@ -3922,7 +3923,7 @@ img[src^="images/"] {
 .whyus-cell--process { grid-column: span 3; }
 .whyus-cell--stack   { grid-column: span 3; }
 
-.whyus-cell--hero:hover { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+.whyus-cell--hero:hover { box-shadow: 0 30px 60px rgba(0,0,0,.35); }
 .whyus-cell--hero .whyus-tag { border-color: rgba(255,255,255,.25); color:#e6e6e6; }
 .whyus-cell--hero p { color:#c9c9c9; }
 .whyus-cell--hero .whyus-kicker { color:#8a8a8a; }

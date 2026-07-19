@@ -377,6 +377,7 @@ main .contact-section.section-dark .contact-form select:focus {
 .portfolio-card:hover {
   box-shadow: 0 24px 48px var(--card-glow, rgba(0, 0, 0, 0.04));
   border-color: var(--card-accent, var(--accent-strong)) !important;
+  transform: none !important;
 }
 .portfolio-card:hover .portfolio-card-image img {
   transform: scale(1.04);
@@ -496,157 +497,69 @@ main .contact-section.section-dark .contact-form select:focus {
 }
 
 /* 1. Arch Studio */
-.project-arch-studio {
+/* 1. Салон красоты ИНДИАЛ */
+.project-indial {
   background: #fafaf9;
   --card-accent: #000000;
   --card-glow: rgba(0, 0, 0, 0.06);
 }
-.project-arch-studio .portfolio-card-image {
+.project-indial .portfolio-card-image {
   background: linear-gradient(135deg, #242424, #121212);
 }
 
-/* 2. Nordic Furniture */
-.project-nordic {
+/* 2. Салон красоты Резиденция */
+.project-residence {
   background: #faf8f5;
-  --card-accent: #a1887f;
-  --card-glow: rgba(161, 136, 127, 0.16);
+  --card-accent: #2d5a27;
+  --card-glow: rgba(45, 90, 39, 0.16);
 }
-.project-nordic .portfolio-card-image {
+.project-residence .portfolio-card-image {
   background: linear-gradient(135deg, #efebe9, #d7ccc8);
 }
-.project-nordic:hover .portfolio-card-category {
-  background: #8d6e63;
+.project-residence:hover .portfolio-card-category {
+  background: #2d5a27;
   color: #fff;
 }
 
-/* 3. Ledger Fin (Dark Theme) */
-.project-ledger {
-  background: #0b0f19;
-  color: #f1f5f9;
-  border-color: rgba(255, 255, 255, 0.08);
-  --card-accent: #0ea5e9;
-  --card-glow: rgba(14, 165, 233, 0.22);
+/* 3. Строй Мир */
+.project-stroy {
+  background: #fbfbfb;
+  --card-accent: #ea580c;
+  --card-glow: rgba(234, 88, 12, 0.12);
 }
-.project-ledger .portfolio-card-title,
-.project-ledger .portfolio-card-meta .meta-item b {
-  color: #ffffff;
-}
-.project-ledger .portfolio-card-desc,
-.project-ledger .portfolio-card-meta .meta-item,
-.project-ledger .portfolio-card-year {
-  color: #94a3b8;
-}
-.project-ledger .portfolio-card-category {
-  background: rgba(14, 165, 233, 0.12);
-  color: #38bdf8;
-}
-.project-ledger .portfolio-card-stack span {
-  background: rgba(255, 255, 255, 0.05);
-  color: #cbd5e1;
-  border-color: rgba(255, 255, 255, 0.06);
-}
-.project-ledger:hover .portfolio-card-stack span {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
-}
-.project-ledger .portfolio-card-image {
-  background: linear-gradient(135deg, #1e293b, #0f172a);
-}
-.project-ledger .portfolio-card-btn {
-  background: #ffffff;
-  color: #0b0f19;
-}
-.project-ledger .portfolio-card-btn:hover {
-  background: #38bdf8;
-  color: #ffffff;
-}
-.project-ledger:hover .portfolio-card-category {
-  background: #0ea5e9;
-  color: #fff;
-}
-
-/* 4. Pulse Fit (Dark Theme) */
-.project-pulse {
-  background: #121214;
-  color: #f4f4f5;
-  border-color: rgba(255, 255, 255, 0.08);
-  --card-accent: #a3e635;
-  --card-glow: rgba(163, 230, 53, 0.22);
-}
-.project-pulse .portfolio-card-title,
-.project-pulse .portfolio-card-meta .meta-item b {
-  color: #ffffff;
-}
-.project-pulse .portfolio-card-desc,
-.project-pulse .portfolio-card-meta .meta-item,
-.project-pulse .portfolio-card-year {
-  color: #a1a1aa;
-}
-.project-pulse .portfolio-card-category {
-  background: rgba(163, 230, 53, 0.12);
-  color: #bef264;
-}
-.project-pulse .portfolio-card-stack span {
-  background: rgba(255, 255, 255, 0.05);
-  color: #e4e4e7;
-  border-color: rgba(255, 255, 255, 0.06);
-}
-.project-pulse:hover .portfolio-card-stack span {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
-}
-.project-pulse .portfolio-card-image {
-  background: linear-gradient(135deg, #27272a, #18181b);
-}
-.project-pulse .portfolio-card-btn {
-  background: #ffffff;
-  color: #121214;
-}
-.project-pulse .portfolio-card-btn:hover {
-  background: #a3e635;
-  color: #121214;
-}
-.project-pulse:hover .portfolio-card-category {
-  background: #a3e635;
-  color: #121214;
-}
-
-/* 5. Maison */
-.project-maison {
-  background: #fdfcf9;
-  --card-accent: #c5a880;
-  --card-glow: rgba(197, 168, 128, 0.18);
-}
-.project-maison .portfolio-card-image {
-  background: linear-gradient(135deg, #faf6f0, #f0e6d2);
-}
-.project-maison .portfolio-card-category {
-  background: #f6f0e5;
-  color: #8c6d3f;
-}
-.project-maison .portfolio-card-title {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-}
-.project-maison:hover .portfolio-card-category {
-  background: #c5a880;
-  color: #fff;
-}
-
-/* 6. Frame */
-.project-frame {
-  background: #fafafa;
-  --card-accent: #be123c;
-  --card-glow: rgba(190, 18, 60, 0.12);
-}
-.project-frame .portfolio-card-image {
+.project-stroy .portfolio-card-image {
   background: linear-gradient(135deg, #e4e4e7, #d4d4d8);
 }
-.project-frame:hover .portfolio-card-category {
-  background: #be123c;
+.project-stroy:hover .portfolio-card-category {
+  background: #ea580c;
+  color: #fff;
+}
+
+/* 4. Салон красоты Perfection */
+.project-perf {
+  background: #fdfbf7;
+  --card-accent: #d4af37;
+  --card-glow: rgba(212, 175, 55, 0.12);
+}
+.project-perf .portfolio-card-image {
+  background: linear-gradient(135deg, #faf6f0, #f0e6d2);
+}
+.project-perf:hover .portfolio-card-category {
+  background: #d4af37;
+  color: #fff;
+}
+
+/* 5. Зеленый край */
+.project-zel {
+  background: #f4f8f4;
+  --card-accent: #15803d;
+  --card-glow: rgba(21, 128, 61, 0.12);
+}
+.project-zel .portfolio-card-image {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+}
+.project-zel:hover .portfolio-card-category {
+  background: #15803d;
   color: #fff;
 }
 
