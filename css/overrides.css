@@ -2456,6 +2456,7 @@ main .contact-section .btn-ghost:hover {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  background: transparent !important;
 }
 .site-logo,
 .nav-logo img {
@@ -2463,6 +2464,10 @@ main .contact-section .btn-ghost:hover {
   width: auto;
   display: block;
   object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .nav-logo:hover .site-logo,
