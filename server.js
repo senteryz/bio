@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const https = require('https');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -238,10 +239,14 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`====================================================`);
-  console.log(`[Студия Кода] Сервер успешно запущен на порту ${PORT}`);
-  console.log(`[INFO] Секретный адрес входа в панель: http://localhost:${PORT}${ADMIN_ROUTE}`);
-  console.log(`[INFO] Пароль администратора по умолчанию: ${ADMIN_PASSWORD}`);
-  console.log(`====================================================`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`====================================================`);
+    console.log(`[Студия Кода] Сервер успешно запущен на порту ${PORT}`);
+    console.log(`[INFO] Секретный адрес входа в панель: http://localhost:${PORT}${ADMIN_ROUTE}`);
+    console.log(`[INFO] Пароль администратора по умолчанию: ${ADMIN_PASSWORD}`);
+    console.log(`====================================================`);
+  });
+}
+
+module.exports = app;
