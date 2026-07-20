@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Публичная оферта — Студия Кода</title>
+  <meta name="description" content="Договор публичной оферты на оказание услуг по веб-разработке и дизайну сайтов." />
+  <meta name="theme-color" content="#0c0c0d" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.ru/offer.html" />
+  <meta property="og:title" content="Публичная оферта — Студия Кода" />
+  <meta property="og:description" content="Договор публичной оферты на оказание услуг по веб-разработке." />
+  <meta property="og:image" content="https://yourdomain.ru/images/favicon.svg" />
+  <meta property="og:site_name" content="код." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/overrides.css" />
+  <script>
+    if (sessionStorage.getItem('visited') === 'true') {
+      document.documentElement.classList.add('no-loader');
+    }
+  </script>
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark"><span>к</span><span>о</span><span>д</span></div>
+  </div>
+
+  <!-- ============ Header ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="На главную">код<span class="accent-dot">.</span></a>
+      <nav class="nav-links" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="services.html">Услуги</a>
+        <a href="portfolio.html">Работы</a>
+        <a href="pricing.html">Цены</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+      <div class="nav-right">
+        <a href="contact.html" class="btn btn-dark btn-small nav-cta">Записаться</a>
+      </div>
+      <button class="nav-burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Мобильная навигация">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="portfolio.html">Работы</a>
+      <a href="pricing.html">Цены</a>
+      <a href="contact.html">Контакты</a>
+    </nav>
+    <div class="mobile-social">
+      <a href="https://t.me/" class="social-ico" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.6 20.1c-.25 1.11-.91 1.38-1.85.86l-5.1-3.76-2.46 2.37c-.27.27-.5.5-1.02.5l.36-5.2 9.46-8.55c.41-.36-.09-.57-.64-.2L5.11 13.14l-5.03-1.57c-1.09-.34-1.11-1.09.23-1.62L20.53 2.6c.91-.34 1.71.2 1.41 1.7Z"/></svg></a>
+      <a href="https://github.com/" class="social-ico" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.72c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.35 9.35 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg></a>
+    </div>
+    <a href="contact.html" class="btn btn-dark btn-small">Записаться</a>
+  </div>
+
+  <main>
+    <section class="page-hero section-dark">
+      <div class="container">
+        <h1 class="page-title fade-up">Публичная<br /><em>оферта</em></h1>
+      </div>
+    </section>
+
+    <section class="section section-light section-pad">
+      <div class="container" style="max-width: 800px; line-height: 1.7; color: var(--ink-soft);">
+        <div id="offerContent" class="fade-up">
+          <p>Настоящий документ является официальным публичным предложением (Публичной офертой в соответствии со ст. 435 и ч. 2 ст. 437 Гражданского кодекса Российской Федерации) физического лица, применяющего специальный налоговый режим «Налог на профессиональный доход» (Самозанятый), <strong>Макарова Николая Владиславовича</strong> (ИНН: 562202292930), именуемого в дальнейшем «Исполнитель», адресованным любому физическому или юридическому лицу (далее — «Заказчик»), заключить Договор об оказании услуг по веб-разработке на нижеследующих условиях.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">1. Понятия и термины</h2>
+          <p>1.1. <strong>Оферта</strong> — настоящий документ «Публичная оферта на оказание услуг по веб-разработке», опубликованный в сети Интернет по адресу сайта Исполнителя.</p>
+          <p>1.2. <strong>Акцепт оферты</strong> — полное и безоговорочное принятие условий настоящей Оферты Заказчиком путем внесения предоплаты/оплаты услуг или отправки заполненного брифа/заявки через Сайт Исполнителя.</p>
+          <p>1.3. <strong>Сайт Исполнителя</strong> — официальный веб-ресурс Исполнителя в сети Интернет.</p>
+          <p>1.4. <strong>Услуги</strong> — комплекс работ по проектированию, дизайну, верстке, программной разработке, настройке и поисковой подготовке веб-сайтов, предоставляемый Исполнителем.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">2. Предмет Договора</h2>
+          <p>2.1. Исполнитель обязуется по заданию Заказчика оказать Услуги по разработке веб-сайта в соответствии с выбранным тарифом или согласованным Техническим заданием (ТЗ), а Заказчик обязуется принять и оплатить выполненные работы в порядке и на условиях, предусмотренных настоящей Офертой.</p>
+          <p>2.2. Согласование состава работ, сроков и стоимости производится стороны через электронную почту, мессенджер Telegram или форму заказа на Сайте.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">3. Порядок оказания услуг и Акцепт</h2>
+          <p>3.1. Заказчик совершает Акцепт оферты путем внесения предоплаты (в размере от 50% до 100% стоимости Услуг по согласованию сторон) либо путем оформления заказа на Сайте.</p>
+          <p>3.2. С момента совершения Акцепта Договор считается заключенным в письменной форме и вступает в юридическую силу.</p>
+          <p>3.3. Исполнитель приступает к выполнению работ в течение 2 (двух) рабочих дней с момента получения суммы предоплаты и всех необходимых материалов (тексты, логотипы, доступы) от Заказчика.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">4. Стоимость услуг и порядок расчетов</h2>
+          <p>4.1. Стоимость Услуг определяется в соответствии с действующими тарифами Исполнителя, опубликованными на Сайте, или индивидуальным сметам, согласованным с Заказчиком.</p>
+          <p>4.2. Оплата производится в российских рублях путем безналичного перевода средств на счет/карту Исполнителя.</p>
+          <p>4.3. На основании Федерального закона от 27.11.2018 № 422-ФЗ Исполнитель формирует и направляет Заказчику электронный <strong>Чек из приложения «Мой налог»</strong> по электронной почте или в мессенджере после каждого факта получения денежных средств.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">5. Порядок сдачи-приемки работ</h2>
+          <p>5.1. По завершении этапа или всего объема работ Исполнитель предоставляет Заказчику результат (демонстрационную ссылку на тестовый сервер или передачу файлов/доступов).</p>
+          <p>5.2. Заказчик обязуется осмотреть результат в течение 3 (трех) рабочих дней и направить Исполнителю замечания либо подтвердить приемку.</p>
+          <p>5.3. Если в течение 3 рабочих дней от Заказчика не поступило мотивированных письменных возражений, работы считаются принятыми в полном объеме и без замечаний.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">6. Права на интеллектуальную собственность</h2>
+          <p>6.1. Все исключительные имущественные права на созданный веб-сайт, уникальный код, элементы дизайна и адаптивную верстку переходят к Заказчику в полном объеме после <strong>100% оплаты</strong> общей стоимости Услуг.</p>
+          <p>6.2. Исполнитель оставляет за собой право размещать ссылку на разработанный сайт и его скриншоты в своем Портфолио в качестве демонстрации выполненных работ.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">7. Условия отмены и возврата средств</h2>
+          <p>7.1. Заказчик вправе в любой момент отказаться от исполнения Договора при условии оплаты Исполнителю фактически понесенных расходов и выполненных этапов работ на момент получения уведомления об отказе (согласно ст. 32 Закона РФ «О защите прав потребителей»).</p>
+          <p>7.2. Возврат денежных средств за вычетом стоимости выполненных работ производится в течение 10 (десяти) рабочих дней тем же способом, которым производилась оплата.</p>
+
+          <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--ink); margin: 32px 0 16px;">8. Реквизиты Исполнителя</h2>
+          <p>
+            <strong>Исполнитель:</strong> Самозанятый Макаров Николай Владиславович<br />
+            <strong>ИНН:</strong> 562202292930<br />
+            <strong>Специальный налоговый режим:</strong> Налог на профессиональный доход (ФЗ-422)<br />
+            <strong>Email:</strong> <a href="mailto:hello@code-studio.ru" style="color: var(--ink); text-decoration: underline;">hello@code-studio.ru</a><br />
+            <strong>Telegram:</strong> <a href="https://t.me/" target="_blank" rel="noopener" style="color: var(--ink); text-decoration: underline;">@code_studio</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">код<span class="accent-dot">.</span></a>
+          <p>Веб-студия полного цикла. Строгий дизайн, честный код и внимание к каждой детали.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <a href="index.html">Главная</a>
+          <a href="services.html">Услуги</a>
+          <a href="portfolio.html">Работы</a>
+          <a href="pricing.html">Цены</a>
+          <a href="contact.html">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <a href="mailto:hello@code-studio.ru">hello@code-studio.ru</a>
+          <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://dribbble.com/" target="_blank" rel="noopener">Dribbble</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Студия Кода. Все права защищены.</span>
+        <span>Самозанятый Макаров Н.В. (ИНН 562202292930)</span>
+        <a href="privacy.html" style="color: var(--muted); text-decoration: underline;">Политика конфиденциальности</a>
+        <a href="offer.html" style="color: var(--muted); text-decoration: underline; margin-left: 12px;">Публичная оферта</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

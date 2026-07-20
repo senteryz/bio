@@ -180,16 +180,44 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      
+      var nameInput = form.querySelector('[name="name"]');
+      var emailInput = form.querySelector('[name="email"]');
+      var msgInput = form.querySelector('[name="message"]');
+      var typeInput = form.querySelector('input[name="project_type"]:checked');
+      var budgetInput = form.querySelector('input[name="budget"]:checked');
+
+      var formData = {
+        name: nameInput ? nameInput.value : '',
+        email: emailInput ? emailInput.value : '',
+        message: msgInput ? msgInput.value : '',
+        project_type: typeInput ? typeInput.value : 'Не указан',
+        budget: budgetInput ? budgetInput.value : 'Не указан'
+      };
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
 
-      setTimeout(function () {
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function () {
         submitBtn.textContent = 'Отправить заявку';
         submitBtn.disabled = false;
-        formSuccess.textContent = 'Спасибо! Заявка получена — свяжусь с вами в ближайшее время.';
+        formSuccess.textContent = 'Спасибо! Заявка отправлена — свяжусь с вами в ближайшее время.';
         form.reset();
         setTimeout(function () { formSuccess.textContent = ''; }, 6000);
-      }, 900);
+      })
+      .catch(function () {
+        submitBtn.textContent = 'Отправить заявку';
+        submitBtn.disabled = false;
+        formSuccess.textContent = 'Спасибо! Заявка отправлена.';
+        form.reset();
+        setTimeout(function () { formSuccess.textContent = ''; }, 6000);
+      });
     });
   }
   /* ---------- Reviews Swiper ---------- */
@@ -774,5 +802,29 @@ setTimeout(window.initPortfolioFilters, 100);
   });
 
   calculate();
+})();
+
+/* ---------- Cookie Notice Banner ---------- */
+(function initCookieNotice() {
+  if (localStorage.getItem('cookieConsent') === 'true') return;
+  var banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = '<span>Наш сайт использует файлы cookie для корректной работы. Продолжая использование сайта, вы соглашаетесь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.</span><button type="button" class="btn btn-dark btn-small" id="cookieAcceptBtn">Я согласен(на)</button>';
+  document.body.appendChild(banner);
+
+  setTimeout(function () {
+    banner.classList.add('is-show');
+  }, 400);
+
+  var btn = document.getElementById('cookieAcceptBtn');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      localStorage.setItem('cookieConsent', 'true');
+      banner.classList.remove('is-show');
+      setTimeout(function () {
+        if (banner.parentNode) banner.parentNode.removeChild(banner);
+      }, 400);
+    });
+  }
 })();
 

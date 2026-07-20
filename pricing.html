@@ -200,62 +200,140 @@
           <p class="section-label">Нюансы</p>
           <h2 class="section-title">Что влияет<br /><em>на стоимость?</em></h2>
           <p class="tech-sidebar-sub">Каждый проект индивидуален. Конечная стоимость рассчитывается после составления технического задания и зависит от следующих факторов:</p>
+          
+          <div class="factor-tabs">
+            <button class="factor-tab is-active" data-factor="1" type="button">
+              <span class="tab-num">01</span>
+              <div class="tab-meta">
+                <span class="tab-name">Уникальный дизайн</span>
+                <span class="tab-tag">Сложность</span>
+              </div>
+            </button>
+            <button class="factor-tab" data-factor="2" type="button">
+              <span class="tab-num">02</span>
+              <div class="tab-meta">
+                <span class="tab-name">Мультиязычность</span>
+                <span class="tab-tag">Контент</span>
+              </div>
+            </button>
+            <button class="factor-tab" data-factor="3" type="button">
+              <span class="tab-num">03</span>
+              <div class="tab-meta">
+                <span class="tab-name">SEO-оптимизация</span>
+                <span class="tab-tag">Продвижение</span>
+              </div>
+            </button>
+            <button class="factor-tab" data-factor="4" type="button">
+              <span class="tab-num">04</span>
+              <div class="tab-meta">
+                <span class="tab-name">Объем страниц</span>
+                <span class="tab-tag">Масштаб</span>
+              </div>
+            </button>
+          </div>
         </div>
 
-        <div class="tech-rows-list">
-          <!-- Item 1 -->
-          <div class="tech-row fade-up">
-            <div class="tech-row-header">
-              <span class="tech-row-num">01</span>
-              <h3 class="tech-row-name">Уникальный дизайн</h3>
+        <div class="factor-showcase fade-up">
+          <!-- Panel 1: Design -->
+          <div class="factor-panel is-active" id="factor-panel-1">
+            <div class="panel-visual">
+              <div class="visual-grid-design">
+                <div class="draft-ruler horizontal"></div>
+                <div class="draft-ruler vertical"></div>
+                <svg viewBox="0 0 120 120" class="draft-svg" aria-hidden="true">
+                  <path d="M20,100 C40,40 80,20 100,60" stroke="var(--ink)" stroke-dasharray="3" fill="none"/>
+                  <rect x="15" y="95" width="10" height="10" fill="var(--card)" stroke="var(--ink)"/>
+                  <rect x="95" y="55" width="10" height="10" fill="var(--card)" stroke="var(--ink)"/>
+                  <circle cx="50" cy="50" r="4" fill="var(--ink)"/>
+                </svg>
+              </div>
             </div>
-            <div class="tech-row-meta">
-              <span class="tech-row-tag">Сложность</span>
-            </div>
-            <div class="tech-row-body">
-              <p class="tech-row-desc">Создание структуры, прототипа и дизайн-системы с нуля под конкретные бизнес-задачи вашей компании вместо стандартных готовых шаблонов и блоков.</p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="tech-row fade-up">
-            <div class="tech-row-header">
-              <span class="tech-row-num">02</span>
-              <h3 class="tech-row-name">Мультиязычность</h3>
-            </div>
-            <div class="tech-row-meta">
-              <span class="tech-row-tag">Контент</span>
-            </div>
-            <div class="tech-row-body">
-              <p class="tech-row-desc">Наличие нескольких языковых версий сайта. Требует проектирования дополнительной логики переключения и наполнения баз данных.</p>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="tech-row fade-up">
-            <div class="tech-row-header">
-              <span class="tech-row-num">03</span>
-              <h3 class="tech-row-name">Кастомная графика</h3>
-            </div>
-            <div class="tech-row-meta">
-              <span class="tech-row-tag">Анимация</span>
-            </div>
-            <div class="tech-row-body">
-              <p class="tech-row-desc">Разработка сложного WebGL/3D-контента, индивидуальной инфографики, иконок и кастомных физических интерактивных эффектов.</p>
+            <div class="panel-details">
+              <div class="panel-impact">
+                <span class="impact-label">Влияние:</span>
+                <div class="impact-bar-wrapper">
+                  <div class="impact-bar" style="width: 85%; background: #ff5f56;"></div>
+                </div>
+                <span class="impact-val">Высокое</span>
+              </div>
+              <h3 class="tech-row-name" style="margin-bottom: 12px;">Уникальный дизайн</h3>
+              <p class="panel-desc">Создание структуры, прототипа и дизайн-системы с нуля под конкретные бизнес-задачи вашей компании вместо стандартных готовых шаблонов и блоков.</p>
             </div>
           </div>
 
-          <!-- Item 4 -->
-          <div class="tech-row fade-up">
-            <div class="tech-row-header">
-              <span class="tech-row-num">04</span>
-              <h3 class="tech-row-name">Объем страниц</h3>
+          <!-- Panel 2: Languages -->
+          <div class="factor-panel" id="factor-panel-2">
+            <div class="panel-visual">
+              <div class="visual-translation">
+                <div class="bubble bubble-left">RU</div>
+                <div class="bubble bubble-right">EN</div>
+                <svg viewBox="0 0 80 40" class="exchange-arrows" aria-hidden="true">
+                  <path d="M20,15 L60,15 M60,15 L50,10 M60,15 L50,20 M60,25 L20,25 M20,25 L30,20 M20,25 L30,30" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                </svg>
+              </div>
             </div>
-            <div class="tech-row-meta">
-              <span class="tech-row-tag">Масштаб</span>
+            <div class="panel-details">
+              <div class="panel-impact">
+                <span class="impact-label">Влияние:</span>
+                <div class="impact-bar-wrapper">
+                  <div class="impact-bar" style="width: 60%; background: #ffbd2e;"></div>
+                </div>
+                <span class="impact-val">Среднее</span>
+              </div>
+              <h3 class="tech-row-name" style="margin-bottom: 12px;">Мультиязычность</h3>
+              <p class="panel-desc">Наличие нескольких языковых версий сайта. Требует проектирования дополнительной логики переключения и наполнения баз данных.</p>
             </div>
-            <div class="tech-row-body">
-              <p class="tech-row-desc">Количество разрабатываемых уникальных шаблонов страниц и общий объем наполнения контентом под ключ.</p>
+          </div>
+
+          <!-- Panel 3: SEO -->
+          <div class="factor-panel" id="factor-panel-3">
+            <div class="panel-visual">
+              <div class="visual-seo">
+                <svg viewBox="0 0 160 160" aria-hidden="true">
+                  <rect class="seo-search-bar" x="25" y="30" width="110" height="26" rx="13" />
+                  <circle class="seo-lens" cx="42" cy="43" r="5" />
+                  <line class="seo-lens-handle" x1="46" y1="47" x2="51" y2="52" />
+                  <rect class="seo-search-text" x="58" y="40" width="45" height="6" rx="3" />
+                  <rect class="seo-bar bar-1" x="35" y="115" width="16" height="25" rx="3" />
+                  <rect class="seo-bar bar-2" x="60" y="95" width="16" height="45" rx="3" />
+                  <rect class="seo-bar bar-3" x="85" y="80" width="16" height="60" rx="3" />
+                  <path class="seo-trend-line" d="M35,110 L68,90 L93,72 L125,55" />
+                  <circle class="seo-trend-dot" cx="125" cy="55" r="4" />
+                </svg>
+              </div>
+            </div>
+            <div class="panel-details">
+              <div class="panel-impact">
+                <span class="impact-label">Влияние:</span>
+                <div class="impact-bar-wrapper">
+                  <div class="impact-bar" style="width: 78%; background: #ffbd2e;"></div>
+                </div>
+                <span class="impact-val">Высокое</span>
+              </div>
+              <h3 class="tech-row-name" style="margin-bottom: 12px;">SEO-оптимизация</h3>
+              <p class="panel-desc">Базовая поисковая оптимизация: проработка мета-тегов (Title/Description), мета-заголовков, генерация файлов robots.txt и sitemap.xml, ускорение загрузки и подготовка к индексации.</p>
+            </div>
+          </div>
+
+          <!-- Panel 4: Scale -->
+          <div class="factor-panel" id="factor-panel-4">
+            <div class="panel-visual">
+              <div class="visual-pages">
+                <div class="page-layer layer-1"></div>
+                <div class="page-layer layer-2"></div>
+                <div class="page-layer layer-3"></div>
+              </div>
+            </div>
+            <div class="panel-details">
+              <div class="panel-impact">
+                <span class="impact-label">Влияние:</span>
+                <div class="impact-bar-wrapper">
+                  <div class="impact-bar" style="width: 95%; background: #27c93f;"></div>
+                </div>
+                <span class="impact-val">Максимальное</span>
+              </div>
+              <h3 class="tech-row-name" style="margin-bottom: 12px;">Объем страниц</h3>
+              <p class="panel-desc">Количество разрабатываемых уникальных шаблонов страниц и общий объем наполнения контентом под ключ.</p>
             </div>
           </div>
         </div>
@@ -313,13 +391,32 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Студия Кода. Все права защищены.</span>
+        <span>Самозанятый Макаров Н.В. (ИНН 562202292930)</span>
         <a href="privacy.html" style="color: var(--muted); text-decoration: underline;">Политика конфиденциальности</a>
-        <span>Сделано вручную, с вниманием к деталям.</span>
+        <a href="offer.html" style="color: var(--muted); text-decoration: underline; margin-left: 12px;">Публичная оферта</a>
       </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tabs = document.querySelectorAll('.factor-tab');
+      var panels = document.querySelectorAll('.factor-panel');
+      if (!tabs.length || !panels.length) return;
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var id = tab.getAttribute('data-factor');
+          
+          tabs.forEach(function (t) { t.classList.toggle('is-active', t === tab); });
+          panels.forEach(function (p) {
+            p.classList.toggle('is-active', p.id === 'factor-panel-' + id);
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
