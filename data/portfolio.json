@@ -68,7 +68,7 @@
     "role": "Разработка лендинга",
     "photo": "images/perf.png",
     "link": "https://perfection-7sn6.onrender.com",
-    "spanClass": "",
+    "spanClass": "span-2",
     "className": "project-perf"
   },
   {
@@ -86,7 +86,7 @@
     "role": "Дизайн и верстка",
     "photo": "images/zel.png",
     "link": "https://zeleny-krayy.onrender.com",
-    "spanClass": "span-2",
+    "spanClass": "",
     "className": "project-zel"
   }
 ]

@@ -644,7 +644,7 @@
       document.getElementById('pCategoryText').value = 'Корпоративный сайт';
       document.getElementById('pDesc').value = '';
       document.getElementById('pRole').value = 'Дизайн и верстка';
-      document.getElementById('pSpanClass').value = '';
+      document.getElementById('pSpanClass').value = (state.portfolio.length % 3 === 0) ? 'span-2' : '';
       document.getElementById('pClassName').value = 'project-arch-studio';
       document.getElementById('pPhoto').value = '';
       

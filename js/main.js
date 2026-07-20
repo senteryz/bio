@@ -390,6 +390,17 @@ window.initPortfolioFilters = function () {
   var cards = document.querySelectorAll('.portfolio-grid .portfolio-card');
   if (!filterBtns.length || !cards.length) return;
 
+  function applyBentoLayout() {
+    var visibleCards = Array.from(document.querySelectorAll('.portfolio-grid .portfolio-card:not(.is-hidden)'));
+    visibleCards.forEach(function (card, idx) {
+      if (idx % 3 === 0) {
+        card.classList.add('span-2');
+      } else {
+        card.classList.remove('span-2');
+      }
+    });
+  }
+
   // Clear existing listeners to prevent duplicates
   filterBtns.forEach(function (btn) {
     var newBtn = btn.cloneNode(true);
@@ -424,6 +435,7 @@ window.initPortfolioFilters = function () {
             if (e.propertyName === 'opacity' && card.style.opacity === '0') {
               card.classList.add('is-hidden');
               card.removeEventListener('transitionend', onTransitionEnd);
+              applyBentoLayout();
             }
           };
           card.addEventListener('transitionend', onTransitionEnd);
@@ -431,12 +443,17 @@ window.initPortfolioFilters = function () {
           setTimeout(function () {
             if (card.style.opacity === '0') {
               card.classList.add('is-hidden');
+              applyBentoLayout();
             }
           }, 350);
         }
       });
+
+      applyBentoLayout();
     });
   });
+
+  applyBentoLayout();
 };
 
 // Run automatically in case of static HTML loading
@@ -548,8 +565,9 @@ setTimeout(window.initPortfolioFilters, 100);
     if (!grid) return;
 
     let html = '';
-    items.forEach(item => {
-      const spanClass = item.spanClass ? ` ${item.spanClass}` : '';
+    items.forEach((item, index) => {
+      const isSpan2 = (index % 3 === 0);
+      const spanClass = isSpan2 ? ' span-2' : '';
       const className = item.className || 'project-custom';
       
       let stackHtml = '';
