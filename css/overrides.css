@@ -2451,4 +2451,27 @@ main .contact-section .btn-ghost:hover {
   }
 }
 
+/* Logo SVG Styling */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.site-logo,
+.nav-logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-logo:hover .site-logo,
+.nav-logo:hover img {
+  opacity: 0.85;
+}
+.footer-brand .nav-logo img,
+.footer-brand .site-logo {
+  height: 30px;
+}
+
 
