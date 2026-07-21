@@ -2885,34 +2885,37 @@ header,
 }
 
 /* ============================================================
-   REDESIGNED FAQ BLOCK (Частые вопросы)
+   REDESIGNED FAQ BLOCK (Частые вопросы) — Strict Minimalist Design
    ============================================================ */
 .faq-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 16px !important;
-  max-width: 860px !important;
+  gap: 0 !important;
+  max-width: 840px !important;
   margin: 0 auto !important;
+  border-top: 1px solid var(--line) !important;
 }
 
 .faq-item {
-  background: var(--surface) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 20px !important;
-  overflow: hidden !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  transition: background 0.2s ease !important;
 }
 
 .faq-item:hover {
-  border-color: rgba(0, 0, 0, 0.18) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+  background: rgba(0, 0, 0, 0.015) !important;
+  box-shadow: none !important;
+  border-color: var(--line) !important;
 }
 
 .faq-item.open {
-  background: var(--surface) !important;
-  border-color: var(--ink) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
+  background: transparent !important;
+  border-bottom-color: var(--ink) !important;
+  box-shadow: none !important;
 }
 
 .faq-q {
@@ -2920,7 +2923,7 @@ header,
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  padding: 22px 28px !important;
+  padding: 22px 8px !important;
   font-size: 1.15rem !important;
   font-weight: 700 !important;
   color: var(--ink) !important;
@@ -2929,7 +2932,7 @@ header,
   background: transparent !important;
   border: none !important;
   gap: 16px !important;
-  transition: color 0.25s ease !important;
+  transition: color 0.2s ease !important;
 }
 
 .faq-q:hover {
@@ -2938,15 +2941,15 @@ header,
 
 .faq-plus {
   position: relative !important;
-  width: 36px !important;
-  height: 36px !important;
-  min-width: 36px !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
   border-radius: 50% !important;
   background: var(--card-dim) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 0.3s var(--ease), background 0.3s ease !important;
 }
 
 .faq-plus::before,
@@ -2955,11 +2958,11 @@ header,
   position: absolute !important;
   background: var(--ink) !important;
   border-radius: 2px !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s var(--ease) !important;
 }
 
 .faq-plus::before {
-  width: 14px !important;
+  width: 12px !important;
   height: 2px !important;
   top: 50% !important;
   left: 50% !important;
@@ -2968,7 +2971,7 @@ header,
 
 .faq-plus::after {
   width: 2px !important;
-  height: 14px !important;
+  height: 12px !important;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
@@ -2986,7 +2989,12 @@ header,
 }
 
 .faq-a {
-  padding: 0 28px 24px 28px !important;
+  display: none;
+  padding: 0 8px 24px 8px !important;
+}
+
+.faq-item.open .faq-a {
+  display: block !important;
 }
 
 .faq-a p {
@@ -2995,24 +3003,16 @@ header,
   color: var(--ink-soft) !important;
   margin: 0 !important;
   padding: 0 !important;
-  max-width: 100% !important;
+  max-width: 72ch !important;
 }
 
 @media (max-width: 640px) {
   .faq-q {
-    padding: 18px 20px !important;
+    padding: 18px 4px !important;
     font-size: 1rem !important;
   }
-  .faq-plus {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-  }
   .faq-a {
-    padding: 0 20px 20px 20px !important;
-  }
-  .faq-a p {
-    font-size: 0.95rem !important;
+    padding: 0 4px 18px 4px !important;
   }
 }
 

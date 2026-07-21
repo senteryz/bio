@@ -128,11 +128,15 @@
     var ans = item.querySelector('.faq-a');
     if (!btn || !ans) return;
 
-    btn.setAttribute('aria-expanded', 'false');
+    if (!item.classList.contains('open')) {
+      ans.style.display = 'none';
+    }
+
+    btn.setAttribute('aria-expanded', String(item.classList.contains('open')));
     btn.addEventListener('click', function () {
       var isOpen = item.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(isOpen));
-      ans.style.maxHeight = isOpen ? ans.scrollHeight + 'px' : '0px';
+      ans.style.display = isOpen ? 'block' : 'none';
     });
   });
 
