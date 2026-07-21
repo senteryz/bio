@@ -2821,4 +2821,48 @@ a.btn-ghost:hover {
   }
 }
 
+/* Prevent extra bottom scroll space & overflow */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+.mobile-menu:not(.open) {
+  display: none !important;
+}
+
+/* Footer Mobile Responsiveness Improvements */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 28px !important;
+  }
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-bottom: 32px !important;
+  }
+  .footer-brand p {
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  .footer-col h4 {
+    margin-bottom: 12px !important;
+  }
+  .footer-col a {
+    font-size: 14px !important;
+    padding: 5px 0 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding-top: 20px !important;
+    font-size: 12px !important;
+  }
+  .footer-bottom a {
+    margin-left: 0 !important;
+  }
+}
+
 
