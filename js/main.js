@@ -205,8 +205,11 @@
         budget: budgetInput ? budgetInput.value : 'Не указан'
       };
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Отправка...';
+      var originalBtnText = submitBtn ? submitBtn.textContent : 'Отправить заявку';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+      }
 
       fetch('/api/contact', {
         method: 'POST',
@@ -215,15 +218,19 @@
       })
       .then(function (res) { return res.json(); })
       .then(function () {
-        submitBtn.textContent = 'Отправить заявку';
-        submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        }
         formSuccess.textContent = 'Спасибо! Заявка отправлена — свяжусь с вами в ближайшее время.';
         form.reset();
         setTimeout(function () { formSuccess.textContent = ''; }, 6000);
       })
       .catch(function () {
-        submitBtn.textContent = 'Отправить заявку';
-        submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        }
         formSuccess.textContent = 'Спасибо! Заявка отправлена.';
         form.reset();
         setTimeout(function () { formSuccess.textContent = ''; }, 6000);

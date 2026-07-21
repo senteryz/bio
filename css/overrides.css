@@ -2492,9 +2492,7 @@ main .contact-section .btn-ghost:hover {
   }
 }
 
-/* Transparent Submit Button ("Отправить заявку") */
-#submitBtn,
-.contact-form #submitBtn,
+/* Button on Dark Section (index.html "Отправить заявку") */
 .contact-section #submitBtn {
   background: transparent !important;
   color: #ffffff !important;
@@ -2504,8 +2502,6 @@ main .contact-section .btn-ghost:hover {
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
 }
 
-#submitBtn:hover,
-.contact-form #submitBtn:hover,
 .contact-section #submitBtn:hover {
   background: rgba(255, 255, 255, 0.12) !important;
   color: #ffffff !important;
@@ -2514,11 +2510,61 @@ main .contact-section .btn-ghost:hover {
   box-shadow: none !important;
 }
 
-#submitBtn:active,
-.contact-form #submitBtn:active,
 .contact-section #submitBtn:active {
   background: rgba(255, 255, 255, 0.25) !important;
   transform: none !important;
+}
+
+/* Button on Light Form (contact.html "Обсудить идею") */
+.contact-form-light #submitBtn,
+.contact-form-wrap #submitBtn {
+  background: transparent !important;
+  color: #0c0c0d !important;
+  border: 2px solid #0c0c0d !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
+}
+
+.contact-form-light #submitBtn:hover,
+.contact-form-wrap #submitBtn:hover {
+  background: rgba(12, 12, 13, 0.08) !important;
+  color: #0c0c0d !important;
+  border-color: #0c0c0d !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.contact-form-light #submitBtn:active,
+.contact-form-wrap #submitBtn:active {
+  background: rgba(12, 12, 13, 0.16) !important;
+  transform: none !important;
+}
+
+/* Checkbox label styling on light contact form (contact.html) */
+.contact-form-light .checkbox-label {
+  color: #0c0c0d !important;
+}
+.contact-form-light .checkbox-label span {
+  color: #0c0c0d !important;
+}
+.contact-form-light .checkbox-label a {
+  color: #0c0c0d !important;
+  text-decoration: underline;
+}
+.contact-form-light .checkbox-label a:hover {
+  color: #666666 !important;
+}
+.contact-form-light .custom-checkbox {
+  border-color: rgba(12, 12, 13, 0.3) !important;
+  background: transparent !important;
+}
+.contact-form-light input[type="checkbox"]:checked + .custom-checkbox {
+  background: #0c0c0d !important;
+  border-color: #0c0c0d !important;
+}
+.contact-form-light input[type="checkbox"]:checked + .custom-checkbox svg {
+  stroke: #ffffff !important;
 }
 
 /* Disable grayscale filter - Full Color Images */
