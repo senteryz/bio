@@ -2685,4 +2685,13 @@ img,
   border-radius: 6px;
 }
 
+/* Disable manual resize handle & enable auto-growing textarea */
+textarea,
+.contact-form textarea,
+.contact-form-light textarea {
+  resize: none !important;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
 

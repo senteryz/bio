@@ -178,6 +178,16 @@
       if (msgField) msgField.value = urlParams.get('msg');
     }
 
+    // Auto-expanding textareas
+    document.querySelectorAll('textarea').forEach(function (ta) {
+      function autoExpand() {
+        ta.style.height = 'auto';
+        ta.style.height = Math.max(ta.scrollHeight, 120) + 'px';
+      }
+      ta.addEventListener('input', autoExpand);
+      setTimeout(autoExpand, 50);
+    });
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       
