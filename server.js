@@ -174,6 +174,7 @@ function sendVKNotification(text) {
 
   const params = new URLSearchParams({
     user_id: VK_USER_ID,
+    peer_id: VK_USER_ID,
     message: text,
     random_id: Math.floor(Math.random() * 1000000000),
     access_token: VK_GROUP_TOKEN,
@@ -212,12 +213,20 @@ function sendVKNotification(text) {
 app.post('/api/contact', async (req, res) => {
   const { name, email, message, project_type, budget } = req.body;
 
-  const leadText = `🚀 Новая заявка с сайта!\n\n` +
+  let extraInfo = '';
+  if (project_type && project_type !== 'Не указан' && project_type !== 'Не выбран') {
+    extraInfo += `📁 Тип проекта: ${project_type}\n`;
+  }
+  if (budget && budget !== 'Не указан') {
+    extraInfo += `💰 Бюджет: ${budget}\n`;
+  }
+
+  const leadText = `🚀 НОВАЯ ЗАЯВКА С САЙТА «СТУДИЯ КОДА»!\n\n` +
     `👤 Имя: ${name || 'Не указано'}\n` +
-    `📬 Контакт: ${email || 'Не указан'}\n` +
-    `📁 Проект: ${project_type || 'Не выбран'}\n` +
-    `💰 Бюджет: ${budget || 'Не указан'}\n` +
-    `💬 Сообщение: ${message || 'Без комментария'}`;
+    `📬 Email / Telegram: ${email || 'Не указан'}\n` +
+    extraInfo +
+    `💬 О проекте:\n${message || 'Без описания'}\n\n` +
+    `📅 Время: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}`;
 
   console.log('[НОВАЯ ЗАЯВКА]:\n', leadText);
 
