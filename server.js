@@ -191,19 +191,26 @@ function sendVKNotification(text) {
         try {
           const json = JSON.parse(data);
           if (json.response) {
-            console.log('[VK API] Уведомление о заявке успешно отправлено в ВК!');
+            console.log('[VK API] ✅ Уведомление успешно отправлено в ВК! message_id =', json.response);
             resolve(true);
+          } else if (json.error) {
+            console.error(`[VK API] ❌ Ошибка от ВК:
+  Код ошибки: ${json.error.error_code}
+  Сообщение: ${json.error.error_msg}
+  user_id: ${VK_USER_ID}
+  Полный ответ: ${JSON.stringify(json.error)}`);
+            resolve(false);
           } else {
-            console.error('[VK API] Ошибка от ВК:', json.error);
+            console.error('[VK API] ⚠️ Непредвиденный ответ от ВК:', JSON.stringify(json));
             resolve(false);
           }
         } catch (e) {
-          console.error('[VK API] Ошибка обработки ответа от ВК:', e);
+          console.error('[VK API] ❌ Ошибка разбора ответа от ВК:', e, '\nRaw:', data);
           resolve(false);
         }
       });
     }).on('error', (err) => {
-      console.error('[VK API] Ошибка сетевого запроса к ВК:', err);
+      console.error('[VK API] ❌ Сетевая ошибка при запросе к ВК:', err.message);
       resolve(false);
     });
   });
