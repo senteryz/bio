@@ -2740,4 +2740,17 @@ textarea,
   box-sizing: border-box;
 }
 
+/* Disable hover rise animation for "Смотреть работы" & portfolio buttons */
+a[href*="portfolio"].btn,
+.btn-ghost,
+a.btn-ghost {
+  transform: none !important;
+}
+
+a[href*="portfolio"].btn:hover,
+.btn-ghost:hover,
+a.btn-ghost:hover {
+  transform: none !important;
+}
+
 
