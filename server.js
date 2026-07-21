@@ -163,7 +163,7 @@ app.post('/api/save-data', (req, res) => {
 });
 
 // VK API Notifications Settings
-const VK_GROUP_TOKEN = process.env.VK_GROUP_TOKEN || 'vk1.a.vwX_lLUThZyWuMsIZSvw-56_TxHMrEiqzACzTYGIDc6cnFZZBA6vvrfHMVDzeLTftrapKq2E1gkYXbbUp2L9eVYzAOgNcd0KKXL0-XYtUTFo-zpn429ZPVJJ74vU_AeDOSkYfjv72eqgYE3JoN-lSVOLzDOFWfO9bDtzO7ynERLppcyjfClcds9uCMhHIwyaiyJUES9NYWVgrToVERnJHw';
+const VK_GROUP_TOKEN = process.env.VK_GROUP_TOKEN || 'vk1.a.vcMLcIIm6hPJiUBmmIpuhLhzD0x4N9FYJSOCU3Z6-RrBYZND7f_5nuj-05oj1QrCl7Kf2jdaWeFOmYx59gercZh8fjRBcSVjCLWxn8-tV_S34itmmV3sZzZjh0gY7wE0E4Oo8v1Cv5OZ6_Bk3WGjsaVZ0VMmlAsLb6bBJq2c6h2rId5SpUpSsLDcfwEbSA0BuoDHCn_kB5z133TcW6kXuA';
 const VK_USER_ID = process.env.VK_USER_ID || '550394386'; // Ваш личный VK ID (куда высылать заявки)
 
 function sendVKNotification(text) {
