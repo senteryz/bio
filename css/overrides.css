@@ -2628,6 +2628,13 @@ img,
   min-width: 0;
   overflow: hidden !important;
   padding: 8px 4px 48px 4px !important;
+  box-sizing: border-box !important;
+}
+
+.reviews-swiper .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+  box-sizing: border-box !important;
 }
 
 .reviews-swiper .swiper-slide.quote-card {

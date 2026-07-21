@@ -238,24 +238,7 @@
     });
   }
   /* ---------- Reviews Swiper ---------- */
-  if (typeof Swiper !== 'undefined' && document.querySelector('.reviews-swiper')) {
-    new Swiper('.reviews-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 24,
-      loop: true,
-      grabCursor: true,
-      speed: 500,
-      autoHeight: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.reviews-next',
-        prevEl: '.reviews-prev',
-      }
-    });
-  }
+  initReviewsSwiper();
 })();
   
 /* ---------- Typing search animation ---------- */
@@ -369,25 +352,26 @@
 })();
 
 /* ============================================================
-   Reviews swiper — override: always 1 slide per view
+   Reviews Swiper Slider — Single Clean Setup
    ============================================================ */
-(function () {
+function initReviewsSwiper() {
   if (typeof Swiper === 'undefined') return;
   var el = document.querySelector('.reviews-swiper');
-  if (!el || el.swiper) {
-    // If a prior init happened with different config, destroy it and redo
-    if (el && el.swiper) el.swiper.destroy(true, true);
-  }
   if (!el) return;
+  if (el.swiper) {
+    el.swiper.destroy(true, true);
+  }
 
   new Swiper('.reviews-swiper', {
     slidesPerView: 1,
     spaceBetween: 24,
     loop: true,
     grabCursor: true,
-    speed: 550,
-    centeredSlides: true,
-    autoHeight: true,
+    speed: 400,
+    centeredSlides: false,
+    autoHeight: false,
+    observer: true,
+    observeParents: true,
     pagination: {
       el: '.reviews-pagination',
       clickable: true,
@@ -397,7 +381,8 @@
       prevEl: '.reviews-prev',
     },
   });
-})();
+}
+document.addEventListener('DOMContentLoaded', initReviewsSwiper);
 
 /* ============================================================
    Portfolio Bento Grid Filtering
