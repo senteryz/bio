@@ -2460,7 +2460,7 @@ main .contact-section .btn-ghost:hover {
 }
 .site-logo,
 .nav-logo img {
-  height: 26px;
+  height: 35px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -2476,7 +2476,17 @@ main .contact-section .btn-ghost:hover {
 }
 .footer-brand .nav-logo img,
 .footer-brand .site-logo {
-  height: 30px;
+  height: 52px;
+}
+@media (max-width: 640px) {
+  .site-logo,
+  .nav-logo img {
+    height: 30px;
+  }
+  .footer-brand .nav-logo img,
+  .footer-brand .site-logo {
+    height: 42px;
+  }
 }
 
 
