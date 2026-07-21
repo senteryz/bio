@@ -2762,4 +2762,63 @@ a.btn-ghost:hover {
   animation: none !important;
 }
 
+/* ---------- Reviews Block Mobile Responsiveness ---------- */
+@media (max-width: 768px) {
+  .reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .reviews-meta {
+    align-items: flex-start;
+  }
+  .reviews-slider-wrap {
+    position: relative;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .rev-arrow {
+    display: none !important; /* Touch swipe + dots work natively on mobile */
+  }
+  .reviews-swiper {
+    width: 100% !important;
+    padding: 6px 0 44px 0 !important;
+  }
+  .reviews-swiper .swiper-slide.quote-card {
+    padding: 26px 22px !important;
+    border-radius: 20px !important;
+  }
+  .quote-stars {
+    font-size: 0.9rem !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 14px !important;
+  }
+  .quote-card p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  .quote-card::before {
+    font-size: 80px;
+    top: 6px;
+    right: 16px;
+  }
+  .quote-author {
+    margin-top: 20px !important;
+    padding-top: 16px !important;
+    gap: 12px !important;
+  }
+  .quote-author .dot {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 14px !important;
+  }
+  .quote-author b {
+    font-size: 14px !important;
+  }
+  .quote-author span span {
+    font-size: 12px !important;
+  }
+}
+
 
