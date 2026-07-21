@@ -2753,4 +2753,13 @@ a.btn-ghost:hover {
   transform: none !important;
 }
 
+/* Disable animation on mobile nav burger button — instant cross toggle */
+.nav-burger,
+.nav-burger span,
+.nav-burger.open,
+.nav-burger.open span {
+  transition: none !important;
+  animation: none !important;
+}
+
 
