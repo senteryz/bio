@@ -2829,7 +2829,11 @@ a.btn-ghost:hover {
 }
 
 /* Prevent extra bottom scroll space & overflow */
-html, body {
+html {
+  overflow-x: clip !important; /* clip не ломает sticky/fixed, в отличие от hidden */
+  max-width: 100% !important;
+}
+body {
   overflow-x: hidden !important;
   max-width: 100% !important;
 }
@@ -2873,18 +2877,22 @@ html, body {
 }
 
 /* ============================================================
-   STICKY HEADER (Follows scroll, stays visible at top)
+   STICKY HEADER — fixed, always follows user while scrolling
    ============================================================ */
 header,
 .header,
 .nav,
 .site-header {
-  position: sticky !important;
+  position: fixed !important;
   top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
   z-index: 1000 !important;
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Compensate body padding for fixed header height */
+body {
+  padding-top: 72px !important;
 }
 
 /* ============================================================

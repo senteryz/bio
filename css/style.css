@@ -87,6 +87,21 @@ ul { list-style: none; }
 .loader-mark span:nth-child(3) { animation-delay: 0.2s; }
 @keyframes loadUp { to { opacity: 1; transform: translateY(0); } }
 
+/* Скрываем хедер и контент пока лоадер активен */
+/* no-loader добавляется на <html>, .loaded — на <body> */
+html:not(.no-loader) body:not(.loaded) .nav,
+html:not(.no-loader) body:not(.loaded) main,
+html:not(.no-loader) body:not(.loaded) footer {
+  opacity: 0;
+  pointer-events: none;
+}
+body.loaded .nav,
+body.loaded main,
+body.loaded footer {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.1s;
+}
+
 /* ---------- Layout ---------- */
 .container {
   width: 100%;
@@ -1582,9 +1597,8 @@ img:hover {
 
 /* Floating Glass Header */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: relative;
+  z-index: 40;
   padding: 12px 18px 0;
 }
 .nav-inner {
@@ -1821,8 +1835,6 @@ ul { list-style: none; }
    Header — rounded static pill
    ============================================================ */
 .nav {
-  position: relative;
-  z-index: 40;
   padding: clamp(10px, 1.4vw, 18px) clamp(10px, 1.4vw, 18px) 0;
 }
 .nav-inner {
@@ -3234,9 +3246,8 @@ img:hover {
 
 /* Floating Glass Header */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: relative;
+  z-index: 40;
   padding: 12px 18px 0;
 }
 .nav-inner {
