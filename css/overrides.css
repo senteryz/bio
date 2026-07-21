@@ -2873,49 +2873,52 @@ html, body {
 }
 
 /* ============================================================
-   STATIC HEADER EVERYWHERE
+   STICKY HEADER (Follows scroll, stays visible at top)
    ============================================================ */
 header,
 .header,
 .nav,
 .site-header {
-  position: static !important;
-  top: auto !important;
-  transform: none !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
 /* ============================================================
-   REDESIGNED FAQ BLOCK (Частые вопросы) — Strict Minimalist Design
+   REDESIGNED ULTRA-CLEAN FAQ ACCORDION (Частые вопросы)
    ============================================================ */
 .faq-list {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0 !important;
+  gap: 12px !important;
   max-width: 840px !important;
   margin: 0 auto !important;
-  border-top: 1px solid var(--line) !important;
+  border-top: none !important;
 }
 
 .faq-item {
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid var(--line) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease !important;
+  margin: 0 !important;
   padding: 0 !important;
-  transition: background 0.2s ease !important;
 }
 
 .faq-item:hover {
-  background: rgba(0, 0, 0, 0.015) !important;
-  box-shadow: none !important;
-  border-color: var(--line) !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04) !important;
 }
 
 .faq-item.open {
-  background: transparent !important;
-  border-bottom-color: var(--ink) !important;
-  box-shadow: none !important;
+  background: #ffffff !important;
+  border-color: #0c0c0d !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07) !important;
 }
 
 .faq-q {
@@ -2923,20 +2926,20 @@ header,
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  padding: 22px 8px !important;
-  font-size: 1.15rem !important;
+  padding: 20px 24px !important;
+  font-size: 1.1rem !important;
   font-weight: 700 !important;
-  color: var(--ink) !important;
+  color: #0c0c0d !important;
   text-align: left !important;
   cursor: pointer !important;
   background: transparent !important;
   border: none !important;
   gap: 16px !important;
-  transition: color 0.2s ease !important;
+  transition: padding 0.25s ease !important;
 }
 
-.faq-q:hover {
-  color: var(--ink) !important;
+.faq-item.open .faq-q {
+  padding: 22px 24px 12px 24px !important;
 }
 
 .faq-plus {
@@ -2945,20 +2948,21 @@ header,
   height: 32px !important;
   min-width: 32px !important;
   border-radius: 50% !important;
-  background: var(--card-dim) !important;
+  background: #f2f2f4 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  transition: transform 0.3s var(--ease), background 0.3s ease !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.3s ease, background 0.3s ease !important;
 }
 
 .faq-plus::before,
 .faq-plus::after {
   content: '' !important;
   position: absolute !important;
-  background: var(--ink) !important;
+  background: #0c0c0d !important;
   border-radius: 2px !important;
-  transition: all 0.3s var(--ease) !important;
+  transition: all 0.3s ease !important;
 }
 
 .faq-plus::before {
@@ -2979,40 +2983,58 @@ header,
 }
 
 .faq-item.open .faq-plus {
-  background: var(--ink) !important;
+  background: #0c0c0d !important;
   transform: rotate(135deg) !important;
 }
 
 .faq-item.open .faq-plus::before,
 .faq-item.open .faq-plus::after {
-  background: var(--surface) !important;
+  background: #ffffff !important;
 }
 
 .faq-a {
-  display: none;
-  padding: 0 8px 24px 8px !important;
+  display: none !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .faq-item.open .faq-a {
   display: block !important;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  padding: 0 24px 22px 24px !important;
 }
 
 .faq-a p {
-  font-size: 1.02rem !important;
+  font-size: 1rem !important;
   line-height: 1.65 !important;
-  color: var(--ink-soft) !important;
+  color: #4a4a4f !important;
   margin: 0 !important;
   padding: 0 !important;
-  max-width: 72ch !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  text-overflow: clip !important;
+  word-break: break-word !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @media (max-width: 640px) {
   .faq-q {
-    padding: 18px 4px !important;
-    font-size: 1rem !important;
+    padding: 16px 18px !important;
+    font-size: 0.98rem !important;
   }
-  .faq-a {
-    padding: 0 4px 18px 4px !important;
+  .faq-item.open .faq-q {
+    padding: 18px 18px 10px 18px !important;
+  }
+  .faq-item.open .faq-a {
+    padding: 0 18px 18px 18px !important;
+  }
+  .faq-a p {
+    font-size: 0.92rem !important;
   }
 }
 

@@ -130,6 +130,7 @@
 
     if (!item.classList.contains('open')) {
       ans.style.display = 'none';
+      ans.style.maxHeight = 'none';
     }
 
     btn.setAttribute('aria-expanded', String(item.classList.contains('open')));
@@ -137,6 +138,7 @@
       var isOpen = item.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(isOpen));
       ans.style.display = isOpen ? 'block' : 'none';
+      ans.style.maxHeight = 'none';
     });
   });
 
