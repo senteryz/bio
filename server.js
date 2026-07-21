@@ -223,7 +223,7 @@ app.post('/api/contact', async (req, res) => {
 
   const leadText = `🚀 НОВАЯ ЗАЯВКА С САЙТА «СТУДИЯ КОДА»!\n\n` +
     `👤 Имя: ${name || 'Не указано'}\n` +
-    `📬 Email / Telegram: ${email || 'Не указан'}\n` +
+    `📬 Контакт (Telegram / Телефон): ${email || 'Не указан'}\n` +
     extraInfo +
     `💬 О проекте:\n${message || 'Без описания'}\n\n` +
     `📅 Время: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}`;
