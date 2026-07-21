@@ -2521,4 +2521,14 @@ main .contact-section .btn-ghost:hover {
   transform: none !important;
 }
 
+/* Disable grayscale filter - Full Color Images */
+img,
+.portfolio-card-image img,
+.portfolio-card img,
+.work-image img,
+.bento-card img {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
 
